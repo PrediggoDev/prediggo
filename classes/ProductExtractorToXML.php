@@ -65,11 +65,29 @@ class ProductExtractorToXML extends DataExtractorToXML
 	  */
 	public function getEntities()
 	{
+	
+		//get active shops
+		$shopIDs= $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in 
+		
+		$whereShopIds = '';
+		foreach ($shopIDs as $row) //
+		{
+			$whereShopIds .= (int)$row['id_shop'].',';
+		}
+		
+		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT p.`id_product`, ps.`id_shop`
+		FROM `'._DB_PREFIX_.'product` p
+		INNER JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.`id_product` = p.`id_product` AND ps.`id_shop` IN ('.substr($whereShopIds, 0, -1).') )
+		ORDER BY p.`id_product` ASC', false);
+		
+		/**
 		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT p.`id_product`, ps.`id_shop`
 		FROM `'._DB_PREFIX_.'product` p
 		INNER JOIN ps_product_shop ps ON (ps.`id_product` = p.`id_product` AND ps.`id_shop` IN('.join(',',array_keys($this->aPrediggoConfigs)).'))
 		ORDER BY p.`id_product` ASC', false);
+		*/
 	}
 
 	/**
@@ -105,7 +123,7 @@ class ProductExtractorToXML extends DataExtractorToXML
 		$link = $oPrediggoConfig->getContext()->link;
 				
 		$oProduct = new Product((int)$aEntity['id_product'], true, null, (int)$aEntity['id_shop'], $oPrediggoConfig->getContext());
-		if((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity)
+		if((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity or !$oProduct->active or $oProduct->price == 0)
 		{
 			$this->nbEntitiesTreated--;
 			$this->nbEntities--;
@@ -209,6 +227,16 @@ class ProductExtractorToXML extends DataExtractorToXML
 			$attValue = $dom->createElement('attValue');
 			$attValue->appendChild($dom->createCDATASection($link->getProductLink((int)$oProduct->id, $oProduct->link_rewrite[$id_lang], Category::getLinkRewrite((int)$oProduct->id_category_default, $id_lang), NULL, $id_lang, (int)$aEntity['id_shop'], 0, $bUseRoutes)));
 			$attribute->appendChild($attValue);
+
+            // Set product Quantity
+            $attribute = $dom->createElement('attribute');
+            $root->appendChild($attribute);
+
+            $attName = $dom->createElement('attName', 'stocklevel');
+            $attribute->appendChild($attName);
+
+            $attValue = $dom->createElement('attValue', (int)$oProduct->quantity);
+            $attribute->appendChild($attValue);
 
 			// Set product picture
 			if($oPrediggoConfig->export_product_image)

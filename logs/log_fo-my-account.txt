@@ -1,0 +1,18 @@
+[BEGIN] [2014-09-23T13:34:49+02:00] ACTION : getItemRecommendation {displayCustomerAccount}
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 0
+[NB ITEMS ASKED] : 5
+[EXEC TIME] : 0.058
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-23T13:35:10+02:00] ACTION : getItemRecommendation {displayCustomerAccount}
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 0
+[NB ITEMS ASKED] : 5
+[EXEC TIME] : 0.051
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-23T13:35:35+02:00] ACTION : getItemRecommendation {displayCustomerAccount}
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 0
+[NB ITEMS ASKED] : 5
+[EXEC TIME] : 0.048
+[END] ACTION : getItemRecommendation

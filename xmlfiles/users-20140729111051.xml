@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users date="2014-07-29T11:10:51+02:00"><user><id>1</id><dobyear>1970</dobyear><gender>male</gender><location>Paris</location><country>FR</country></user> 
+<user><id>2</id><dobyear>1986</dobyear><gender>male</gender></user> 
+<user><id>3</id><dobyear>1990</dobyear><gender>male</gender></user> 
+<user><id>4</id><dobyear>1963</dobyear><gender>female</gender></user> 
+<user><id>5</id><dobyear>1976</dobyear><gender>male</gender></user> 
+<user><id>6</id><dobyear>1977</dobyear><gender>male</gender></user> 
+</users>

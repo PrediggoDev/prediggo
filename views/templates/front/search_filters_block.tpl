@@ -29,6 +29,7 @@
 {l s='sellingprice' mod='prediggo'}
 {l s='genre' mod='prediggo'}
 {l s='brand' mod='prediggo'}
+{l s='supplierid' mod='prediggo'}
 
 {l s='0' mod='prediggo'}
 {l s='1' mod='prediggo'}
@@ -61,7 +62,7 @@
 <div id="prediggo_search_filter_block" class="block">
 	<h4>{l s='Prediggo search filters' mod='prediggo'}</h4>
 	<div class="block_content">
-		{if sizeof($aSortingOptions)}
+		{*if sizeof($aSortingOptions)}
 		<ul>
 			<li>{l s='Sortings' mod='prediggo'}</li>
 			{foreach from=$aSortingOptions item="oSortingOptions"}
@@ -70,7 +71,7 @@
 			</li>
 			{/foreach}
 		</ul>
-		{/if}
+		{/if}*}
 
 		{if sizeof($aCancellableFiltersGroups)}
 			<ul>
@@ -102,15 +103,17 @@
 				{foreach from=$oDrillDownGroups->getFilteringOptions() item="oFilteringOption"}
 				<li>
 					<a href="?q={$sPrediggoQuery}&refineOption={$oFilteringOption->getSearchRefiningOption()}{if !$bRewriteEnabled}&fc=module&module=prediggo&controller=search{/if}">
-						{if $oDrillDownGroups->getFilteredAttributeName() == 'sellingprice'}
-							{displayPrice price=$oFilteringOption->getRangeValueMin()} {l s='-' mod='prediggo'}
-							{displayPrice price=$oFilteringOption->getRangeValueMax()}
-						{else}
-							{$oFilteringOption->getTextValue()|ucfirst}
-						{/if}
+                        {if $oDrillDownGroups->getFilteredAttributeName() == 'sellingprice'}
+                            {displayPrice price=$oFilteringOption->getRangeValueMin()} {l s='-' mod='prediggo'}
+                            {displayPrice price=$oFilteringOption->getRangeValueMax()}
+                        {elseif $oDrillDownGroups->getFilteredAttributeName() == 'supplierid'}
+                            {$oFilteringOption->getRangeValueMin()|ucfirst}
+                            {*$oPredigocall->getSuppliers($oFilteringOption->getTextValue())|ucfirst*}
+                        {else}
+                            {$oFilteringOption->getTextValue()|ucfirst}
+                        {/if}
 
 						{l s='(' mod='prediggo'}{$oFilteringOption->getNbOccurences()|intval}{l s=')' mod='prediggo'}
-
 					</a>
 				</li>
 				{/foreach}

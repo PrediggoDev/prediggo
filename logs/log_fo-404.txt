@@ -1,0 +1,2434 @@
+[BEGIN] [2014-09-02T07:55:50+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.224
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T07:55:50+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409644550.937
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T07:55:51+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.330
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:16:51+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.166
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:16:51+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409660211.284
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:16:51+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.273
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:17:40+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.445
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:17:40+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409660260.616
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:17:41+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.770
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:20:22+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.177
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:20:23+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409660423.086
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:20:23+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.285
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:24:03+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.169
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:24:03+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409660643.248
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:24:03+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.286
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:38:48+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[ERROR] : cURL error : Operation timed out after 4009 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 3.996
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:38:52+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[ERROR] : cURL error : Operation timed out after 4009 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 1409661532.187
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:38:56+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[ERROR] : cURL error : Operation timed out after 4010 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 8.006
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:39:49+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[ERROR] : cURL error : Operation timed out after 4009 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 4.012
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:39:53+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[ERROR] : cURL error : Operation timed out after 4010 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 1409661593.592
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:39:57+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[ERROR] : cURL error : Operation timed out after 4009 milliseconds with 0 bytes received (28)
+[EXEC TIME] : 8.025
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:43:17+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.166
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:43:17+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409661797.519
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:43:17+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.276
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T12:46:15+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.199
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T12:46:15+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409661975.478
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T12:46:15+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.309
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T16:04:20+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.168
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T16:04:20+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409673860.315
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T16:04:20+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.287
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T16:04:23+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.195
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T16:04:23+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409673863.615
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T16:04:23+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.303
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T16:04:33+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.486
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T16:04:34+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409673873.851
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T16:04:34+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.597
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-02T16:16:08+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.286
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-02T16:16:08+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409674568.212
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-02T16:16:08+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.393
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T07:15:57+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.182
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T07:15:57+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409728557.259
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T07:15:57+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.284
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T07:55:12+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.258
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T07:55:13+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409730912.887
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T07:55:13+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.357
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T08:07:44+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.179
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T08:07:44+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409731664.343
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T08:07:44+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.280
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T13:08:44+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.319
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T13:08:44+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409749724.196
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T13:08:44+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.449
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T13:50:01+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.231
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T13:50:01+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409752201.193
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T13:50:01+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.350
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T13:50:11+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.230
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T13:50:11+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409752211.626
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T13:50:11+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.351
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T13:50:36+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.236
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T13:50:36+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409752236.277
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T13:50:36+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.351
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T13:51:00+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.238
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T13:51:01+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409752261.142
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T13:51:01+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.357
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T14:17:58+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.293
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T14:17:58+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409753878.571
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T14:17:58+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.408
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T14:19:35+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.280
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T14:19:35+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409753975.740
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T14:19:36+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.401
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T14:21:44+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.274
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T14:21:45+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409754105.249
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T14:21:45+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.394
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T14:23:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.248
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T14:23:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409754212.542
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T14:23:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.366
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T15:05:50+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.264
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T15:05:50+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409756750.397
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T15:05:50+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.385
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T16:12:44+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.325
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T16:12:45+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409760765.143
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T16:12:45+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.454
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T16:12:50+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.339
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T16:12:50+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409760770.597
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T16:12:50+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.506
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-03T16:13:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.230
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-03T16:13:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409760812.626
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-03T16:13:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.350
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T07:46:31+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.253
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T07:46:31+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409816791.838
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T07:46:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.382
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T07:46:47+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.258
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T07:46:47+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409816807.244
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T07:46:47+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.362
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T07:49:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.237
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T07:49:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409816972.220
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T07:49:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.344
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:20:10+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.478
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:20:10+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409818810.770
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:20:11+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.599
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:20:36+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.238
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:20:36+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409818836.203
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:20:36+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.347
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:20:46+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.253
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:20:46+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409818846.692
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:20:46+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.365
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:20:56+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.224
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:20:56+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409818856.624
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:20:56+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.333
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:21:05+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.285
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:21:06+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409818866.107
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:21:06+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.395
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:21:42+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.242
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:21:42+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409818902.379
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:21:42+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.354
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:24:09+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.246
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:24:09+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409819049.315
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:24:09+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.355
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:24:19+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.244
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:24:19+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409819059.746
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:24:19+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.360
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:24:29+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.226
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:24:29+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409819069.610
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:24:29+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.343
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T08:24:38+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.226
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T08:24:39+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409819079.056
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T08:24:39+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.364
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T09:01:57+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.329
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T09:01:58+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409821318.162
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T09:01:58+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.473
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T12:43:33+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.412
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T12:43:33+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409834613.378
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T12:43:33+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.532
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:30:16+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.306
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:30:16+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409837416.317
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:30:16+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.445
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:33:21+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.309
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:33:21+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409837602.114
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:33:22+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.429
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:33:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.296
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:33:33+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409837613.163
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:33:33+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 3.624
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:33:45+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.276
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:33:45+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409837625.347
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:33:45+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.393
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:45:09+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.263
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:45:09+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409838309.606
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:45:09+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.392
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T13:45:20+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.251
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T13:45:20+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409838320.295
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T13:45:20+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.377
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T14:00:11+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.277
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T14:00:11+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409839211.560
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T14:00:11+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.402
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T14:00:21+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.352
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T14:00:22+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409839222.064
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T14:00:22+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.498
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T14:00:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.304
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T14:00:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409839232.514
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T14:00:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.434
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-04T14:00:42+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.225
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-04T14:00:42+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409839242.247
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-04T14:00:42+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.339
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:28:26+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.265
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:28:26+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409902106.551
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:28:26+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.370
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:28:37+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.680
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:28:37+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409902117.338
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:28:38+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.920
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:33:15+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.255
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:33:15+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409902395.349
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:33:15+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.377
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:33:25+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.227
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:33:25+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409902405.257
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:33:25+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.360
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:34:03+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.340
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:34:03+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409902443.235
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:34:03+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.443
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:34:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.473
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:34:33+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409902472.996
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:34:33+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.607
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:38:22+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.289
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:38:22+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409902702.582
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:38:22+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.423
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:38:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.299
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:38:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409902712.548
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:38:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 118
+[EXEC TIME] : 0.403
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:59:29+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.293
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:59:30+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409903969.975
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:59:30+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.410
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:59:39+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.312
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:59:40+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409903979.986
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:59:40+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.435
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:59:49+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.288
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:59:49+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409903989.823
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:59:50+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.398
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T07:59:59+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.269
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T07:59:59+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409903999.541
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T07:59:59+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.392
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:00:10+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.311
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:00:10+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409904010.185
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:00:10+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.433
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:00:20+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.304
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:00:20+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409904020.230
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:00:20+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.414
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:00:30+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.373
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:00:30+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409904030.253
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:00:30+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.503
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:00:59+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.293
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:01:00+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409904059.914
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:01:00+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.407
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:01:09+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.310
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:01:10+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409904070.069
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:01:10+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.439
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:01:31+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.291
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:01:31+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409904091.750
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:01:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.414
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:02:34+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.315
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:02:34+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409904154.891
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:02:35+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.424
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:02:44+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.373
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:02:45+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409904164.970
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:02:45+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.492
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:15:26+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.333
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:15:26+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409904926.457
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:15:26+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.444
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:15:36+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.272
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:15:36+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409904936.608
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:15:36+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.381
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:15:55+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.367
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:15:56+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409904956.054
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:15:56+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.480
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:16:05+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.326
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:16:06+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409904966.200
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:16:06+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.441
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:16:29+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.352
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:16:29+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409904989.412
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:16:29+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.468
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:17:10+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.314
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:17:10+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409905030.471
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:17:10+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.428
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:41:41+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.281
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:41:41+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409906501.822
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:41:42+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.405
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:42:10+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.306
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:42:11+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409906530.948
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:42:11+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.420
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:50:27+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.265
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:50:27+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409907027.475
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:50:27+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.382
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:54:34+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.240
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:54:34+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409907274.928
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:54:35+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.350
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:54:45+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.232
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:54:45+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409907285.294
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:54:45+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.341
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:55:22+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.293
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:55:23+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409907322.963
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:55:23+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.403
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T08:55:32+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.270
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T08:55:32+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409907332.171
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T08:55:32+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 120
+[EXEC TIME] : 0.377
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-05T16:34:13+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.247
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-05T16:34:13+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1409934853.493
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-05T16:34:13+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.379
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-06T09:14:07+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.263
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-06T09:14:08+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 122
+[ITEM ID] : 123
+[ITEM ID] : 124
+[EXEC TIME] : 1409994848.075
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-06T09:14:08+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.374
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-06T10:20:57+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.273
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-06T10:20:58+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409998858.065
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-06T10:20:58+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.387
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-06T10:26:37+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.253
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-06T10:26:38+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1409999198.161
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-06T10:26:38+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 118
+[ITEM ID] : 125
+[EXEC TIME] : 0.364
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-08T07:40:21+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.217
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-08T07:40:22+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1410162022.142
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-08T07:40:22+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 125
+[ITEM ID] : 118
+[EXEC TIME] : 0.330
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-08T12:12:46+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.226
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-08T12:12:46+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1410178366.784
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-08T12:12:47+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 125
+[ITEM ID] : 118
+[EXEC TIME] : 0.343
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-08T12:30:08+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.260
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-08T12:30:08+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 121
+[EXEC TIME] : 1410179408.765
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-08T12:30:09+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 125
+[ITEM ID] : 118
+[EXEC TIME] : 0.386
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-09-08T12:30:34+00:00] ACTION : getItemRecommendation {right_column}
+[LAUNCH] : getItemRecommendation
+[NB ITEMS ASKED] : 6
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 118
+[ITEM ID] : 125
+[ITEM ID] : 120
+[EXEC TIME] : 0.568
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-09-08T12:30:34+00:00] ACTION : getTopNSales
+[LAUNCH] : getTopNSales
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 1
+[ITEM ID] : 120
+[EXEC TIME] : 1410179434.501
+[END] ACTION : getTopNSales
+[BEGIN] [2014-09-08T12:30:35+00:00] ACTION : getTopNViewed
+[LAUNCH] : getTopNViewed
+[NB ITEMS ASKED] : 3
+[NB ITEMS RECEIVED] : 3
+[ITEM ID] : 120
+[ITEM ID] : 125
+[ITEM ID] : 118
+[EXEC TIME] : 0.980
+[END] ACTION : getTopNViewed
+[BEGIN] [2014-10-13T15:04:46+00:00] ACTION : getItemRecommendation {displayRightColumn}
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 5
+[NB ITEMS ASKED] : 2
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.080
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-10-13T15:04:46+00:00] ACTION : getItemRecommendation {displayRightColumn}
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 5
+[NB ITEMS ASKED] : 2
+[NB ITEMS RECEIVED] : 2
+[ITEM ID] : 120
+[ITEM ID] : 125
+[EXEC TIME] : 0.080
+[END] ACTION : getItemRecommendation
+[BEGIN] [2014-10-13T15:04:46+00:00] ACTION : getItemRecommendation
+[LAUNCH] : getItemRecommendation
+[VARIANT ID] : 6
+[NB ITEMS ASKED] : 2
+[EXEC TIME] : 1413212686.373
+[END] ACTION : getItemRecommendation

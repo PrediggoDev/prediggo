@@ -1,0 +1,168 @@
+[BEGIN] [2014-07-24T18:26:44+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.052
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T18:27:56+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.060
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T18:28:07+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.039
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:17:14+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.052
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:17:37+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.042
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:19:27+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.043
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:19:58+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.044
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:22:45+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.050
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:43:54+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.051
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T19:54:55+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.041
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-24T20:08:34+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : f80ad82028e6752d4a7f2c276ede3991
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.058
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-28T11:10:39+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : b6b29ac4f00d39c0734db2c413f5e2cc
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.051
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-28T11:10:41+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : b6b29ac4f00d39c0734db2c413f5e2cc
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 1.936
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-28T11:18:11+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 8f62f642a4639ffd2136ee6681c5b473
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.039
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-28T11:18:27+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 8f62f642a4639ffd2136ee6681c5b473
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.041
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-28T11:18:29+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 8f62f642a4639ffd2136ee6681c5b473
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.052
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-29T10:39:16+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 8f62f642a4639ffd2136ee6681c5b473
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.052
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-29T10:39:22+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 8f62f642a4639ffd2136ee6681c5b473
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.050
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-30T13:21:39+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : guest3
+[SESSIONID] : 551fa6a728fd92cb7676576d00b59286
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.056
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-30T13:30:55+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : customer2
+[SESSIONID] : 551fa6a728fd92cb7676576d00b59286
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.055
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-07-30T13:36:38+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : customer2
+[SESSIONID] : 551fa6a728fd92cb7676576d00b59286
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.046
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-08-04T10:59:50+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : customer2
+[SESSIONID] : cc2b11fb169eb840350b38857158024d
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.047
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-08-04T11:01:54+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : customer2
+[SESSIONID] : cc2b11fb169eb840350b38857158024d
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.118
+[END] ACTION : notifyPrediggo
+[BEGIN] [2014-08-05T13:19:29+02:00] ACTION : notifyPrediggo {product}
+[LAUNCH] : notifyPrediggo
+[CUSTOMER/GUEST] : customer2
+[SESSIONID] : cc2b11fb169eb840350b38857158024d
+[OK] Notification: notifyPrediggo
+[EXEC TIME] : 0.058
+[END] ACTION : notifyPrediggo

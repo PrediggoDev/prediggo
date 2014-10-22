@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items date="2014-09-15T12:08:56+00:00"><item timestamp="1406133506"><id>70</id><profile>7</profile><name><![CDATA[Ballantine's 12 ans ]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>31.20</price><tag><![CDATA[papa]]></tag><description><![CDATA[Looooooong Desc]]></description><supplierid>4</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=70&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/6/5/265-large.jpg]]></attValue></attribute><attribute><attName><![CDATA[Contenance]]></attName><attValue><![CDATA[70cl]]></attValue></attribute><attribute><attName><![CDATA[Taux d'alcool]]></attName><attValue><![CDATA[40%]]></attValue></attribute><attribute><attName><![CDATA[CSS]]></attName><attValue><![CDATA[havanaClub3ans]]></attValue></attribute><attribute><attName><![CDATA[Conditionnement]]></attName><attValue><![CDATA[bouteille]]></attValue></attribute><attribute><attName><![CDATA[Pays d'origine]]></attName><attValue><![CDATA[Écosse]]></attValue></attribute><attribute><attName><![CDATA[maximal_quantity]]></attName><attValue><![CDATA[9]]></attValue></attribute></item>
+ 
+<item timestamp="1406618393"><id>72</id><profile>7</profile><name><![CDATA[Ballantine's Test 3]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>39.00</price><description><![CDATA[Looooooong Desc]]></description><supplierid>4</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=72&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/4/6/246-large.jpg]]></attValue></attribute><attribute><attName><![CDATA[CSS]]></attName><attValue><![CDATA[havanaClub3ans]]></attValue></attribute></item>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<item timestamp="1407339810"><id>84</id><profile>7</profile><name><![CDATA[MUMM KIT SEAU BOUTEILLE]]></name><genre><![CDATA[Home]]></genre><price>0.00</price><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=84&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/0/0-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409123706"><id>85</id><profile>7</profile><name><![CDATA[Produit Test Joris ]]></name><genre><![CDATA[Home]]></genre><price>50.00</price><supplierid>4</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=85&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/4/7/247-large.jpg]]></attValue></attribute><attribute><attName><![CDATA[Contenance]]></attName><attValue><![CDATA[70 cl]]></attValue></attribute><attribute><attName><![CDATA[Format]]></attName><attValue><![CDATA[Bouteille]]></attValue></attribute><attribute><attName><![CDATA[Taux d'alcool]]></attName><attValue><![CDATA[40°]]></attValue></attribute><attribute><attName><![CDATA[CSS]]></attName><attValue><![CDATA[havanaClub3ans]]></attValue></attribute><attribute><attName><![CDATA[Pays d'origine]]></attName><attValue><![CDATA[Test]]></attValue></attribute></item>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<item timestamp="1409732284"><id>133</id><profile>7</profile><name><![CDATA[Test HAVANA CLUB Selección de Maestros]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>18.00</price><tag><![CDATA[test,rhum]]></tag><description><![CDATA[Test HAVANA CLUB Añejo Blanco  il murmure les mystères des rhums ambrés vieillis de première qualité. » Don José Navarro, 1ermaître rhumier. Havana Club Añejo Especial est un rhum doré Premium, combinant la légèreté des rhums blancs et les arômes robustes des rhums ambrés.]]></description><supplierid>3</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=133&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/1/251-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409732284"><id>134</id><profile>7</profile><name><![CDATA[Test HAVANA CLUB Añejo Blanco]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>24.00</price><tag><![CDATA[test,rhum]]></tag><description><![CDATA[Test HAVANA CLUB Añejo Blanco il murmure les mystères des rhums ambrés vieillis de première qualité. » Don José Navarro, 1ermaître rhumier. Havana Club Añejo Especial est un rhum doré Premium, combinant la légèreté des rhums blancs et les arômes robustes des rhums ambrés.]]></description><supplierid>3</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=134&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/2/252-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409732284"><id>135</id><profile>7</profile><name><![CDATA[Test JAMESON Gold Reserve]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>12.00</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve  Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=135&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/3/253-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409732284"><id>136</id><profile>7</profile><name><![CDATA[Test JAMESON Select Reserve]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>24.00</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve  Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=136&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/4/254-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409732284"><id>137</id><profile>7</profile><name><![CDATA[Test JAMESON Signature Reserve]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>22.10</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=137&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/6/6/266-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409733693"><id>138</id><profile>7</profile><name><![CDATA[Test HAVANA CLUB Selección de Maestros]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>18.00</price><tag><![CDATA[test,rhum]]></tag><description><![CDATA[Test HAVANA CLUB Añejo Blanco  il murmure les mystères des rhums ambrés vieillis de première qualité. » Don José Navarro, 1ermaître rhumier. Havana Club Añejo Especial est un rhum doré Premium, combinant la légèreté des rhums blancs et les arômes robustes des rhums ambrés.]]></description><supplierid>3</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=138&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/6/256-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409733693"><id>139</id><profile>7</profile><name><![CDATA[Test HAVANA CLUB Añejo Blanco]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>20.00</price><tag><![CDATA[test,rhum]]></tag><description><![CDATA[Test HAVANA CLUB Añejo Blanco  il murmure les mystères des rhums ambrés vieillis de première qualité. » Don José Navarro, 1ermaître rhumier. Havana Club Añejo Especial est un rhum doré Premium, combinant la légèreté des rhums blancs et les arômes robustes des rhums ambrés.]]></description><supplierid>3</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=139&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/5/9/259-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409733693"><id>140</id><profile>7</profile><name><![CDATA[Test JAMESON Gold Reserve]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>12.00</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve  Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=140&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/6/0/260-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409733693"><id>141</id><profile>7</profile><name><![CDATA[Test JAMESON Select Reserve]]></name><genre><![CDATA[WHISKY]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>24.00</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=141&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/6/1/261-large.jpg]]></attValue></attribute></item>
+<item timestamp="1409733693"><id>142</id><profile>7</profile><name><![CDATA[Test JAMESON Signature Reserve]]></name><genre><![CDATA[RHUM]]></genre><genre><![CDATA[Catégories]]></genre><genre><![CDATA[Home]]></genre><price>26.52</price><tag><![CDATA[test,whisky]]></tag><description><![CDATA[Test JAMESON Select Reserve Assemblage de whiskey distillé en alambic et d’un lot rare de whiskey de grain, vieilli dans des fûts de bois passés à la flamme pour un goût à la fois riche et luxueux.]]></description><supplierid>13</supplierid><recommendable>true</recommendable><searchable>true</searchable><attribute><attName>producturl</attName><attValue><![CDATA[http://pernod.dev/index.php?id_product=142&controller=product]]></attValue></attribute><attribute><attName>imageurl</attName><attValue><![CDATA[http://pernod.dev/img/p/2/6/4/264-large.jpg]]></attValue></attribute></item>
+ 
+</items>

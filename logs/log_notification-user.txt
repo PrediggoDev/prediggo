@@ -1,0 +1,91 @@
+[BEGIN] [2014-09-10T11:38:56+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.057
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-12T09:53:25+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.295
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-12T09:53:49+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.053
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-12T09:55:37+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.045
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-15T11:53:29+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.066
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-15T12:07:17+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.052
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-16T14:01:49+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.144
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-16T14:05:02+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.086
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-16T15:56:45+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer69
+[SESSIONID] : abcb8c9457c14f1ae994a889f8482d80
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.069
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-16T16:04:07+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer69
+[SESSIONID] : abcb8c9457c14f1ae994a889f8482d80
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.057
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-16T16:06:22+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer69
+[SESSIONID] : abcb8c9457c14f1ae994a889f8482d80
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.056
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-17T08:23:23+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.384
+[END] ACTION : RegisterUser
+[BEGIN] [2014-09-17T10:43:14+00:00] ACTION : RegisterUser {user}
+[LAUNCH] : RegisterUser
+[CUSTOMER/GUEST] : customer41
+[SESSIONID] : 616e7efe69f9b83978db5cfafb6d3faa
+[OK] Notification: RegisterUser
+[EXEC TIME] : 0.058
+[END] ACTION : RegisterUser
