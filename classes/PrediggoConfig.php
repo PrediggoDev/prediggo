@@ -316,6 +316,22 @@ class PrediggoConfig
 			'multishopgroup'	=> false,
 			'multishop'			=> true,
 		),
+        'export_product_active' => array(
+            'name' 				=> 'PREDIGGO_EXPORT_PRODUCT_ACTIVE',
+            'type'				=> 'int',
+            'val' 				=> 1,
+            'multilang'			=> false,
+            'multishopgroup'	=> false,
+            'multishop'			=> true,
+        ),
+        'export_product_price' => array(
+            'name' 				=> 'PREDIGGO_EXPORT_PRODUCT_PRICE',
+            'type'				=> 'int',
+            'val' 				=> 1,
+            'multilang'			=> false,
+            'multishopgroup'	=> false,
+            'multishop'			=> true,
+        ),
 		'export_product_min_quantity' => array(
 			'name' 				=> 'PREDIGGO_EXPORT_PRODUCT_MIN_QTY',
 			'type'				=> 'int',

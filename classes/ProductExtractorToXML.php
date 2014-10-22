@@ -121,14 +121,40 @@ class ProductExtractorToXML extends DataExtractorToXML
 		$oPrediggoConfig = $this->aPrediggoConfigs[(int)$aEntity['id_shop']];
 		
 		$link = $oPrediggoConfig->getContext()->link;
-				
+
 		$oProduct = new Product((int)$aEntity['id_product'], true, null, (int)$aEntity['id_shop'], $oPrediggoConfig->getContext());
-		if((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity or !$oProduct->active or $oProduct->price == 0)
+
+        if((int)$oPrediggoConfig->export_product_active == 1)
+        {
+            if($oProduct->active){
+                $bActive = true;
+            }else{
+                $bActive = false;
+            }
+        }else{
+            $bActive = true;
+        }
+
+        if((int)$oPrediggoConfig->export_product_price == 1)
+        {
+            if($oProduct->price == 0){
+                $bPrice = true;
+            }else{
+                $bPrice = false;
+            }
+        }else{
+            $bPrice = false;
+        }
+
+
+		if((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity or !$bActive or $bPrice)
 		{
 			$this->nbEntitiesTreated--;
 			$this->nbEntities--;
 			return ' ';
 		}
+
+
 		
 		// Force the shop of the context regarding the shop of the product for the getParentsCategories function
 		if((int)Context::getContext()->shop->id != (int)$aEntity['id_shop'])

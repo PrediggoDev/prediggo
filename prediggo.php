@@ -198,7 +198,7 @@ class Prediggo extends Module
 		
 		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY HOME PAGE<br>';
-		return $this->displayRecommendationsWithDynamicTemplate('displayHome', $params);
+		return $this->displayRecommendationsWithDynamicTemplate('displayHome', $params).$this->displaySearchBlock($params);
 	}
 	
 	/**
@@ -239,13 +239,13 @@ class Prediggo extends Module
 
 		if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->categoryPageName)==0)
 		{
-			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params);
+			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
 		}
 		else if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->manufacturerPageName)==0)
 		{
-			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params);
+			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
 		}
-		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
+		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params).$this->displaySearchBlock($params);
 	}
 	/**
 	 * Hook Top : Display the prediggo search block
@@ -993,6 +993,8 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->customers_file_generation 			= Tools::safeOutput(Tools::getValue('customers_file_generation'));
 			$this->oPrediggoConfig->export_product_image 				= Tools::safeOutput(Tools::getValue('export_product_image'));
 			$this->oPrediggoConfig->export_product_description 			= Tools::safeOutput(Tools::getValue('export_product_description'));
+			$this->oPrediggoConfig->export_product_active 			    = Tools::safeOutput(Tools::getValue('export_product_active'));
+			$this->oPrediggoConfig->export_product_price 			    = Tools::safeOutput(Tools::getValue('export_product_price'));
 			$this->oPrediggoConfig->export_product_min_quantity 		= Tools::safeOutput(Tools::getValue('export_product_min_quantity'));
 			$this->oPrediggoConfig->nb_days_order_valide 				= Tools::safeOutput(Tools::getValue('nb_days_order_valide'));
 			$this->oPrediggoConfig->nb_days_customer_last_visit_valide 	= Tools::safeOutput(Tools::getValue('nb_days_customer_last_visit_valide'));
@@ -2007,6 +2009,50 @@ class Prediggo extends Module
 					'desc' 		=> $this->l('Define if the product\'s descriptions are included in the export of the products'),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
+                array(
+                    'label' 	=> $this->l('Product\'s active only export activation'),
+                    'type' 		=> 'radio',
+                    'name' 		=> 'export_product_active',
+                    'class' 	=> 't',
+                    'is_bool' 	=> true,
+                    'values' 	=> array(
+                        array(
+                            'id' 	=> 'export_product_active_on',
+                            'value' => 1,
+                            'label' => $this->l('Yes')
+                        ),
+                        array(
+                            'id' 	=> 'export_product_active_off',
+                            'value' => 0,
+                            'label' => $this->l('No')
+                        ),
+                    ),
+                    'required'	=> true,
+                    'desc' 		=> $this->l('When activated only active products included and when not activated disable products included'),
+                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+                ),
+                array(
+                    'label' 	=> $this->l('Product\'s price > 0 only export activation'),
+                    'type' 		=> 'radio',
+                    'name' 		=> 'export_product_price',
+                    'class' 	=> 't',
+                    'is_bool' 	=> true,
+                    'values' 	=> array(
+                        array(
+                            'id' 	=> 'export_product_price_on',
+                            'value' => 1,
+                            'label' => $this->l('Yes')
+                        ),
+                        array(
+                            'id' 	=> 'export_product_price_off',
+                            'value' => 0,
+                            'label' => $this->l('No')
+                        ),
+                    ),
+                    'required'	=> true,
+                    'desc' 		=> $this->l('When activated only price > 0 included and when not activated price >=0 included'),
+                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+                ),
 				array(
 					'label' 	=> $this->l('Product minimum quantity:'),
 					'type' 		=> 'text',
@@ -2060,6 +2106,8 @@ class Prediggo extends Module
 		$this->fields_value['customers_file_generation'] 			= (int)$this->oPrediggoConfig->customers_file_generation;
 		$this->fields_value['export_product_image'] 				= (int)$this->oPrediggoConfig->export_product_image;
 		$this->fields_value['export_product_description'] 			= (int)$this->oPrediggoConfig->export_product_description;
+        $this->fields_value['export_product_active'] 			    = (int)$this->oPrediggoConfig->export_product_active;
+        $this->fields_value['export_product_price'] 			    = (int)$this->oPrediggoConfig->export_product_price;
 		$this->fields_value['export_product_min_quantity'] 			= (int)$this->oPrediggoConfig->export_product_min_quantity;
 		$this->fields_value['nb_days_order_valide']			 		= (int)$this->oPrediggoConfig->nb_days_order_valide;
 		$this->fields_value['nb_days_customer_last_visit_valide'] 	= (int)$this->oPrediggoConfig->nb_days_customer_last_visit_valide;
