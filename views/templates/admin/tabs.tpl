@@ -102,7 +102,7 @@
 
         <ol>
             <li><span>{l s='High performance have been proven by A/B testing' mod='prediggo'}</span></li>
-            <div><span>{l s='Our patented semantic technology represents the next generation in e-merchandising. It powers the selling strategies that increase sales by 30&#37; through increased conversion and average order value' mod='prediggo'}</span></div>
+            <div><span>{l s='Our patented semantic technology represents the next generation in e-merchandising. It powers the selling strategies that increase sales by 30%  through increased conversion and average order value' mod='prediggo'}</span></div>
             <p></p>
             <li><span>{l s='Prediggo is a flexible solution that is easy-to-use' mod='prediggo'}</span></li>
             <div><span>{l s=' Our intuitive back-office makes it easy to automate and optimise the most complex merchandising  !' mod='prediggo'}</span></div>
@@ -111,7 +111,7 @@
             <div><span>{l s=' Prediggo is the only “complete” solution that does not require integration with your ERP, Cookies or Javascript. Our solutions work on a data export, so they integrate in days, not weeks.  !' mod='prediggo'}</span></div>
             <p></p>
             <li><span>{l s='A superior service ' mod='prediggo'}</span></li>
-            <div><span>{l s=' Since we started in 2008, customer service has been one of our core values. So it is no wonder that our customer&#146;s have reported a 100&#37; satisfaction rate in our 2012 and 2013 surveys!' mod='prediggo'}</span></div>
+            <div><span>{l s=' Since we started in 2008, customer service has been one of our core values. So it is no wonder that our customer/'s have reported a 100%  satisfaction rate in our 2012 and 2013 surveys!' mod='prediggo'}</span></div>
         </ol>
         <ol>
             <p></p>
