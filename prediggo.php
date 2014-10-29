@@ -67,7 +67,7 @@ class Prediggo extends Module
 	*/
 	public function __construct()
 	{
-		$this->name = 'prediggo';
+        $this->name = 'prediggo';
 		$this->tab = 'advertising_marketing';
 		$this->version = '1.5';
 		$this->author = 'PrestaShop';
@@ -81,7 +81,7 @@ class Prediggo extends Module
 		$this->displayName = $this->l('Prediggo');
 		$this->description = $this->l('Offers interactive products recommendations in the front office');
 
-
+        $this->bootstrap = true;
 		$this->_warnings = array();
 		$this->_confirmations = array();
 		$this->_errors = array();
@@ -1690,7 +1690,11 @@ class Prediggo extends Module
 		// Add the specific jquery ui plugins, module JS & CSS
 		$this->context->controller->addJqueryUI('ui.tabs');
 		$this->context->controller->addJqueryPlugin('autocomplete');
-		$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
+        if(substr(_PS_VERSION_,0,3) == 1.6){
+		    $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
+        } else {
+            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
+        }
 		$this->context->controller->addCss(array(
 			($this->_path).'css/admin/'.$this->name.'.css' => 'all',
 			_PS_JS_DIR_.'jquery/ui/themes/base/jquery.ui.all.css'
@@ -4725,7 +4729,7 @@ class Prediggo extends Module
 		$this->fields_value['autocompletion_nb_items'] 	= (int)$this->oPrediggoConfig->autocompletion_nb_items;
         $this->fields_value['search_0_template_name'] 	= $this->oPrediggoConfig->search_0_template_name;
         $this->fields_value['autoc_template_name'] 		= $this->oPrediggoConfig->autoc_template_name;
-        $this->fields_value['autocat_template_name'] 		= $this->oPrediggoConfig->autocat_template_name;
+        $this->fields_value['autocat_template_name'] 	= $this->oPrediggoConfig->autocat_template_name;
         $this->fields_value['autop_template_name'] 		= $this->oPrediggoConfig->autop_template_name;
         $this->fields_value['autos_template_name'] 		= $this->oPrediggoConfig->autos_template_name;
 
@@ -4738,8 +4742,6 @@ class Prediggo extends Module
 			$helper->title .= ' [ '.$this->l('Shop').' : '.$this->context->shop->name.' ]';
 		else
 			$helper->title .= ' [ '.$this->l('All shops').' ]';
-
-
 
 		$helper->fields_value = $this->fields_value;
 		$this->_html .= $helper->generateForm($this->fields_form);
