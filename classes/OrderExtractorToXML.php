@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -32,12 +31,13 @@ class OrderExtractorToXML extends DataExtractorToXML
 	/** @var array List of Prediggo configuration by shop */
 	private $aPrediggoConfigs;
 
-	/**
-	  * Initialise the object variables
-	  *
-	  * @param string $sRepositoryPath path of the XML repository
-	  * @param array $params Specific parameters of the object
-	  */
+    /**
+     * Initialise the object variables
+     *
+     * @param string $sRepositoryPath path of the XML repository
+     * @param array $params Specific parameters of the object
+     * @param $bLogEnable
+     */
 	public function __construct($sRepositoryPath, $params, $bLogEnable)
 	{
 		$this->sRepositoryPath 	= $sRepositoryPath;
@@ -60,42 +60,41 @@ class OrderExtractorToXML extends DataExtractorToXML
 	public function getEntities()
 	{
 		//get active shops
-		$shopIDs= $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in 
+		$shopIDs = $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in
 		
 		$sWhere = '';
 		foreach ($shopIDs as $row) //
 		{
-			foreach($this->aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
+			foreach ($this->aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
 			{
 				//ignore the shop ids that are note active in the prediggo config
-				if ((int)$iIDShop!=(int)$row['id_shop'])
+				if ((int)$iIDShop != (int)$row['id_shop'])
 					continue;
 					
 				//echo 'reading shop id:'.$row['id_shop'].'<br>';
 				//echo 'Nb days in the past to consider:'.(int)$oPrediggoConfig->nb_days_order_valide.'<br>';
 				//$sWhere .= '(id_shop = '.(int)$iIDShop.' AND DATE_ADD(invoice_date, INTERVAL -1 DAY) <= \''.pSQL(date('Y-m-d H:i:s')).'\' AND invoice_date >= \''.pSQL(date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d')-((int)$oPrediggoConfig->nb_days_order_valide), date('Y')))).'\') OR';
 				$sWhere .= '(id_shop = '.(int)$row['id_shop'].' AND DATE_ADD(invoice_date, INTERVAL -1 DAY) <= \''.pSQL(date('Y-m-d H:i:s')).'\' AND invoice_date >= \''.
-				pSQL(date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d')-((int)$oPrediggoConfig->nb_days_order_valide), date('Y')))).'\') OR';
+				pSQL(date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d') - ((int)$oPrediggoConfig->nb_days_order_valide), date('Y')))).'\') OR';
 			
 			}
 		}
 		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT `id_order`, `id_shop`
 		FROM `'._DB_PREFIX_.'orders`
-		WHERE '.substr($sWhere, 0, -2).'
+		WHERE '.Tools::substr($sWhere, 0, -2).'
 		ORDER BY invoice_date ASC', false);
 
 	}
 
-	/**
-	  * Convert the entities data into an xml object and return the xml object as a string
-	  *
-	  * @param array $aEntity Entity data
-	  */
+    /**
+     * Convert the entities data into an xml object and return the xml object as a string
+     *
+     * @param array $aEntity Entity data
+     * @return bool|string|void
+     */
 	public function formatEntityToXML($aEntity)
-	{
-		
-	
+    {
 		$dom = new DOMDocument('1.0', 'utf-8');
 		// Set the root of the XML
 		$root = $dom->createElement($this->sEntity);
@@ -103,7 +102,7 @@ class OrderExtractorToXML extends DataExtractorToXML
 
 		$oOrder = new Order((int)$aEntity['id_order']);
 
-		$root->setAttribute("isodate", date('c', strtotime($oOrder->invoice_date)));
+		$root->setAttribute('isodate', date('c', strtotime($oOrder->invoice_date)));
 
 		$userid = $dom->createElement('userid', (int)$oOrder->id_customer);
 		$root->appendChild($userid);
@@ -114,9 +113,9 @@ class OrderExtractorToXML extends DataExtractorToXML
 		$aOrderProducts = $oOrder->getProducts();
 
 		$sReturn = false;
-		if(is_array($aOrderProducts) && count($aOrderProducts)>0)
+		if (is_array($aOrderProducts) && count($aOrderProducts) > 0)
 		{
-			foreach($aOrderProducts as $aOrderProduct)
+			foreach ($aOrderProducts as $aOrderProduct)
 			{
 				$item = $dom->createElement('item');
 				$root->appendChild($item);
@@ -132,7 +131,7 @@ class OrderExtractorToXML extends DataExtractorToXML
 				else
 					$product_price = $aOrderProduct['product_price_wt'];
 
-				$price = $dom->createElement('price', number_format(Tools::ps_round($product_price,2), 2, '.', ''));
+				$price = $dom->createElement('price', number_format(Tools::ps_round($product_price, 2), 2, '.', ''));
 				$item->appendChild($price);
 
 				$quantity = $dom->createElement('quantity', (int)$aOrderProduct['product_quantity']);

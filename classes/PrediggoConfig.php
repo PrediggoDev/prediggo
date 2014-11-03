@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,20 +18,20 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
 class PrediggoConfig
 {
-	public $categoryPageName='category';
-	public $manufacturerPageName='manufacturer';
-	public $attNameCategory='genre';
-	public $attNameManufacturer='supplierid';
+	public $categoryPageName = 'category';
+	public $manufacturerPageName = 'manufacturer';
+	public $attNameCategory = 'genre';
+	public $attNameManufacturer = 'supplierid';
 	
-	public $optionsHooksHomePage= array
+	public $optionsHooksHomePage = array
 	(
 		  array(
 				'id_option' => 'displayHome',                
@@ -44,7 +43,7 @@ class PrediggoConfig
 			),
 		);
 		
-	public $optionsHooksAllPage= array
+	public $optionsHooksAllPage = array
 	(
 		array(
 		    'id_option' => 'displayHeader',
@@ -68,7 +67,7 @@ class PrediggoConfig
 		  ),
 	);
 
-    public $optionsHooksBlocklayeredPage= array
+    public $optionsHooksBlocklayeredPage = array
     (
         array(
             'id_option' => 'displayHeader',
@@ -92,7 +91,7 @@ class PrediggoConfig
         ),
     );
 	
-	public $optionsHooksProductPage= array
+	public $optionsHooksProductPage = array
 	(
 		  array(
 				'id_option' => 'displayLeftColumnProduct',                
@@ -124,7 +123,7 @@ class PrediggoConfig
 			),
 		);
 	
-	public $optionsHooksBasketPage= array
+	public $optionsHooksBasketPage = array
 	(
 		  array(
 				'id_option' => 'displayShoppingCart',                
@@ -148,7 +147,7 @@ class PrediggoConfig
 			),
 		);
 
-	public $optionsHooksCategoryPage= array
+	public $optionsHooksCategoryPage = array
 	(
 		array(
 		    'id_option' => 'displayHeadercategory',
@@ -192,7 +191,7 @@ class PrediggoConfig
 		  ),
 	);
 
-    public $optionsHooksCustomerPage= array
+    public $optionsHooksCustomerPage = array
     (
         array(
             'id_option' => 'displayCustomerAccount',
@@ -275,7 +274,7 @@ class PrediggoConfig
         ),
 
 		/* EXPORT CONFIGURATION */
-		// The FG Corresponds to FILE_GENERATION
+		/* The FG Corresponds to FILE_GENERATION */
 		'products_file_generation' => array(
 			'name' 				=> 'PREDIGGO_PRODUCTS_FG',
 			'type'				=> 'int',
@@ -1874,7 +1873,7 @@ class PrediggoConfig
 			'multishopgroup'	=> false,
 			'multishop'			=> true,
 		),
-        //Category
+        /* Category */
         'category_active' => array(
             'name' 				=> 'PREDIGGO_CAT_ACTIVE',
             'type'				=> 'int',
@@ -1901,13 +1900,13 @@ class PrediggoConfig
 	  */
 	public function __construct($oContext = false)
 	{
-		if(is_object($oContext)
+		if (is_object($oContext)
 		&& get_class($oContext) == 'Context')
 			$this->oContext = $oContext;
 
 		$aLanguages = Language::getLanguages(false);
 
-		foreach($this->aConfs as $var => $aConf)
+		foreach ($this->aConfs as $var => $aConf)
 		{
 			$aParams = array(
 				0 => $aConf['name'],
@@ -1916,24 +1915,24 @@ class PrediggoConfig
 				3 => false,
 			);
 
-			if($this->oContext)
+			if ($this->oContext)
 			{
-				if((int)$aConf['multishopgroup'])
+				if ((int)$aConf['multishopgroup'])
 					$aParams[2] = (int)$this->oContext->shop->id_shop_group;
-				if((int)$aConf['multishop'])
+				if ((int)$aConf['multishop'])
 					$aParams[3] = (int)$this->oContext->shop->id;
 			}
 
-			switch($aConf['type'])
+			switch ($aConf['type'])
 			{
 				case 'int' :
 					$this->{$var} = (int)call_user_func_array(array('Configuration', 'get'), $aParams);
 				break;
 				default :
-					if($this->oContext && (int)$aConf['multilang'])
+					if ($this->oContext && (int)$aConf['multilang'])
 					{
 						// Set the multilingual configurations
-						foreach($aLanguages as $aLanguage)
+						foreach ($aLanguages as $aLanguage)
 						{
 							$aParams[1] = (int)$aLanguage['id_lang'];
 							$this->{$var}[(int)$aLanguage['id_lang']] = pSQL(call_user_func_array(array('Configuration', 'get'), $aParams));
@@ -1953,7 +1952,7 @@ class PrediggoConfig
 	 */
 	public function install()
 	{
-		foreach($this->aConfs as $var => $aConf)
+		foreach ($this->aConfs as $aConf)
 		{
 			$aParams = array(
 				0 => $aConf['name'],
@@ -1963,15 +1962,15 @@ class PrediggoConfig
 				4 => false,
 			);
 
-			if($this->oContext)
+			if ($this->oContext)
 			{
-				if((int)$aConf['multishopgroup'])
+				if ((int)$aConf['multishopgroup'])
 					$aParams[3] = (int)$this->oContext->shop->id_shop_group;
-				if((int)$aConf['multishop'])
+				if ((int)$aConf['multishop'])
 					$aParams[4] = (int)$this->oContext->shop->id;
 			}
 
-			if(!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
+			if (!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
 				return false;
 		}
 		return true;
@@ -1984,8 +1983,8 @@ class PrediggoConfig
 	 */
 	public function uninstall()
 	{
-		foreach($this->aConfs as $var => $aConf)
-			if(!Configuration::deleteByName($aConf['name']))
+		foreach ($this->aConfs as $aConf)
+			if (!Configuration::deleteByName($aConf['name']))
 				return false;
 		return true;
 	}
@@ -1997,7 +1996,7 @@ class PrediggoConfig
 	 */
 	public function save()
 	{
-		foreach($this->aConfs as $var => $aConf)
+		foreach ($this->aConfs as $var => $aConf)
 		{
 			$aParams = array(
 				0 => $aConf['name'],
@@ -2007,23 +2006,23 @@ class PrediggoConfig
 				4 => false,
 			);
 
-			if($this->oContext)
+			if ($this->oContext)
 			{
-				if((int)$aConf['multishopgroup'])
+				if ((int)$aConf['multishopgroup'])
 					$aParams[3] = (int)$this->oContext->shop->id_shop_group;
-				if((int)$aConf['multishop'])
+				if ((int)$aConf['multishop'])
 					$aParams[4] = (int)$this->oContext->shop->id;
 			}
 
-			switch($aConf['type'])
+			switch ($aConf['type'])
 			{
 				case 'int' :
 					$aParams[1] = (int)$this->{$var};
-					if(!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
+					if (!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
 						return false;
 				break;
 				default :
-					if(!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
+					if (!call_user_func_array(array('Configuration', 'updateValue'), $aParams))
 						return false;
 				break;
 			}

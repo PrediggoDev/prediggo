@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -32,12 +31,13 @@ class CustomerExtractorToXML extends DataExtractorToXML
 	/** @var array List of Prediggo configuration by shop */
 	private $aPrediggoConfigs;
 
-	/**
-	  * Initialise the object variables
-	  *
-	  * @param string $sRepositoryPath path of the XML repository
-	  * @param array $params Specific parameters of the object
-	  */
+    /**
+     * Initialise the object variables
+     *
+     * @param string $sRepositoryPath path of the XML repository
+     * @param array $params Specific parameters of the object
+     * @param $bLogEnable
+     */
 	public function __construct($sRepositoryPath, $params, $bLogEnable)
 	{
 		$this->sRepositoryPath 	= $sRepositoryPath;
@@ -65,11 +65,12 @@ class CustomerExtractorToXML extends DataExtractorToXML
 		ORDER BY `id_customer` ASC', false);
 	}
 
-	/**
-	  * Convert the entities data into an xml object and return the xml object as a string
-	  *
-	  * @param array $aEntity Entity data
-	  */
+    /**
+     * Convert the entities data into an xml object and return the xml object as a string
+     *
+     * @param array $aEntity Entity data
+     * @return string|void
+     */
 	public function formatEntityToXML($aEntity)
 	{
 		$dom = new DOMDocument('1.0', 'utf-8');
@@ -81,7 +82,7 @@ class CustomerExtractorToXML extends DataExtractorToXML
 
 		// Check if the customer has visited the website since a specific number of days $this->aPrediggoConfigs[(int)$aEntity['id_shop']]->nb_days_customer_last_visit_valide
 		$aLastConnection = $oCustomer->getLastConnections();
-		if($aLastConnection && is_array($aLastConnection) && count($aLastConnection) && $aLastConnection[0]['date_add'] < date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d')-((int)$this->aPrediggoConfigs[(int)$aEntity['id_shop']]->nb_days_customer_last_visit_valide), date('Y'))))
+		if ($aLastConnection && is_array($aLastConnection) && count($aLastConnection) && $aLastConnection[0]['date_add'] < date('Y-m-d H:i:s', mktime(0, 0, 0, date('m'), date('d') - ((int)$this->aPrediggoConfigs[(int)$aEntity['id_shop']]->nb_days_customer_last_visit_valide), date('Y'))))
 		{
 			$this->nbEntitiesTreated--;
 			$this->nbEntities--;
@@ -92,7 +93,7 @@ class CustomerExtractorToXML extends DataExtractorToXML
 		$id = $dom->createElement('id', (int)$oCustomer->id);
 		$root->appendChild($id);
 
-		if(($sBirthday = strtotime($oCustomer->birthday))
+		if (($sBirthday = strtotime($oCustomer->birthday))
 		&& !empty($sBirthday))
 		{
 			$dobyear = $dom->createElement('dobyear', date('Y', $sBirthday));
@@ -106,7 +107,7 @@ class CustomerExtractorToXML extends DataExtractorToXML
 
 		unset($oCustomer);
 
-		if(($sLocation = trim($oAddress->city))
+		if (($sLocation = trim($oAddress->city))
 		&& !empty($sLocation))
 		{
 			$location = $dom->createElement('location', $sLocation);
@@ -114,7 +115,7 @@ class CustomerExtractorToXML extends DataExtractorToXML
 		}
 
 		$sCountry = Country::getIsoById((int)$oAddress->id_country);
-		if(!empty($sCountry))
+		if (!empty($sCountry))
 		{
 			$country = $dom->createElement('country', $sCountry);
 			$root->appendChild($country);

@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -63,12 +62,16 @@ abstract class DataExtractorToXML
 	/** @var boolean is log enable */
 	public $bLogEnable;
 
-	/**
-	  * Initialise the object variables
-	  *
-	  * @param string $sRepositoryPath path of the XML repository
-	  * @param array $params Specific parameters of the object
-	  */
+    /** @var object list of parameters */
+    public $params;
+
+    /**
+     * Initialise the object variables
+     *
+     * @param string $sRepositoryPath path of the XML repository
+     * @param array $params Specific parameters of the object
+     * @param $bLogEnable
+     */
 	public function __construct($sRepositoryPath, $params, $bLogEnable)
 	{
 		$this->sRepositoryPath 		= $sRepositoryPath;
@@ -78,6 +81,7 @@ abstract class DataExtractorToXML
 		$this->_confirmations 		= array();
 		$this->nbEntities 			= 0;
 		$this->nbEntitiesTreated 	= 0;
+        $this->params               = $params;
 	}
 
 	/**
@@ -102,10 +106,10 @@ abstract class DataExtractorToXML
 		$this->sFileName = $this->sFileNameBase.'-'.date('YmdHis').'.xml';
 
 		// Open log file handler if needed
-		if($this->bLogEnable)
+		if ($this->bLogEnable)
 		{
 			$sEntityLogFileName = $this->sRepositoryPath.'../logs/log-'.$this->sEntity.'.txt';
-			if(!($loghandle = fopen($sEntityLogFileName, 'a')))
+			if (!($loghandle = fopen($sEntityLogFileName, 'a')))
 			{
 				$this->bLogEnable = false;
 				$this->_errors[] = 'Error when creating the log file : '.$sEntityLogFileName;
@@ -113,13 +117,13 @@ abstract class DataExtractorToXML
 		}
 
 		// Create the XML File
-		if($handle = fopen($this->sRepositoryPath.$this->sFileName, 'a'))
+		if ($handle = fopen($this->sRepositoryPath.$this->sFileName, 'a'))
 			$sLog = '[BEGIN][OK] ACTION : CREATE FILE ['.$this->sFileName.'] - Entity : '.$this->sEntity;
 		else
 			$sLog = '[BEGIN][FAIL] ACTION : CREATE FILE ['.$this->sFileName.'] - Entity : '.$this->sEntity;
 
 		// Add the first export log and test if log file is in writting mode
-		if($this->bLogEnable && !fwrite($loghandle, $sLog."\n"))
+		if ($this->bLogEnable && !fwrite($loghandle, $sLog."\n"))
 		{
 			$this->bLogEnable = false;
 			$this->_errors[] = 'Error when writing in the log file : '.$sEntityLogFileName;
@@ -130,46 +134,46 @@ abstract class DataExtractorToXML
 		fwrite($handle, '<'.$this->sEntityRoot.' date="'.date('c').'">');
 
 		// Write File process
-		if($oResult)
+		if ($oResult)
 		{
 			while ($aEntity = DB::getInstance(_PS_USE_SQL_SLAVE_)->nextRow($oResult))
 			{
 				// Format entity data to xml
-				if($sContent = $this->formatEntityToXML($aEntity))
+				if ($sContent = $this->formatEntityToXML($aEntity))
 				{
 					$sLog = '[OK] ACTION : FORMAT - Entity : '.$this->sEntity;
-					if($this->bLogEnable)
+					if ($this->bLogEnable)
 						fwrite($loghandle, $sLog."\n");
 
 					// Write xml as string into file
-					if(fwrite($handle, str_replace(array("\n","\r"),' ',$sContent)."\n"))
+					if (fwrite($handle, str_replace(array("\n","\r"), ' ', $sContent)."\n"))
 					{
 						$sLog = '[OK] ACTION : WRITE - Entity : '.$this->sEntity;
 						$this->nbEntitiesTreated++;
 					}
 					else
-						$sLog = '[FAIL] ACTION : WRITE - Entity : '.$this->sEntity.' - '.join(',',$aEntity);
+						$sLog = '[FAIL] ACTION : WRITE - Entity : '.$this->sEntity.' - '.join(',', $aEntity);
 
-					if($this->bLogEnable)
+					if ($this->bLogEnable)
 						fwrite($loghandle, $sLog."\n");
 				}
 				else
 				{
-					$sLog = '[FAIL] ACTION : FORMAT - Entity : '.$this->sEntity.' - '.join(',',$aEntity);
+					$sLog = '[FAIL] ACTION : FORMAT - Entity : '.$this->sEntity.' - '.join(',', $aEntity);
 
-					if($this->bLogEnable)
+					if ($this->bLogEnable)
 						fwrite($loghandle, $sLog."\n");
 				}
 			}
 			$sLog  = '[DATA] NB ENTITIES CREATED : '.$this->nbEntities;
 
-			if($this->bLogEnable)
+			if ($this->bLogEnable)
 				fwrite($loghandle, $sLog."\n");
 		}
 		else
 		{
 			$sLog = '[FAIL] NO ENTITY TO EXPORT : '.$this->sEntity;
-			if($this->bLogEnable)
+			if ($this->bLogEnable)
 				fwrite($loghandle, $sLog."\n");
 		}
 
@@ -177,26 +181,26 @@ abstract class DataExtractorToXML
 		fwrite($handle, '</'.$this->sEntityRoot.'>');
 
 		// Close File
-		if(fclose($handle))
+		if (fclose($handle))
 			$sLog = '[OK] ACTION : CLOSE FILE ['.$this->sFileName.'] - Entity : '.$this->sEntity;
 		else
 			$sLog = '[FAIL] ACTION : CLOSE FILE ['.$this->sFileName.'] - Entity : '.$this->sEntity;
 
-		if($this->bLogEnable)
+		if ($this->bLogEnable)
 			fwrite($loghandle, $sLog."\n");
 
 		// Set the executino time
 		$this->execTime = number_format(microtime(true) - $this->execTime, 3, '.', '');
 		$sLog = '[END] [DATA] TOTAL EXPORT TIME ['.$this->sFileName.'] : '.$this->execTime.'s';
 
-		if($this->bLogEnable)
+		if ($this->bLogEnable)
 			fwrite($loghandle, $sLog."\n");
 
 		// Close log file handler
-		if($this->bLogEnable)
+		if ($this->bLogEnable)
 			fclose($loghandle);
 
-		if((int)$this->nbEntitiesTreated < (int)$this->nbEntities)
+		if ((int)$this->nbEntitiesTreated < (int)$this->nbEntities)
 			return false;
 		return true;
 	}
@@ -206,7 +210,10 @@ abstract class DataExtractorToXML
 	  *
 	  * @return Object SQL Result
 	  */
-	public function getEntities(){}
+	public function getEntities()
+    {
+
+    }
 
 
 	/**
@@ -234,7 +241,10 @@ abstract class DataExtractorToXML
 	  *
 	  * @param array $aEntity Entity data
 	  */
-	public function formatEntityToXML($aEntity){}
+	public function formatEntityToXML($aEntity)
+    {
+
+    }
 
 
 	/**
@@ -244,7 +254,7 @@ abstract class DataExtractorToXML
 	  */
 	public function getExecTime()
 	{
-		return 	$this->execTime;
+		return $this->execTime;
 	}
 
 	/**
@@ -263,9 +273,9 @@ abstract class DataExtractorToXML
 	*/
 	public function getActiveShopIds()
 	{
-		$moduleName='prediggo';
-		$shopIDs= Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in 
-		(SELECT id_module FROM `'._DB_PREFIX_.'module` WHERE name = "'.$moduleName.'" )' , true);
+		$moduleName = 'prediggo';
+		$shopIDs = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop` where id_module in
+		(SELECT id_module FROM `'._DB_PREFIX_.'module` WHERE name = "'.$moduleName.'" )', true);
 		
 		//foreach ($shopIDs as $row)
 		//{

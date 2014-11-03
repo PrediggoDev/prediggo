@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -35,12 +34,13 @@ class ProductExtractorToXML extends DataExtractorToXML
 	/** @var array List of Prediggo configuration by shop */
 	private $aPrediggoConfigs;
 
-	/**
-	  * Initialise the object variables
-	  *
-	  * @param string $sRepositoryPath path of the XML repository
-	  * @param array $params Specific parameters of the object
-	  */
+    /**
+     * Initialise the object variables
+     *
+     * @param string $sRepositoryPath path of the XML repository
+     * @param array $params Specific parameters of the object
+     * @param $bLogEnable
+     */
 	public function __construct($sRepositoryPath, $params, $bLogEnable)
 	{
 		$this->sRepositoryPath 	= $sRepositoryPath;
@@ -65,20 +65,18 @@ class ProductExtractorToXML extends DataExtractorToXML
 	  */
 	public function getEntities()
 	{
-	
 		//get active shops
-		$shopIDs= $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in 
+		$shopIDs = $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in
 		
 		$whereShopIds = '';
-		foreach ($shopIDs as $row) //
-		{
+		foreach ($shopIDs as $row)
 			$whereShopIds .= (int)$row['id_shop'].',';
-		}
+
 		
 		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT p.`id_product`, ps.`id_shop`
 		FROM `'._DB_PREFIX_.'product` p
-		INNER JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.`id_product` = p.`id_product` AND ps.`id_shop` IN ('.substr($whereShopIds, 0, -1).') )
+		INNER JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.`id_product` = p.`id_product` AND ps.`id_shop` IN ('.Tools::substr($whereShopIds, 0, -1).') )
 		ORDER BY p.`id_product` ASC', false);
 		
 		/**
@@ -90,11 +88,12 @@ class ProductExtractorToXML extends DataExtractorToXML
 		*/
 	}
 
-	/**
-	  * Convert the entities data into an xml object and return the xml object as a string
-	  *
-	  * @param array $aEntity Entity data
-	  */
+    /**
+     * Convert the entities data into an xml object and return the xml object as a string
+     *
+     * @param array $aEntity Entity data
+     * @return string|void
+     */
 	public function formatEntityToXML($aEntity)
 	{
 		$sReturn = '';
@@ -106,9 +105,9 @@ class ProductExtractorToXML extends DataExtractorToXML
 		$oDispatcher = Dispatcher::getInstance();
 		
 		// Force the dispatcher to use custom routes because the use of custom routes is disabled in the BO Context 
-		foreach($oDispatcher->default_routes as $route_id => $route_data)
-			if($custom_route = Configuration::get('PS_ROUTE_'.$route_id))
-				foreach(Language::getLanguages() as $lang)
+		foreach ($oDispatcher->default_routes as $route_id => $route_data)
+			if ($custom_route = Configuration::get('PS_ROUTE_'.$route_id))
+				foreach (Language::getLanguages() as $lang)
 					$oDispatcher->addRoute(
 						$route_id,
 						$custom_route,
@@ -124,30 +123,30 @@ class ProductExtractorToXML extends DataExtractorToXML
 
 		$oProduct = new Product((int)$aEntity['id_product'], true, null, (int)$aEntity['id_shop'], $oPrediggoConfig->getContext());
 
-        if((int)$oPrediggoConfig->export_product_active == 1)
+        if ((int)$oPrediggoConfig->export_product_active == 1)
         {
-            if($oProduct->active){
+            if ($oProduct->active)
                 $bActive = true;
-            }else{
+            else
                 $bActive = false;
-            }
-        }else{
+        }
+        else
             $bActive = true;
-        }
 
-        if((int)$oPrediggoConfig->export_product_price == 1)
+
+        if ((int)$oPrediggoConfig->export_product_price == 1)
         {
-            if($oProduct->price == 0){
+            if ($oProduct->price == 0)
                 $bPrice = true;
-            }else{
+            else
                 $bPrice = false;
-            }
-        }else{
-            $bPrice = false;
         }
+        else
+            $bPrice = false;
 
 
-		if((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity or !$bActive or $bPrice)
+
+		if ((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity || !$bActive || $bPrice)
 		{
 			$this->nbEntitiesTreated--;
 			$this->nbEntities--;
@@ -157,14 +156,14 @@ class ProductExtractorToXML extends DataExtractorToXML
 
 		
 		// Force the shop of the context regarding the shop of the product for the getParentsCategories function
-		if((int)Context::getContext()->shop->id != (int)$aEntity['id_shop'])
+		if ((int)Context::getContext()->shop->id != (int)$aEntity['id_shop'])
 			Context::getContext()->shop = $oPrediggoConfig->getContext();
 
 		$ps_tax = (int)Configuration::get('PS_TAX');
 
-		foreach($this->aLanguages as $aLanguage)
+		foreach ($this->aLanguages as $aLanguage)
 		{
-			if(!isset($aLanguage['shops'][(int)$aEntity['id_shop']]))
+			if (!isset($aLanguage['shops'][(int)$aEntity['id_shop']]))
 				continue;
 			
 			$id_lang = (int)$aLanguage['id_lang'];
@@ -188,11 +187,11 @@ class ProductExtractorToXML extends DataExtractorToXML
 			$oCategory = new Category((int)$oProduct->id_category_default);
 			$aCategories = $oCategory->getParentsCategories($id_lang);
 
-			if(is_array($aCategories) && count($aCategories)>0)
-				foreach($aCategories as $aCategory)
+			if (is_array($aCategories) && count($aCategories) > 0)
+				foreach ($aCategories as $aCategory)
 				{
 					$oCategoryTmp = new Category((int)$aCategory['id_category'], $id_lang);
-					if(!empty($oCategoryTmp->name))
+					if (!empty($oCategoryTmp->name))
 					{
 						$genre = $dom->createElement('genre');
 						$genre->appendChild($dom->createCDATASection($oCategoryTmp->name));
@@ -204,7 +203,7 @@ class ProductExtractorToXML extends DataExtractorToXML
 			unset($aCategories);
 			unset($oCategory);
 
-			if(!empty($oProduct->ean13))
+			if (!empty($oProduct->ean13))
 			{
 				$ean = $dom->createElement('ean');
 				$ean->appendChild($dom->createCDATASection($oProduct->ean13));
@@ -214,16 +213,16 @@ class ProductExtractorToXML extends DataExtractorToXML
 			$price = $dom->createElement('price', number_format($oProduct->getPrice($ps_tax), 2, '.', ''));
 			$root->appendChild($price);
 
-			if(isset($oProduct->tags[$id_lang])
+			if (isset($oProduct->tags[$id_lang])
 			&& $aTags = $oProduct->tags[$id_lang])
 			{
 				$tag = $dom->createElement('tag');
-				$tag->appendChild($dom->createCDATASection(join(',',$aTags)));
+				$tag->appendChild($dom->createCDATASection(join(',', $aTags)));
 				$root->appendChild($tag);
 			}
 
 			$sDesc = trim(strip_tags($oProduct->description[$id_lang]));
-			if($oPrediggoConfig->export_product_description
+			if ($oPrediggoConfig->export_product_description
 			&& !empty($sDesc))
 			{
 				$description = $dom->createElement('description');
@@ -231,16 +230,16 @@ class ProductExtractorToXML extends DataExtractorToXML
 				$root->appendChild($description);
 			}
 
-			if(!empty($oProduct->id_manufacturer))
+			if (!empty($oProduct->id_manufacturer))
 			{
 				$supplierid = $dom->createElement('supplierid', (int)$oProduct->id_manufacturer);
 				$root->appendChild($supplierid);
 			}
 
-			$recommendable = $dom->createElement('recommendable', in_array((int)$oProduct->id, explode(',',$oPrediggoConfig->products_ids_not_recommendable))?'false':'true');
+			$recommendable = $dom->createElement('recommendable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_recommendable))?'false':'true');
 			$root->appendChild($recommendable);
 
-			$searchable = $dom->createElement('searchable', in_array((int)$oProduct->id, explode(',',$oPrediggoConfig->products_ids_not_searchable))?'false':'true');
+			$searchable = $dom->createElement('searchable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_searchable))?'false':'true');
 			$root->appendChild($searchable);
 
 			// Set product URL
@@ -251,7 +250,7 @@ class ProductExtractorToXML extends DataExtractorToXML
 			$attribute->appendChild($attName);
 
 			$attValue = $dom->createElement('attValue');
-			$attValue->appendChild($dom->createCDATASection($link->getProductLink((int)$oProduct->id, $oProduct->link_rewrite[$id_lang], Category::getLinkRewrite((int)$oProduct->id_category_default, $id_lang), NULL, $id_lang, (int)$aEntity['id_shop'], 0, $bUseRoutes)));
+			$attValue->appendChild($dom->createCDATASection($link->getProductLink((int)$oProduct->id, $oProduct->link_rewrite[$id_lang], Category::getLinkRewrite((int)$oProduct->id_category_default, $id_lang), null, $id_lang, (int)$aEntity['id_shop'], 0, $bUseRoutes)));
 			$attribute->appendChild($attValue);
 
             // Set product Quantity
@@ -265,7 +264,7 @@ class ProductExtractorToXML extends DataExtractorToXML
             $attribute->appendChild($attValue);
 
 			// Set product picture
-			if($oPrediggoConfig->export_product_image)
+			if ($oPrediggoConfig->export_product_image)
 			{
 				$attribute = $dom->createElement('attribute');
 				$root->appendChild($attribute);
@@ -281,11 +280,11 @@ class ProductExtractorToXML extends DataExtractorToXML
 
 			// Set combinations
 			$aProductCombinations = Product::getAttributesInformationsByProduct((int)$oProduct->id);
-			if(sizeof($aProductCombinations))
-				foreach($aProductCombinations as $aProductCombination)
+			if (count($aProductCombinations))
+				foreach ($aProductCombinations as $aProductCombination)
 				{
-					if(!empty($oPrediggoConfig->attributes_groups_ids)
-					&& in_array((int)$aProductCombination['id_attribute_group'], explode(',',$oPrediggoConfig->attributes_groups_ids)))
+					if (!empty($oPrediggoConfig->attributes_groups_ids)
+					&& in_array((int)$aProductCombination['id_attribute_group'], explode(',', $oPrediggoConfig->attributes_groups_ids)))
 					{
 						$attribute = $dom->createElement('attribute');
 						$root->appendChild($attribute);
@@ -303,11 +302,11 @@ class ProductExtractorToXML extends DataExtractorToXML
 
 			// Set features
 			$aProductFeatures = $oProduct->getFrontFeatures($id_lang);
-			if(sizeof($aProductFeatures))
-				foreach($aProductFeatures as $aProductFeature)
+			if (count($aProductFeatures))
+				foreach ($aProductFeatures as $aProductFeature)
 				{
-					if(!empty($oPrediggoConfig->features_ids)
-					&& in_array((int)$aProductFeature['id_feature'], explode(',',$oPrediggoConfig->features_ids)))
+					if (!empty($oPrediggoConfig->features_ids)
+					&& in_array((int)$aProductFeature['id_feature'], explode(',', $oPrediggoConfig->features_ids)))
 					{
 						$attribute = $dom->createElement('attribute');
 						$root->appendChild($attribute);
@@ -324,8 +323,8 @@ class ProductExtractorToXML extends DataExtractorToXML
 			unset($aProductFeatures);
 
 			$aAccessories = Product::getAccessoriesLight($id_lang, (int)$oProduct->id);
-			if(sizeof($aAccessories))
-				foreach($aAccessories as $aAccessory)
+			if (count($aAccessories))
+				foreach ($aAccessories as $aAccessory)
 				{
 					$attribute = $dom->createElement('attribute');
 					$root->appendChild($attribute);

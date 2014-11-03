@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -30,7 +29,7 @@ require_once(dirname(__FILE__).'/../../../init.php');
 require_once(dirname(__FILE__).'/../prediggo.php');
 
 
-// Launch a Prediggo Notification
+/* Launch a Prediggo Notification */
 if (Tools::getValue('nId'))
 {
 	$oPrediggo = new Prediggo();
@@ -42,7 +41,7 @@ if (Tools::getValue('nId'))
 	die(Tools::jsonEncode($oPrediggo->setProductNotification($params)));
 }
 
-// Launch a Prediggo Autocomplete action
+/* Launch a Prediggo Autocomplete action */
 if (Tools::getValue('q'))
 {
 	require_once(dirname(__FILE__).'/../controllers/front/search.php');
@@ -56,8 +55,8 @@ if (Tools::getValue('q'))
 	die(Tools::jsonEncode($aResult));
 }
 
-// Launch a Prediggo Recommendations for the blocklayered module
-if(Tools::getValue('id_category_layered'))
+/* Launch a Prediggo Recommendations for the blocklayered module */
+if (Tools::getValue('id_category_layered'))
 {
 	$oPrediggo = new Prediggo();
 

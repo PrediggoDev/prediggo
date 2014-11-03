@@ -1,5 +1,5 @@
 {*
-* 2007-2013 PrestaShop
+* 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2013 PrestaShop SA
+*  @copyright  2007-2014 PrestaShop SA
 *  @version  Release: $Revision$
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
@@ -44,7 +44,7 @@
 			<p>
 				{if isset($search_query) AND $search_query}<input type="hidden" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'}" />{/if}
 				{if isset($tag) AND $tag AND !is_array($tag)}<input type="hidden" name="tag" value="{$tag|escape:'htmlall':'UTF-8'}" />{/if}
-				<label for="nb_item{if isset($paginationId)}_{$paginationId}{/if}">{l s='Show'}</label>
+				<label for="nb_item{if isset($paginationId)}_{$paginationId}{/if}">{l s='Show' mod='prediggo'}</label>
 				{if is_array($requestNb)}
 					{foreach from=$requestNb item=requestValue key=requestKey}
 						{if $requestKey != 'requestUrl'}
@@ -61,7 +61,7 @@
 					{assign var="lastnValue" value=$nValue}
 				{/foreach}
 				</select>
-				<span>{l s='Products by page'}</span>
+				<span>{l s='Products by page' mod='prediggo'}</span>
 			</p>
 		</form>
 	{/if}

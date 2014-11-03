@@ -1,5 +1,5 @@
 {*
-* 2007-2013 PrestaShop
+* 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2013 PrestaShop SA
+*  @copyright  2007-2014 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
@@ -42,16 +42,15 @@
 {l s='15' mod='prediggo'}
 {l s='16' mod='prediggo'}
 {l s='17' mod='prediggo'}
-
 *}
 
 <form id="productsSortForm{if isset($aSortingOptions)}{/if}" action="{$request|escape:'htmlall':'UTF-8'}" class="productsSortForm">
     <p class="select">
-        <label for="selectPrductSort{if isset($aSortingOptions)}{/if}">{l s='Sort by'}</label>
-        <select id="selectPrductSort{if isset($aSortingOptions)}{/if}" class="selectProductSort" onChange="location = this.options[this.selectedIndex].value;">
-            <option value="{$orderbydefault|escape:'htmlall':'UTF-8'}:{$orderwaydefault|escape:'htmlall':'UTF-8'}" {if $orderby eq $orderbydefault}selected="selected"{/if}>{l s='--'}</option>
+        <label for="selectProductSortPre{if isset($aSortingOptions)}{/if}">{l s='Sort By' mod="prediggo"}</label>
+        <select id="selectProductSortPre{if isset($aSortingOptions)}{/if}" class="selectProductSortPre" onChange="location = this.options[this.selectedIndex].value;">
+            <option id="test" value="{$orderbydefault|escape:'htmlall':'UTF-8'}:{$orderwaydefault|escape:'htmlall':'UTF-8'}" {if $orderby eq $orderbydefault}selected="selected"{/if}>{l s='--' mod='prediggo'}</option>
             {foreach from=$aSortingOptions item="oSortingOptions"}
-            <option value="?q={$sPrediggoQuery}&refineOption={$oSortingOptions->getSearchRefiningOption()}{if !$bRewriteEnabled}&fc=module&module=prediggo&controller=search{/if}" >{l s=$oSortingOptions->getClause() mod='prediggo'}</option>
+                <option value="?q={$sPrediggoQuery}&refineOption={$oSortingOptions->getSearchRefiningOption()}{if !$bRewriteEnabled}&fc=module&module=prediggo&controller=search{/if}" >{l s=$oSortingOptions->getClause() mod='prediggo'}</option>
             {/foreach}
         </select>
     </p>

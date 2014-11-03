@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -57,10 +56,10 @@ class HtpasswdGenerator
 	  */
 	public function generate()
 	{
-		if(!empty($this->sUser)
+		if (!empty($this->sUser)
 		&& !empty($this->sPwd))
 		{
-			if($this->enable())
+			if ($this->enable())
 				return array(
 					'user' =>  $this->sUser,
 					'pwd' =>  $this->sPwd
@@ -68,7 +67,7 @@ class HtpasswdGenerator
 		}
 		else
 		{
-			if($this->disable())
+			if ($this->disable())
 				return array(
 					'user' =>  '',
 					'pwd' =>  ''
@@ -96,7 +95,7 @@ class HtpasswdGenerator
 	  */
 	public function enable()
 	{
-		return(	$this->generateHtaccess()
+		return ($this->generateHtaccess()
 				&& $this->generateHtpasswd());
 
 	}
@@ -108,14 +107,14 @@ class HtpasswdGenerator
 	  */
 	private function generateHtaccess()
 	{
-		if($handle = fopen($this->sRepositoryPath.'.htaccess', 'w'))
+		if ($handle = fopen($this->sRepositoryPath.'.htaccess', 'w'))
 		{
 			$sContent = 'AuthUserFile '.$this->sRepositoryPath.'.htpasswd'."\n".
 						'AuthName "Restricted Access"'."\n".
 						'AuthType Basic'."\n".
 						'Require valid-user'."\n";
 
-			if(!fwrite($handle, $sContent))
+			if (!fwrite($handle, $sContent))
 				return false;
 			fclose($handle);
 			return true;
@@ -131,9 +130,9 @@ class HtpasswdGenerator
 	  */
 	private function generateHtpasswd()
 	{
-		if($handle = fopen($this->sRepositoryPath.'.htpasswd', 'w'))
+		if ($handle = fopen($this->sRepositoryPath.'.htpasswd', 'w'))
 		{
-			if(!fwrite($handle, $this->sUser.':'.crypt($this->sPwd)))
+			if (!fwrite($handle, $this->sUser.':'.crypt($this->sPwd)))
 				return false;
 			fclose($handle);
 			return true;

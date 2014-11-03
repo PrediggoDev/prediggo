@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -53,7 +52,7 @@ class DataExtractorController
     /**
      * Initialise the object variables
      *
-     * @param Prediggo $oModule Object Prediggo
+     * @param bool|\Prediggo $oModule Object Prediggo
      */
     public function __construct($oModule = false)
     {
@@ -62,7 +61,7 @@ class DataExtractorController
         $this->sRepositoryPath = _PS_MODULE_DIR_.'prediggo/xmlfiles/';
 
         // Set the module of the controller to get Content translations && set its errors / confirmations
-        if($oModule)
+        if ($oModule)
             $this->module = $oModule;
         else
         {
@@ -82,7 +81,7 @@ class DataExtractorController
     {
 		 // Addition of a secured token
 		// used to check Tools::getAdminTokenLite('AdminModules') but now use Tools::getAdminToken('DataExtractorController')
-        if(!Tools::getValue('token') || 
+        if (!Tools::getValue('token') ||
 		(Tools::getValue('token') != Tools::getAdminToken('DataExtractorController') && Tools::getValue('token') != Tools::getAdminTokenLite('AdminModules')))
 		{
 			//echo 'Exiting data extractor as identification token is not validated, your token:'.Tools::getValue('token').'admin token:'.Tools::getAdminTokenLite('AdminModules');
@@ -96,7 +95,7 @@ class DataExtractorController
 
         $aPrediggoConfigs = array();
         $oContext = Context::getContext();
-        foreach(Shop::getCompleteListOfShopsID() as $iIDShop)
+        foreach (Shop::getCompleteListOfShopsID() as $iIDShop)
         {
             $oContext->shop = new Shop((int)$iIDShop);
             $aPrediggoConfigs[(int)$iIDShop] = new PrediggoConfig($oContext);
@@ -106,11 +105,11 @@ class DataExtractorController
         $params = array(
             'aPrediggoConfigs' 	=> array(),
         );
-        foreach($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
-            if($oPrediggoConfig->customers_file_generation)
+        foreach ($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
+            if ($oPrediggoConfig->customers_file_generation)
                 $params['aPrediggoConfigs'][$iIDShop] = $oPrediggoConfig;
 
-        if(count($params['aPrediggoConfigs']))
+        if (count($params['aPrediggoConfigs']))
         {
             $oDataExtractor = new CustomerExtractorToXML($this->sRepositoryPath, $params, (int)$this->oPrediggoConfig->logs_generation);
             $this->lauchFileExport($oDataExtractor);
@@ -120,11 +119,11 @@ class DataExtractorController
         $params = array(
             'aPrediggoConfigs' 	=> array(),
         );
-        foreach($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
-            if($oPrediggoConfig->orders_file_generation)
+        foreach ($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
+            if ($oPrediggoConfig->orders_file_generation)
                 $params['aPrediggoConfigs'][$iIDShop] = $oPrediggoConfig;
 
-        if(count($params['aPrediggoConfigs']))
+        if (count($params['aPrediggoConfigs']))
         {
             $oDataExtractor = new OrderExtractorToXML($this->sRepositoryPath, $params, (int)$this->oPrediggoConfig->logs_generation);
             $this->lauchFileExport($oDataExtractor);
@@ -134,11 +133,11 @@ class DataExtractorController
         $params = array(
             'aPrediggoConfigs' 	=> array(),
         );
-        foreach($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
-            if($oPrediggoConfig->products_file_generation)
+        foreach ($aPrediggoConfigs as $iIDShop => $oPrediggoConfig)
+            if ($oPrediggoConfig->products_file_generation)
                 $params['aPrediggoConfigs'][$iIDShop] = $oPrediggoConfig;
 
-        if(count($params['aPrediggoConfigs']))
+        if (count($params['aPrediggoConfigs']))
         {
             $oDataExtractor = new ProductExtractorToXML($this->sRepositoryPath, $params, (int)$this->oPrediggoConfig->logs_generation);
             $this->lauchFileExport($oDataExtractor);
@@ -153,21 +152,21 @@ class DataExtractorController
     public function lauchFileExport($oDataExtractor)
     {
         $sEntity = $oDataExtractor->sEntity;
-        if(!$oDataExtractor->extract())
-            $this->module->_errors[] = ucfirst($sEntity).' '.$this->module->l(': An error occurred while creating the XML File', get_class($this));
+        if (!$oDataExtractor->extract())
+            $this->module->_errors[] = Tools::ucfirst($sEntity).' '.$this->module->l(': An error occurred while creating the XML File', get_class($this));
         $this->module->_errors = array_merge($oDataExtractor->_errors, $this->module->_errors);
-        $this->module->_confirmations[] = ucfirst($sEntity).' '.$this->module->l(': XML File created successfully : ', get_class($this)).$oDataExtractor->getXMLFileURL();
+        $this->module->_confirmations[] = Tools::ucfirst($sEntity).' '.$this->module->l(': XML File created successfully : ', get_class($this)).$oDataExtractor->getXMLFileURL();
 
         // Create Zip File
         $sXMLFilePath = $this->copyXmlFileToNewFile($oDataExtractor, $sEntity);
         $sZipFilePath = $this->sRepositoryPath.$oDataExtractor->sFileNameBase.'.zip';
-        if($this->zipXMLFile($sXMLFilePath, $sZipFilePath))
+        if ($this->zipXMLFile($sXMLFilePath, $sZipFilePath))
         {
-            $this->module->_confirmations[] = ucfirst($sEntity).' '.$this->module->l(': XML File has been successfully zipped to file : ', get_class($this)).Tools::getShopDomain(true).str_replace(_PS_ROOT_DIR_.'/', __PS_BASE_URI__, $sZipFilePath);
-            $this->module->_confirmations[] = ucfirst($sEntity).' '.$this->module->l(': File export process lasts : ', get_class($this)).$oDataExtractor->execTime.'s'.$this->module->l(', Nb Entities Treated : ', get_class($this)).$oDataExtractor->nbEntitiesTreated.'/'.$oDataExtractor->nbEntities;
+            $this->module->_confirmations[] = Tools::ucfirst($sEntity).' '.$this->module->l(': XML File has been successfully zipped to file : ', get_class($this)).Tools::getShopDomain(true).str_replace(_PS_ROOT_DIR_.'/', __PS_BASE_URI__, $sZipFilePath);
+            $this->module->_confirmations[] = Tools::ucfirst($sEntity).' '.$this->module->l(': File export process lasts : ', get_class($this)).$oDataExtractor->execTime.'s'.$this->module->l(', Nb Entities Treated : ', get_class($this)).$oDataExtractor->nbEntitiesTreated.'/'.$oDataExtractor->nbEntities;
         }
         else
-            $this->module->_errors[] = ucfirst($sEntity).' '.$this->module->l(': An error occurred while zipping the File', get_class($this));
+            $this->module->_errors[] = Tools::ucfirst($sEntity).' '.$this->module->l(': An error occurred while zipping the File', get_class($this));
     }
 
     /**
@@ -182,7 +181,7 @@ class DataExtractorController
         //copy xml file to a file without date information
         $sXMLFilePath = $oDataExtractor->getXMLFilePath();
         $sNewXMLFilePath = $oDataExtractor->sRepositoryPath.$oDataExtractor->sFileNameBase.'.xml';
-        if(copy($sXMLFilePath, $sNewXMLFilePath))
+        if (copy($sXMLFilePath, $sNewXMLFilePath))
             return $sNewXMLFilePath;
     }
 

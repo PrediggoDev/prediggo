@@ -16,7 +16,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author Prediggo SA <info@prediggo.com> / CeboWeb <dev@ceboweb.com>
-*  @copyright  2008-2012 Prediggo SA
+*  @copyright  2008-2014 Prediggo SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of Prediggo SA
 *}

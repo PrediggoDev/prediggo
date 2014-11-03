@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -102,7 +101,7 @@ class Prediggo extends Module
 	 */
 	public function install()
 	{
-		return 	($this->oPrediggoConfig->install()
+		return ($this->oPrediggoConfig->install()
 				&& parent::install()
 				&& $this->registerAllHooks()
 		);
@@ -114,7 +113,7 @@ class Prediggo extends Module
 	 */
 	public function registerAllHooks()
 	{
-		return 	($this->registerHook('displayTop')
+		return ($this->registerHook('displayTop')
 				&& $this->registerHook('displayHeader')
 				&& $this->registerHook('displayLeftColumn')
 				&& $this->registerHook('displayRightColumn')
@@ -148,32 +147,32 @@ class Prediggo extends Module
 				&& parent::uninstall()
 		);
 	}
-	
 
-	/**
-	 * Hook Header : Add Media CSS & JS
-	 *
-	 * @param array $params list of specific data
-	 */
+
+    /**
+     * Hook Header : Add Media CSS & JS
+     *
+     * @param array $params list of specific data
+     * @return bool
+     */
 	public function hookDisplayHeader($params)
 	{
-	
 		if (!isset($params['cookie']->id_guest))
 			Guest::setNewGuest($params['cookie']);
 
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 		
 		
 		//add the js for the autocomplete but also the notify
-		if($this->oPrediggoCallController->isPageAccessible())
+		if ($this->oPrediggoCallController->isPageAccessible())
 		{
 			$this->context->controller->addJS(array(
 				($this->_path).'js/front/'.($this->name).'.js'));
 		}
 
 		// Check if prediggo module can be executed in this page
-		if($this->oPrediggoCallController->isPageAccessible()
+		if ($this->oPrediggoCallController->isPageAccessible()
 		|| $this->oPrediggoCallController->getPageName() == 'prediggo_search'
 		|| $this->oPrediggoConfig->search_active)
 		{
@@ -185,12 +184,13 @@ class Prediggo extends Module
 		}
 	}
 
-	/**
-	 * Hook Home : Display the recommendations
-	 *
-	 * @param array $params list of specific data
+    /**
+     * Hook Home : Display the recommendations
+     *
+     * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
-	 */
+     */
 	public function hookDisplayHome($params)
 	{
 		//this is usefull to register all the hooks again
@@ -198,38 +198,38 @@ class Prediggo extends Module
 		
 		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY HOME PAGE<br>';
-		return $this->displayRecommendationsWithDynamicTemplate('displayHome', $params).$this->displaySearchBlock($params);
+		return $this->displayRecommendationsWithDynamicTemplate('displayHome', $params);
 	}
-	
-	/**
-	 * Hook Right Column : Display the recommendations
-	 *
-	 * @param array $params list of specific data
+
+    /**
+     * Hook Right Column : Display the recommendations
+     *
+     * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
-	 */
+     */
 	public function hookDisplayRightColumn($params)
 	{
 		//echo '<BR><BR>DISPLAY RIGHT COLUMN - page name '.$this->oPrediggoCallController->getPageName().'<br>';
 		//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
-		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName)==0)
-		{
+		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
-		}
-		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName)==0)
-		{
+
+		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
-		}
+
 		
 		// Get list of recommendations
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
 	}
-	
-	/**
-	 * Hook Left Column : Display the recommendations
-	 *
-	 * @param array $params list of specific data
+
+    /**
+     * Hook Left Column : Display the recommendations
+     *
+     * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
-	 */
+     */
 	public function hookDisplayLeftColumn($params)
 	{
 		// Get list of recommendations
@@ -237,65 +237,63 @@ class Prediggo extends Module
 		//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
 
 
-		if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->categoryPageName)==0)
-		{
+		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
-		}
-		else if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->manufacturerPageName)==0)
-		{
+
+		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
-		}
-		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params).$this->displaySearchBlock($params);
+
+		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
 	}
-	/**
-	 * Hook Top : Display the prediggo search block
-	 *
-	 * @param array $params list of specific data
-	 */
+
+    /**
+     * Hook Top : Display the prediggo search block
+     *
+     * @param array $params list of specific data
+     * @return string
+     */
 	public function hookDisplayTop($params)
 	{
 		//echo '<BR><BR>DISPLAY TOP<br>';
 		//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
-		if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->categoryPageName)==0)
-		{
-			return $this->displayRecommendationsWithDynamicTemplate('displayTop'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params).$this->displaySearchBlock($params);
-		}
-		else if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->manufacturerPageName)==0)
-		{
-			return $this->displayRecommendationsWithDynamicTemplate('displayTop'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params).$this->displaySearchBlock($params);
-		}
+		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName) == 0)
+			return $this->displayRecommendationsWithDynamicTemplate('displayTop'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
+
+		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
+			return $this->displayRecommendationsWithDynamicTemplate('displayTop'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
+
         //$this->displaySearchBlock($params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
 		return $this->displayRecommendationsWithDynamicTemplate('displayTop', $params).$this->displaySearchBlock($params);
 	}
-	
-	/**
-	 * Hook Footer : Display the recommendations
-	 *
-	 * @param array $params list of specific data
+
+    /**
+     * Hook Footer : Display the recommendations
+     *
+     * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
-	 */
+     */
 	public function hookDisplayFooter($params)
 	{
 	//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
-		if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->categoryPageName)==0)
-		{
+		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
-		}
-		else if (strcmp ($this->oPrediggoCallController->getPageName(),$this->oPrediggoConfig->manufacturerPageName)==0)
-		{
+
+		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
-		}
+
 		//echo '<BR><BR>DISPLAY FOOTER<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayFooter', $params);
 	}
 
 
-	/**
-	 * Hook Left Column Product : Display the recommendations
-	 *
-	 * @param array $params list of specific data
+    /**
+     * Hook Left Column Product : Display the recommendations
+     *
+     * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
-	 */
+     */
 	public function hookDisplayLeftColumnProduct($params)
 	{
 		// Get list of recommendations
@@ -307,6 +305,7 @@ class Prediggo extends Module
      * Hook Right Column Product : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayRightColumnProduct($params)
@@ -316,10 +315,11 @@ class Prediggo extends Module
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumnProduct', $params);
     }
 
-	/**
+    /**
      * Hook Product Tab : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayProductTab($params)
@@ -328,11 +328,12 @@ class Prediggo extends Module
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumnProduct', $params);
     }
 
-	
+
     /**
      * Hook Shopping Cart Footer : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayShoppingCartFooter($params)
@@ -346,6 +347,7 @@ class Prediggo extends Module
      * Hook Shopping Cart : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayShoppingCart($params)
@@ -359,6 +361,7 @@ class Prediggo extends Module
      * Hook Order Detail : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayOrderDetail($params)
@@ -372,6 +375,7 @@ class Prediggo extends Module
      * Hook Before Carrier : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayBeforeCarrier($params)
@@ -385,6 +389,7 @@ class Prediggo extends Module
      * Hook Carrier List : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayCarrierList($params)
@@ -392,11 +397,12 @@ class Prediggo extends Module
 		//echo '<BR><BR>DISPLAY displayCarrierList<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayCarrierList', $params);
     }
-	
-	/**
+
+    /**
      * Hook Carrier List : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayOrderConfirmation($params)
@@ -409,6 +415,7 @@ class Prediggo extends Module
      * Hook Customer Account : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayCustomerAccount($params)
@@ -422,6 +429,7 @@ class Prediggo extends Module
      * Hook Customer Account : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayMyAccountBlock($params)
@@ -435,6 +443,7 @@ class Prediggo extends Module
      * Hook Customer Account : Display the recommendations
      *
      * @param array $params list of specific data
+     * @return string
      * @int int to choose your Variant ID
      */
     public function hookDisplayMyAccountBlockfooter($params)
@@ -444,68 +453,69 @@ class Prediggo extends Module
         return $this->displayRecommendationsWithDynamicTemplate('displayMyAccountBlockfooter', $params);
     }
 
-	/**
-	 * Hook Authentication : Notify prediggo that the user is authenticated
-	 *
-	 * @param array $params list of specific data
-	 */
+    /**
+     * Hook Authentication : Notify prediggo that the user is authenticated
+     *
+     * @param array $params list of specific data
+     * @return bool
+     */
 	public function hookActionAuthentication($params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 		$params['customer'] = $this->context->customer;
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-	/**
-	 * Hook Payment Top : Notify prediggo that the user is authenticated
-	 *
-	 * @param array $params list of specific data
-	 */
+    /**
+     * Hook Payment Top : Notify prediggo that the user is authenticated
+     *
+     * @param array $params list of specific data
+     * @return bool
+     */
 	public function hookDisplayPaymentTop($params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$params['customer'] = $this->context->customer;
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-	/**
-	 * Hook Create Account : Notify prediggo that the user is authenticated
-	 *
-	 * @param array $params list of specific data
-	 */
+    /**
+     * Hook Create Account : Notify prediggo that the user is authenticated
+     *
+     * @param array $params list of specific data
+     * @return bool
+     */
 	public function hookActionCustomerAccountAdd($params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 		$params['customer'] = $this->context->customer;
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-	/**
-	 * Display the recommendations by hook using dynamic templates
-	 *
-	 * @param string $sHookName Hook Name
-	 * @param array $params list of specific data
-     * @param int $iVariantId Id of the Variant
-	 * @return string Html
-	 */
+    /**
+     * Display the recommendations by hook using dynamic templates
+     *
+     * @param string $sHookName Hook Name
+     * @param array $params list of specific data
+     * @internal param int $iVariantId Id of the Variant
+     * @return string Html
+     */
 	private function displayRecommendationsWithDynamicTemplate($sHookName, $params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$params['customer'] = $this->context->customer;
 		
 		$this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendationsWithDynamicTemplate($sHookName, $params);
 
-		if(!$this->aRecommendations[$sHookName] || count($this->aRecommendations[$sHookName])==0 || count($this->aRecommendations[$sHookName][0])==0)
-		{
-			//echo 'Call done BUT NO RESULTS FOUND<br>';
+		if (!$this->aRecommendations[$sHookName] || count($this->aRecommendations[$sHookName]) == 0 || count($this->aRecommendations[$sHookName][0]) == 0)
 			return false;
-		}
+
 		
 		// Display Main Configuration management
 		$this->smarty->assign(array(
@@ -531,13 +541,13 @@ class Prediggo extends Module
     /**
 	private function displayRecommendations($sHookName, $params, $iVariantId)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$params['customer'] = $this->context->customer;
 		
 		$this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, $iVariantId);
-		if(!$this->aRecommendations[$sHookName])
+		if (!$this->aRecommendations[$sHookName])
 			return false;
 
 		// Display Main Configuration management
@@ -556,14 +566,15 @@ class Prediggo extends Module
 	}*/
 
 
-	/**
-	 * Hook Authentication : Notify prediggo that a recommendations has been clicked
-	 *
-	 * @param array $params list of specific data
-	 */
+    /**
+     * Hook Authentication : Notify prediggo that a recommendations has been clicked
+     *
+     * @param array $params list of specific data
+     * @return bool
+     */
 	public function setProductNotification($params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 		$params['customer'] = $this->context->customer;
 		$this->oPrediggoCallController->notifyPrediggo('product', $params);
@@ -577,7 +588,7 @@ class Prediggo extends Module
 	 */
 	private function displaySearchFilterBlock($params)
 	{
-		if($this->oPrediggoConfig->web_site_id_checked
+		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->layered_navigation_active)
             $template = $this->oPrediggoConfig->search_filter_block_template_name;
 			return $this->display(__FILE__, $template);
@@ -591,7 +602,7 @@ class Prediggo extends Module
 	 */
 	private function displaySearchBlock($params)
 	{
-		if($this->oPrediggoConfig->web_site_id_checked
+		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active)
             $template = $this->oPrediggoConfig->search_0_template_name;
 			return $this->display(__FILE__, $template);
@@ -604,7 +615,7 @@ class Prediggo extends Module
 	 */
 	public function displayAutocompleteDidYouMean()
 	{
-		if($this->oPrediggoConfig->web_site_id_checked
+		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active
 		&& $this->oPrediggoConfig->autocompletion_active)
 		{
@@ -623,7 +634,7 @@ class Prediggo extends Module
 	 */
 	public function displayAutocompleteProduct()
 	{
-		if($this->oPrediggoConfig->web_site_id_checked
+		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active
 		&& $this->oPrediggoConfig->autocompletion_active)
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autop_template_name;
@@ -637,7 +648,7 @@ class Prediggo extends Module
      */
     public function displayAutocompleteAttributes()
     {
-        if($this->oPrediggoConfig->web_site_id_checked
+        if ($this->oPrediggoConfig->web_site_id_checked
             && $this->oPrediggoConfig->search_active
             && $this->oPrediggoConfig->autocompletion_active)
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autocat_template_name;
@@ -651,7 +662,7 @@ class Prediggo extends Module
 	 */
 	public function displayAutocompleteSuggest()
 	{
-		if($this->oPrediggoConfig->web_site_id_checked
+		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active
 		&& $this->oPrediggoConfig->autocompletion_active)
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autos_template_name;
@@ -666,7 +677,7 @@ class Prediggo extends Module
 	 */
 	public function getBlockLayeredRecommendations($params)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$sHookName = 'blocklayered';
@@ -675,7 +686,7 @@ class Prediggo extends Module
 		$params['customer'] = $this->context->customer;
 
         $this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, 0);
-		if(!$this->aRecommendations[$sHookName])
+		if (!$this->aRecommendations[$sHookName])
 			return false;
 
 		// Display Main Configuration management
@@ -692,10 +703,10 @@ class Prediggo extends Module
 		return $this->display(__FILE__, 'list_recommendations.tpl');
 	}
 
-    // Display the categories
-    public function displayCategories($params){
-
-        if(!$this->oPrediggoConfig->web_site_id_checked)
+    /* Display the categories */
+    public function displayCategories($params)
+    {
+        if (!$this->oPrediggoConfig->web_site_id_checked)
             return false;
 
         if (!$this->isCached('blockcategories.tpl', $this->getCacheId()))
@@ -759,7 +770,7 @@ class Prediggo extends Module
         return $display;
     }
 
-    //get cache ID
+    /* get cache ID */
     protected function getCacheId($name = null)
     {
         parent::getCacheId($name);
@@ -771,7 +782,7 @@ class Prediggo extends Module
         return 'blockcategories|'.(int)Tools::usingSecureMode().'|'.$this->context->shop->id.'|'.$groups.'|'.$id_lang.'|'.$id_product.'|'.$id_category;
     }
 
-    //get category tree
+    /* get category tree */
     public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0)
     {
         if (is_null($id_category))
@@ -847,9 +858,9 @@ class Prediggo extends Module
 		/* Analyze all the filters selected by the user and store them into a tab */
 		$selected_filters = array('category' => array(), 'manufacturer' => array(), 'quantity' => array(), 'condition' => array());
 		foreach ($_GET as $key => $value)
-			if (substr($key, 0, 8) == 'layered_')
+			if (Tools::substr($key, 0, 8) == 'layered_')
 			{
-				preg_match('/^(.*)_([0-9]+|new|used|refurbished|slider)$/', substr($key, 8, strlen($key) - 8), $res);
+				preg_match('/^(.*)_([0-9]+|new|used|refurbished|slider)$/', Tools::substr($key, 8, Tools::strlen($key) - 8), $res);
 				if (isset($res[1]))
 				{
 					$tmp_tab = explode('_', $value);
@@ -890,7 +901,7 @@ class Prediggo extends Module
 	public function getContent()
 	{
 		// Web site id verification for older version
-		if(!$this->oPrediggoConfig->web_site_id_checked
+		if (!$this->oPrediggoConfig->web_site_id_checked
 		&& !Configuration::hasKey('PREDIGGO_WEB_SITE_ID_CHECKED'))
 			$this->checkWebSiteId();
 
@@ -912,10 +923,10 @@ class Prediggo extends Module
 	private function checkWebSiteId()
 	{
 		$this->oPrediggoConfig->web_site_id_checked = (int)$this->oPrediggoCallController->checkWebSiteId();
-		if($this->oPrediggoConfig->web_site_id_checked == true)
+		if ($this->oPrediggoConfig->web_site_id_checked == true)
 			Configuration::updateValue('PREDIGGO_CONFIGURATION_OK', true);
 
-		if(!$this->oPrediggoConfig->save())
+		if (!$this->oPrediggoConfig->save())
 			$this->_errors[] = $this->l('An error occurred while updating the main configuration settings');
 	}
 
@@ -924,26 +935,26 @@ class Prediggo extends Module
 	 */
 	public function checkModuleConstraints()
 	{
-		if(!extension_loaded('dom'))
+		if (!extension_loaded('dom'))
 			$this->_errors[] = $this->l('Please activate the PHP extension "DOM" to allow the use of the module.');
 
-		if(!extension_loaded('curl'))
+		if (!extension_loaded('curl'))
 			$this->_errors[] = $this->l('Please activate the PHP extension "curl" to allow the use of the module.');
 
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			$this->_warnings[] = $this->l('Please update the field "Web Site ID", in the "Main Configuration" tab.');
 
 		// API can't be call if curl extension is not installed on PHP config.
-		if((int)ini_get('max_execution_time') < 3000)
+		if ((int)ini_get('max_execution_time') < 3000)
 			$this->_warnings[] = $this->l('Please update the PHP option "max_execution_time" to a minimum of "3000". (Current value : ').(int)ini_get('max_execution_time').$this->l(')');
 
-		if((int)ini_get('max_input_time') < 3000)
+		if ((int)ini_get('max_input_time') < 3000)
 			$this->_warnings[] = $this->l('Please update the PHP option "max_input_time" to a minimum of "3000". (Current value : ').(int)ini_get('max_input_time').$this->l(')');
 
-		if((int)ini_get('memory_limit') < 384)
+		if ((int)ini_get('memory_limit') < 384)
 			$this->_warnings[] = $this->l('Please update the PHP option "memory_limit" to a minimum of "384M". (Current value : ').ini_get('memory_limit').$this->l(')');
 
-		if((int)(Shop::isFeatureActive() && Shop::getContext() != Shop::CONTEXT_SHOP))
+		if ((int)(Shop::isFeatureActive() && Shop::getContext() != Shop::CONTEXT_SHOP))
 			$this->_warnings[] = $this->l('Please select a shop on the top block to configure the specific settings.');
 	}
 
@@ -957,12 +968,12 @@ class Prediggo extends Module
 	private function _postProcess()
 	{
 		// Set the main configuration
-		if(Tools::isSubmit('mainConfSubmit'))
+		if (Tools::isSubmit('mainConfSubmit'))
 		{
             $this->oPrediggoConfig->shop_name                           = Tools::safeOutput(Tools::getValue('shop_name'));
             $this->oPrediggoConfig->token_id         			        = Tools::safeOutput(Tools::getValue('token_id'));
             $this->oPrediggoConfig->gateway_profil_id                         = Tools::safeOutput(Tools::getValue('gateway_profil_id'));
-			if($this->oPrediggoConfig->save()){
+			if ($this->oPrediggoConfig->save()){
                 $this->checkServerCheck();
 				$this->_confirmations[] = $this->l('Main settings updated');
             }
@@ -972,12 +983,12 @@ class Prediggo extends Module
 		}
 
         // Set the server configuration
-        if(Tools::isSubmit('serverConfSubmit'))
+        if (Tools::isSubmit('serverConfSubmit'))
         {
             $this->oPrediggoConfig->web_site_id                         = Tools::safeOutput(Tools::getValue('web_site_id'));
             $this->oPrediggoConfig->server_url_recommendations 			= Tools::safeOutput(Tools::getValue('server_url_recommendations'));
 
-            if($this->oPrediggoConfig->save()) {
+            if ($this->oPrediggoConfig->save()) {
                 $this->checkWebSiteId();
                 $this->_confirmations[] = $this->l('Server settings updated');
             }
@@ -986,7 +997,7 @@ class Prediggo extends Module
         }
 
 		// Set the export configuration
-		if(Tools::isSubmit('exportConfSubmit'))
+		if (Tools::isSubmit('exportConfSubmit'))
 		{
 			$this->oPrediggoConfig->products_file_generation 			= Tools::safeOutput(Tools::getValue('products_file_generation'));
 			$this->oPrediggoConfig->orders_file_generation 				= Tools::safeOutput(Tools::getValue('orders_file_generation'));
@@ -998,18 +1009,18 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->export_product_min_quantity 		= Tools::safeOutput(Tools::getValue('export_product_min_quantity'));
 			$this->oPrediggoConfig->nb_days_order_valide 				= Tools::safeOutput(Tools::getValue('nb_days_order_valide'));
 			$this->oPrediggoConfig->nb_days_customer_last_visit_valide 	= Tools::safeOutput(Tools::getValue('nb_days_customer_last_visit_valide'));
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Export settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the export configuration settings');
 		}
 
 		// Set the export configuration
-		if(Tools::isSubmit('logsSubmit'))
+		if (Tools::isSubmit('logsSubmit'))
 		{
             $this->oPrediggoConfig->logs_generation 				= (int)Tools::safeOutput(Tools::getValue('logs_generation'));
 
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Logs settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the Logs configuration settings');
@@ -1018,20 +1029,19 @@ class Prediggo extends Module
 
 
 		// Launch the file export
-		if(Tools::isSubmit('manualExportSubmit')
-		&& !sizeof($this->_errors))
-		{
+		if (Tools::isSubmit('manualExportSubmit')
+		&& !count($this->_errors))
 			$this->oDataExtractorController->launchExport();
-		}
+
 
         // Launch the file Import
-        if(Tools::isSubmit('ClientConfigurationImportSubmit')
-            && !sizeof($this->_errors))
+        if (Tools::isSubmit('ClientConfigurationImportSubmit')
+            && !count($this->_errors))
         {
-            if($this->oPrediggoConfig->save()){
+            if ($this->oPrediggoConfig->save()){
                 $location = _PS_MODULE_DIR_.'prediggo/xmlfiles/import.sql';
                 $location2 = _PS_MODULE_DIR_.'prediggo/xmlfiles/import2.sql';
-                 if(copy($_FILES['Import']['tmp_name'],$location) and copy($_FILES['Import2']['tmp_name'],$location2)) {
+                 if (copy($_FILES['Import']['tmp_name'], $location) && copy($_FILES['Import2']['tmp_name'], $location2)) {
                      $this->oPrediggoCallController->import_client_config2();
                      $this->oPrediggoCallController->import_client_config();
                  }
@@ -1043,65 +1053,65 @@ class Prediggo extends Module
         }
 
         // Launch the configuration export
-        if(Tools::isSubmit('ClientConfigurationExportSubmit')
-            && !sizeof($this->_errors))
+        if (Tools::isSubmit('ClientConfigurationExportSubmit')
+            && !count($this->_errors))
         {
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->oPrediggoCallController->export_client_config();
             else
                 $this->_errors[] = $this->l('An error occurred while exporting the client configuration');
         }
 
 		// Set the export attributes
-		if(Tools::isSubmit('exportPrediggoAttributesSubmit'))
+		if (Tools::isSubmit('exportPrediggoAttributesSubmit'))
 		{
-			if(is_array(Tools::getValue('attributes_groups_ids')))
-				$this->oPrediggoConfig->attributes_groups_ids 	= Tools::safeOutput(join(',', array_map('intval',Tools::getValue('attributes_groups_ids'))));
+			if (is_array(Tools::getValue('attributes_groups_ids')))
+				$this->oPrediggoConfig->attributes_groups_ids = Tools::safeOutput(join(',', array_map('intval', Tools::getValue('attributes_groups_ids'))));
 
-			if(is_array(Tools::getValue('features_ids')))
-				$this->oPrediggoConfig->features_ids 	= Tools::safeOutput(join(',', array_map('intval',Tools::getValue('features_ids'))));
+			if (is_array(Tools::getValue('features_ids')))
+				$this->oPrediggoConfig->features_ids = Tools::safeOutput(join(',', array_map('intval', Tools::getValue('features_ids'))));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Product attributes settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the product attributes configuration settings');
 		}
 
 		// Set the black list of recommendations
-		if(Tools::isSubmit('exportNotRecoSubmit'))
+		if (Tools::isSubmit('exportNotRecoSubmit'))
 		{
-			$this->oPrediggoConfig->products_ids_not_recommendable = Tools::safeOutput(substr(Tools::getValue('input_products_ids_not_recommendable'), 0, -1));
+			$this->oPrediggoConfig->products_ids_not_recommendable = Tools::safeOutput(Tools::substr(Tools::getValue('input_products_ids_not_recommendable'), 0, -1));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Black list of recommendations updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the black list of recommendations');
 		}
 
 		// Set the black list of recommendations
-		if(Tools::isSubmit('exportNotSearchSubmit'))
+		if (Tools::isSubmit('exportNotSearchSubmit'))
 		{
-			$this->oPrediggoConfig->products_ids_not_searchable = Tools::safeOutput(substr(Tools::getValue('input_products_ids_not_searchable'), 0, -1));
+			$this->oPrediggoConfig->products_ids_not_searchable = Tools::safeOutput(Tools::substr(Tools::getValue('input_products_ids_not_searchable'), 0, -1));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Black list of searchs updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the black list of searchs');
 		}
 
 		// Set the protection configuration
-		if(Tools::isSubmit('exportProtectionConfSubmit'))
+		if (Tools::isSubmit('exportProtectionConfSubmit'))
 		{
-			if($aIds = $this->oDataExtractorController->setRepositoryProtection(Tools::getValue('htpasswd_user'), Tools::getValue('htpasswd_pwd')))
+			if ($aIds = $this->oDataExtractorController->setRepositoryProtection(Tools::getValue('htpasswd_user'), Tools::getValue('htpasswd_pwd')))
 			{
-				if(empty($aIds['user']))
+				if (empty($aIds['user']))
 					$this->_confirmations[] = $this->l('Protection has been disactivated');
 				else
 					$this->_confirmations[] = $this->l('Protection has been activated');
 
 				$this->oPrediggoConfig->htpasswd_user 	= Tools::safeOutput(Tools::getValue('htpasswd_user'));
 				$this->oPrediggoConfig->htpasswd_pwd 	= Tools::safeOutput(Tools::getValue('htpasswd_pwd'));
-				if($this->oPrediggoConfig->save())
+				if ($this->oPrediggoConfig->save())
 					$this->_confirmations[] = $this->l('Protection settings updated');
 				else
 					$this->_errors[] = $this->l('An error occurred while updating the protection configuration settings');
@@ -1111,227 +1121,227 @@ class Prediggo extends Module
 		}
 
 		// Set the recommendations main configuration
-		if(Tools::isSubmit('mainRecommendationConfSubmit'))
+		if (Tools::isSubmit('mainRecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->server_url_recommendations 	= Tools::safeOutput(Tools::getValue('server_url_recommendations'));
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Recommendations main configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration of recommendations settings');
 		}
 
         // Set the recommendations main configuration
-        if(Tools::isSubmit('registerAllHooks'))
+        if (Tools::isSubmit('registerAllHooks'))
         {
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->registerAllHooks();
             else
                 $this->_errors[] = $this->l('An error occurred while launching the register of all Hooks');
         }
 
         // Set the homepage recommendations block configuration
-        if(Tools::isSubmit('HookConfigurationSubmit'))
+        if (Tools::isSubmit('HookConfigurationSubmit'))
         {
-            $this->oPrediggoConfig->hook_left_column = (int)Tools::safeOutput(Tools::getValue('hook_left_column'));
-            $this->oPrediggoConfig->hook_right_column = (int)Tools::safeOutput(Tools::getValue('hook_right_column'));
-            $this->oPrediggoConfig->hook_footer = (int)Tools::safeOutput(Tools::getValue('hook_footer'));
-            $this->oPrediggoConfig->hook_home = (int)Tools::safeOutput(Tools::getValue('hook_home'));
-            $this->oPrediggoConfig->hook_footer_product = (int)Tools::safeOutput(Tools::getValue('hook_footer_product'));
-            $this->oPrediggoConfig->hook_left_column_product = (int)Tools::safeOutput(Tools::getValue('hook_left_column_product'));
-            $this->oPrediggoConfig->hook_right_column_product = (int)Tools::safeOutput(Tools::getValue('hook_right_column_product'));
-            $this->oPrediggoConfig->hook_shopping_cart_footer = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart_footer'));
-            $this->oPrediggoConfig->hook_shopping_cart = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart'));
-            $this->oPrediggoConfig->hook_product_comparison = (int)Tools::safeOutput(Tools::getValue('hook_product_comparison'));
-            $this->oPrediggoConfig->hook_order_detail = (int)Tools::safeOutput(Tools::getValue('hook_order_detail'));
-            $this->oPrediggoConfig->hook_product_tab = (int)Tools::safeOutput(Tools::getValue('hook_product_tab'));
-            $this->oPrediggoConfig->hook_before_carrier = (int)Tools::safeOutput(Tools::getValue('hook_before_carrier'));
-            $this->oPrediggoConfig->hook_carrier_list = (int)Tools::safeOutput(Tools::getValue('hook_carrier_list'));
+            $this->oPrediggoConfig->hook_left_column            = (int)Tools::safeOutput(Tools::getValue('hook_left_column'));
+            $this->oPrediggoConfig->hook_right_column           = (int)Tools::safeOutput(Tools::getValue('hook_right_column'));
+            $this->oPrediggoConfig->hook_footer                 = (int)Tools::safeOutput(Tools::getValue('hook_footer'));
+            $this->oPrediggoConfig->hook_home                   = (int)Tools::safeOutput(Tools::getValue('hook_home'));
+            $this->oPrediggoConfig->hook_footer_product         = (int)Tools::safeOutput(Tools::getValue('hook_footer_product'));
+            $this->oPrediggoConfig->hook_left_column_product    = (int)Tools::safeOutput(Tools::getValue('hook_left_column_product'));
+            $this->oPrediggoConfig->hook_right_column_product   = (int)Tools::safeOutput(Tools::getValue('hook_right_column_product'));
+            $this->oPrediggoConfig->hook_shopping_cart_footer   = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart_footer'));
+            $this->oPrediggoConfig->hook_shopping_cart          = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart'));
+            $this->oPrediggoConfig->hook_product_comparison     = (int)Tools::safeOutput(Tools::getValue('hook_product_comparison'));
+            $this->oPrediggoConfig->hook_order_detail           = (int)Tools::safeOutput(Tools::getValue('hook_order_detail'));
+            $this->oPrediggoConfig->hook_product_tab            = (int)Tools::safeOutput(Tools::getValue('hook_product_tab'));
+            $this->oPrediggoConfig->hook_before_carrier         = (int)Tools::safeOutput(Tools::getValue('hook_before_carrier'));
+            $this->oPrediggoConfig->hook_carrier_list           = (int)Tools::safeOutput(Tools::getValue('hook_carrier_list'));
 
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->_confirmations[] = $this->l('Hook configuration settings updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the hook configuration settings');
         }
 
 		// Set the homepage recommendations block configuration
-		if(Tools::isSubmit('exportHome0RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportHome0RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->home_0_activated 	= Tools::safeOutput(Tools::getValue('home_0_activated'));
+			$this->oPrediggoConfig->home_0_activated 	        = Tools::safeOutput(Tools::getValue('home_0_activated'));
 
 			$this->oPrediggoConfig->home_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('home_0_nb_items'));
 			
-			$this->oPrediggoConfig->home_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('home_0_variant_id'));
+			$this->oPrediggoConfig->home_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('home_0_variant_id'));
 			
 			$this->oPrediggoConfig->home_0_hook_name 			= Tools::safeOutput(Tools::getValue('home_0_hook_name'));
 
 			$this->oPrediggoConfig->home_0_template_name 		= Tools::safeOutput(Tools::getValue('home_0_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->home_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_0_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Homepage recommendations block #0 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
-		if(Tools::isSubmit('exportHome1RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportHome1RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->home_1_activated 	= Tools::safeOutput(Tools::getValue('home_1_activated'));
+			$this->oPrediggoConfig->home_1_activated 	        = Tools::safeOutput(Tools::getValue('home_1_activated'));
 
 			$this->oPrediggoConfig->home_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('home_1_nb_items'));
 			
-			$this->oPrediggoConfig->home_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('home_1_variant_id'));
+			$this->oPrediggoConfig->home_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('home_1_variant_id'));
 			
 			$this->oPrediggoConfig->home_1_hook_name 			= Tools::safeOutput(Tools::getValue('home_1_hook_name'));
 
 			$this->oPrediggoConfig->home_1_template_name 		= Tools::safeOutput(Tools::getValue('home_1_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->home_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_1_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Homepage recommendations block #1 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the homepage recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportAllPage0RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportAllPage0RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->allpage_0_activated 	= Tools::safeOutput(Tools::getValue('allpage_0_activated'));
+			$this->oPrediggoConfig->allpage_0_activated 	    = Tools::safeOutput(Tools::getValue('allpage_0_activated'));
 
 			$this->oPrediggoConfig->allpage_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_0_nb_items'));
 			
 			$this->oPrediggoConfig->allpage_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_0_variant_id'));
 			
-			$this->oPrediggoConfig->allpage_0_hook_name 			= Tools::safeOutput(Tools::getValue('allpage_0_hook_name'));
+			$this->oPrediggoConfig->allpage_0_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_0_hook_name'));
 
-			$this->oPrediggoConfig->allpage_0_template_name 		= Tools::safeOutput(Tools::getValue('allpage_0_template_name'));
+			$this->oPrediggoConfig->allpage_0_template_name 	= Tools::safeOutput(Tools::getValue('allpage_0_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->allpage_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_0_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('All Page #0 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the homepage recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportAllPage1RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportAllPage1RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->allpage_1_activated 	= Tools::safeOutput(Tools::getValue('allpage_1_activated'));
+			$this->oPrediggoConfig->allpage_1_activated 	    = Tools::safeOutput(Tools::getValue('allpage_1_activated'));
 
 			$this->oPrediggoConfig->allpage_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_1_nb_items'));
 			
 			$this->oPrediggoConfig->allpage_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_1_variant_id'));
 			
-			$this->oPrediggoConfig->allpage_1_hook_name 			= Tools::safeOutput(Tools::getValue('allpage_1_hook_name'));
+			$this->oPrediggoConfig->allpage_1_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_1_hook_name'));
 
-			$this->oPrediggoConfig->allpage_1_template_name 		= Tools::safeOutput(Tools::getValue('allpage_1_template_name'));
+			$this->oPrediggoConfig->allpage_1_template_name 	= Tools::safeOutput(Tools::getValue('allpage_1_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->allpage_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_1_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('All Page #1 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the homepage recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportAllPage2RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportAllPage2RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->allpage_2_activated 	= Tools::safeOutput(Tools::getValue('allpage_2_activated'));
+			$this->oPrediggoConfig->allpage_2_activated 	    = Tools::safeOutput(Tools::getValue('allpage_2_activated'));
 
 			$this->oPrediggoConfig->allpage_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_2_nb_items'));
 			
 			$this->oPrediggoConfig->allpage_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_2_variant_id'));
 			
-			$this->oPrediggoConfig->allpage_2_hook_name 			= Tools::safeOutput(Tools::getValue('allpage_2_hook_name'));
+			$this->oPrediggoConfig->allpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_2_hook_name'));
 
-			$this->oPrediggoConfig->allpage_2_template_name 		= Tools::safeOutput(Tools::getValue('allpage_2_template_name'));
+			$this->oPrediggoConfig->allpage_2_template_name 	= Tools::safeOutput(Tools::getValue('allpage_2_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->allpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('All Page #2 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportProductPage0RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportProductPage0RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->productpage_0_activated 	= Tools::safeOutput(Tools::getValue('productpage_0_activated'));
 
-			$this->oPrediggoConfig->productpage_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('productpage_0_nb_items'));
+			$this->oPrediggoConfig->productpage_0_nb_items 		= (int)Tools::safeOutput(Tools::getValue('productpage_0_nb_items'));
 			
-			$this->oPrediggoConfig->productpage_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('productpage_0_variant_id'));
+			$this->oPrediggoConfig->productpage_0_variant_id 	= (int)Tools::safeOutput(Tools::getValue('productpage_0_variant_id'));
 			
-			$this->oPrediggoConfig->productpage_0_hook_name 			= Tools::safeOutput(Tools::getValue('productpage_0_hook_name'));
+			$this->oPrediggoConfig->productpage_0_hook_name 	= Tools::safeOutput(Tools::getValue('productpage_0_hook_name'));
 
-			$this->oPrediggoConfig->productpage_0_template_name 		= Tools::safeOutput(Tools::getValue('productpage_0_template_name'));
+			$this->oPrediggoConfig->productpage_0_template_name = Tools::safeOutput(Tools::getValue('productpage_0_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->productpage_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_0_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Product Page #0 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportProductPage1RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportProductPage1RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->productpage_1_activated 	= Tools::safeOutput(Tools::getValue('productpage_1_activated'));
+			$this->oPrediggoConfig->productpage_1_activated 	    = Tools::safeOutput(Tools::getValue('productpage_1_activated'));
 
 			$this->oPrediggoConfig->productpage_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('productpage_1_nb_items'));
 			
 			$this->oPrediggoConfig->productpage_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('productpage_1_variant_id'));
 			
-			$this->oPrediggoConfig->productpage_1_hook_name 			= Tools::safeOutput(Tools::getValue('productpage_1_hook_name'));
+			$this->oPrediggoConfig->productpage_1_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_1_hook_name'));
 
-			$this->oPrediggoConfig->productpage_1_template_name 		= Tools::safeOutput(Tools::getValue('productpage_1_template_name'));
+			$this->oPrediggoConfig->productpage_1_template_name 	= Tools::safeOutput(Tools::getValue('productpage_1_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->productpage_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_1_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Product Page #1 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportProductPage2RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportProductPage2RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->productpage_2_activated 	= Tools::safeOutput(Tools::getValue('productpage_2_activated'));
+			$this->oPrediggoConfig->productpage_2_activated 	    = Tools::safeOutput(Tools::getValue('productpage_2_activated'));
 
 			$this->oPrediggoConfig->productpage_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('productpage_2_nb_items'));
 			
 			$this->oPrediggoConfig->productpage_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('productpage_2_variant_id'));
 			
-			$this->oPrediggoConfig->productpage_2_hook_name 			= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
+			$this->oPrediggoConfig->productpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
 
-			$this->oPrediggoConfig->productpage_2_template_name 		= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
+			$this->oPrediggoConfig->productpage_2_template_name 	= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->productpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('productpage Page #2 recommendations block configuration settings updated');
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('Product Page #2 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the basket recommendations block configuration
-		if(Tools::isSubmit('exportBasket0RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBasket0RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_0_activated 	= Tools::safeOutput(Tools::getValue('basket_0_activated'));
+			$this->oPrediggoConfig->basket_0_activated 	        = Tools::safeOutput(Tools::getValue('basket_0_activated'));
 
 			$this->oPrediggoConfig->basket_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_0_nb_items'));
 			
@@ -1341,18 +1351,18 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_0_template_name 		= Tools::safeOutput(Tools::getValue('basket_0_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_0_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #0 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
-		if(Tools::isSubmit('exportBasket1RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBasket1RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_1_activated 	= Tools::safeOutput(Tools::getValue('basket_1_activated'));
+			$this->oPrediggoConfig->basket_1_activated 	        = Tools::safeOutput(Tools::getValue('basket_1_activated'));
 
 			$this->oPrediggoConfig->basket_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_1_nb_items'));
 			
@@ -1362,19 +1372,19 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_1_template_name 		= Tools::safeOutput(Tools::getValue('basket_1_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_1_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #1 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the basket recommendations block configuration
-		if(Tools::isSubmit('exportBasket2RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBasket2RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_2_activated 	= Tools::safeOutput(Tools::getValue('basket_2_activated'));
+			$this->oPrediggoConfig->basket_2_activated 	        = Tools::safeOutput(Tools::getValue('basket_2_activated'));
 
 			$this->oPrediggoConfig->basket_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_2_nb_items'));
 			
@@ -1384,18 +1394,18 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_2_template_name 		= Tools::safeOutput(Tools::getValue('basket_2_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_2_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #2 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
-		if(Tools::isSubmit('exportBasket3RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBasket3RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_3_activated 	= Tools::safeOutput(Tools::getValue('basket_3_activated'));
+			$this->oPrediggoConfig->basket_3_activated 	        = Tools::safeOutput(Tools::getValue('basket_3_activated'));
 
 			$this->oPrediggoConfig->basket_3_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_3_nb_items'));
 			
@@ -1405,19 +1415,19 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_3_template_name 		= Tools::safeOutput(Tools::getValue('basket_3_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_3_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_3_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the basket recommendations block configuration
-		if(Tools::isSubmit('exportBasket4RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBasket4RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_4_activated 	= Tools::safeOutput(Tools::getValue('basket_4_activated'));
+			$this->oPrediggoConfig->basket_4_activated 	        = Tools::safeOutput(Tools::getValue('basket_4_activated'));
 
 			$this->oPrediggoConfig->basket_4_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_4_nb_items'));
 			
@@ -1427,18 +1437,19 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_4_template_name 		= Tools::safeOutput(Tools::getValue('basket_4_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_4_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_4_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #4 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
-		if(Tools::isSubmit('exportBasket5RecommendationConfSubmit'))
+
+        // Set the basket recommendations block configuration
+		if (Tools::isSubmit('exportBasket5RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->basket_5_activated 	= Tools::safeOutput(Tools::getValue('basket_5_activated'));
+			$this->oPrediggoConfig->basket_5_activated 	        = Tools::safeOutput(Tools::getValue('basket_5_activated'));
 
 			$this->oPrediggoConfig->basket_5_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_5_nb_items'));
 			
@@ -1448,135 +1459,135 @@ class Prediggo extends Module
 
 			$this->oPrediggoConfig->basket_5_template_name 		= Tools::safeOutput(Tools::getValue('basket_5_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_5_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_5_block_label_'.(int)$aLanguage['id_lang']));
 	
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 			// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportCategory0RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportCategory0RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->category_0_activated 	= Tools::safeOutput(Tools::getValue('category_0_activated'));
+			$this->oPrediggoConfig->category_0_activated 	        = Tools::safeOutput(Tools::getValue('category_0_activated'));
 
 			$this->oPrediggoConfig->category_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_0_nb_items'));
 			
-			$this->oPrediggoConfig->category_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('category_0_variant_id'));
+			$this->oPrediggoConfig->category_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_0_variant_id'));
 			
 			$this->oPrediggoConfig->category_0_hook_name 			= Tools::safeOutput(Tools::getValue('category_0_hook_name'));
 
 			$this->oPrediggoConfig->category_0_template_name 		= Tools::safeOutput(Tools::getValue('category_0_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->category_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('category_0_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Category Page #0 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportCategory1RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportCategory1RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->category_1_activated 	= Tools::safeOutput(Tools::getValue('category_1_activated'));
+			$this->oPrediggoConfig->category_1_activated 	        = Tools::safeOutput(Tools::getValue('category_1_activated'));
 
 			$this->oPrediggoConfig->category_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_1_nb_items'));
 			
-			$this->oPrediggoConfig->category_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('category_1_variant_id'));
+			$this->oPrediggoConfig->category_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_1_variant_id'));
 			
 			$this->oPrediggoConfig->category_1_hook_name 			= Tools::safeOutput(Tools::getValue('category_1_hook_name'));
 
 			$this->oPrediggoConfig->category_1_template_name 		= Tools::safeOutput(Tools::getValue('category_1_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->category_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('category_1_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Category Page #1 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 		
 		// Set the Product recommendations block configuration bloc  1
-		if(Tools::isSubmit('exportCategory2RecommendationConfSubmit'))
+		if (Tools::isSubmit('exportCategory2RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->category_2_activated 	= Tools::safeOutput(Tools::getValue('category_2_activated'));
+			$this->oPrediggoConfig->category_2_activated 	        = Tools::safeOutput(Tools::getValue('category_2_activated'));
 
 			$this->oPrediggoConfig->category_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_2_nb_items'));
 			
-			$this->oPrediggoConfig->category_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('category_2_variant_id'));
+			$this->oPrediggoConfig->category_2_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_2_variant_id'));
 			
-			$this->oPrediggoConfig->productpage_2_hook_name 			= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
+			$this->oPrediggoConfig->productpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
 
-			$this->oPrediggoConfig->productpage_2_template_name 		= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
+			$this->oPrediggoConfig->productpage_2_template_name 	= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->productpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Category Page #2 recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
         // Set the Product recommendations block configuration bloc  1
-        if(Tools::isSubmit('exportCustomer0RecommendationConfSubmit'))
+        if (Tools::isSubmit('exportCustomer0RecommendationConfSubmit'))
         {
-            $this->oPrediggoConfig->customer_0_activated 	= Tools::safeOutput(Tools::getValue('customer_0_activated'));
+            $this->oPrediggoConfig->customer_0_activated 	        = Tools::safeOutput(Tools::getValue('customer_0_activated'));
 
             $this->oPrediggoConfig->customer_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_0_nb_items'));
 
-            $this->oPrediggoConfig->customer_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('customer_0_variant_id'));
+            $this->oPrediggoConfig->customer_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_0_variant_id'));
 
             $this->oPrediggoConfig->customer_0_hook_name 			= Tools::safeOutput(Tools::getValue('customer_0_hook_name'));
 
             $this->oPrediggoConfig->customer_0_template_name 		= Tools::safeOutput(Tools::getValue('customer_0_template_name'));
 
-            foreach($this->context->controller->getLanguages() as $aLanguage)
+            foreach ($this->context->controller->getLanguages() as $aLanguage)
                 $this->oPrediggoConfig->customer_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_0_block_label_'.(int)$aLanguage['id_lang']));
 
-            if($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('customer Page #0 recommendations block configuration settings updated');
+            if ($this->oPrediggoConfig->save())
+                $this->_confirmations[] = $this->l('Customer Page #0 recommendations block configuration settings updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
         }
 
         // Set the Product recommendations block configuration bloc  1
-        if(Tools::isSubmit('exportCustomer1RecommendationConfSubmit'))
+        if (Tools::isSubmit('exportCustomer1RecommendationConfSubmit'))
         {
-            $this->oPrediggoConfig->customer_1_activated 	= Tools::safeOutput(Tools::getValue('customer_1_activated'));
+            $this->oPrediggoConfig->customer_1_activated 	        = Tools::safeOutput(Tools::getValue('customer_1_activated'));
 
             $this->oPrediggoConfig->customer_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_1_nb_items'));
 
-            $this->oPrediggoConfig->customer_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('customer_1_variant_id'));
+            $this->oPrediggoConfig->customer_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_1_variant_id'));
 
             $this->oPrediggoConfig->customer_1_hook_name 			= Tools::safeOutput(Tools::getValue('customer_1_hook_name'));
 
             $this->oPrediggoConfig->customer_1_template_name 		= Tools::safeOutput(Tools::getValue('customer_1_template_name'));
 
-            foreach($this->context->controller->getLanguages() as $aLanguage)
+            foreach ($this->context->controller->getLanguages() as $aLanguage)
                 $this->oPrediggoConfig->customer_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_1_block_label_'.(int)$aLanguage['id_lang']));
 
-            if($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('customer Page #1 recommendations block configuration settings updated');
+            if ($this->oPrediggoConfig->save())
+                $this->_confirmations[] = $this->l('Customer Page #1 recommendations block configuration settings updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
         }
 
         /*// Set the customers pages recommendations block configuration
-		if(Tools::isSubmit('exportCustomerRecommendationConfSubmit'))
+		if (Tools::isSubmit('exportCustomerRecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->customer_recommendations 	= Tools::safeOutput(Tools::getValue('customer_recommendations'));
 			$this->oPrediggoConfig->customer_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_nb_items'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->customer_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_block_title_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Customers pages recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the customers pages recommendations block configuration of recommendations settings');
@@ -1584,98 +1595,98 @@ class Prediggo extends Module
 
 
         // Set the 404 page recommendations block configuration
-        if(Tools::isSubmit('export404RecommendationConfSubmit'))
+        if (Tools::isSubmit('export404RecommendationConfSubmit'))
         {
             $this->oPrediggoConfig->error_recommendations 	= Tools::safeOutput(Tools::getValue('error_recommendations'));
             $this->oPrediggoConfig->error_nb_items 			= (int)Tools::safeOutput(Tools::getValue('error_nb_items'));
 
-            foreach($this->context->controller->getLanguages() as $aLanguage)
+            foreach ($this->context->controller->getLanguages() as $aLanguage)
                 $this->oPrediggoConfig->error_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('error_block_title_'.(int)$aLanguage['id_lang']));
 
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->_confirmations[] = $this->l('404 page recommendations block configuration settings updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the 404 page recommendations block configuration of recommendations settings');
         }
 
 		// Set the blocklayered module recommendations block configuration
-		if(Tools::isSubmit('exportBlocklayeredRecommendationConfSubmit'))
+		if (Tools::isSubmit('exportBlocklayeredRecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->blocklayered_0_recommendations 	= Tools::safeOutput(Tools::getValue('blocklayered_0_recommendations'));
+			$this->oPrediggoConfig->blocklayered_0_recommendations 	    = Tools::safeOutput(Tools::getValue('blocklayered_0_recommendations'));
             $this->oPrediggoConfig->blocklayered_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('blocklayered_0_nb_items'));
-            $this->oPrediggoConfig->blocklayered_0_variant_id 	= Tools::safeOutput(Tools::getValue('blocklayered_0_variant_id'));
-            $this->oPrediggoConfig->blocklayered_0_hook_name 	= Tools::safeOutput(Tools::getValue('blocklayered_0_hook_name'));
-            $this->oPrediggoConfig->blocklayered_0_template_name 	= Tools::safeOutput(Tools::getValue('blocklayered_0_template_name'));
+            $this->oPrediggoConfig->blocklayered_0_variant_id 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_variant_id'));
+            $this->oPrediggoConfig->blocklayered_0_hook_name 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_hook_name'));
+            $this->oPrediggoConfig->blocklayered_0_template_name 	    = Tools::safeOutput(Tools::getValue('blocklayered_0_template_name'));
 
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->blocklayered_0_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('blocklayered_0_block_title_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Block layered module recommendations block configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the block layered module recommendations block configuration of recommendations settings');
 		}
 
 		// Set the searchs main configuration
-		if(Tools::isSubmit('mainSearchConfSubmit'))
+		if (Tools::isSubmit('mainSearchConfSubmit'))
 		{
-			$this->oPrediggoConfig->search_active 					= (int)Tools::safeOutput(Tools::getValue('search_active'));
-            $this->oPrediggoConfig->search_main_template_name 		    =      Tools::safeOutput(Tools::getValue('search_main_template_name'));
-            $this->oPrediggoConfig->pagination_template_name = Tools::safeOutput(Tools::getValue('pagination_template_name'));
-            $this->oPrediggoConfig->search_filter_block_template_name 		    =      Tools::safeOutput(Tools::getValue('search_filter_block_template_name'));
-            $this->oPrediggoConfig->search_filters_sort_by_template_name = Tools::safeOutput(Tools::getValue('search_filters_sort_by_template_name'));
-            $this->oPrediggoConfig->prod_compare_template_name = Tools::safeOutput(Tools::getValue('prod_compare_template_name'));
-            $this->oPrediggoConfig->prod_list_template_name = Tools::safeOutput(Tools::getValue('prod_list_template_name'));
-			$this->oPrediggoConfig->searchandizing_active 			= (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
-			$this->oPrediggoConfig->layered_navigation_active 		= (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
+			$this->oPrediggoConfig->search_active 				    	    = (int)Tools::safeOutput(Tools::getValue('search_active'));
+            $this->oPrediggoConfig->search_main_template_name 		        = Tools::safeOutput(Tools::getValue('search_main_template_name'));
+            $this->oPrediggoConfig->pagination_template_name                = Tools::safeOutput(Tools::getValue('pagination_template_name'));
+            $this->oPrediggoConfig->search_filter_block_template_name 	    = Tools::safeOutput(Tools::getValue('search_filter_block_template_name'));
+            $this->oPrediggoConfig->search_filters_sort_by_template_name    = Tools::safeOutput(Tools::getValue('search_filters_sort_by_template_name'));
+            $this->oPrediggoConfig->prod_compare_template_name              = Tools::safeOutput(Tools::getValue('prod_compare_template_name'));
+            $this->oPrediggoConfig->prod_list_template_name                 = Tools::safeOutput(Tools::getValue('prod_list_template_name'));
+			$this->oPrediggoConfig->searchandizing_active 			        = (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
+			$this->oPrediggoConfig->layered_navigation_active 		        = (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
 		}
 
         // Set the category main configuration
-        if(Tools::isSubmit('mainCategoryConfSubmit'))
+        if (Tools::isSubmit('mainCategoryConfSubmit'))
         {
             $this->oPrediggoConfig->category_active 					= (int)Tools::safeOutput(Tools::getValue('category_active'));
-            $this->oPrediggoConfig->category_0_template_name 		    =      Tools::safeOutput(Tools::getValue('category_0_template_name'));
+            $this->oPrediggoConfig->category_0_template_name 		    = Tools::safeOutput(Tools::getValue('category_0_template_name'));
 
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->_confirmations[] = $this->l('Main configuration settings of Category updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the main configuration of Category settings');
         }
 
         // Set the searchs main configuration
-        if(Tools::isSubmit('searchandizingSubmit'))
+        if (Tools::isSubmit('searchandizingSubmit'))
         {
             $this->oPrediggoConfig->searchandizing_active 			= (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
             $this->oPrediggoConfig->layered_navigation_active 		= (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
-            if($this->oPrediggoConfig->save())
+            if ($this->oPrediggoConfig->save())
                 $this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
             else
                 $this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
         }
 
 		// Set the searchs autocompletion configuration
-		if(Tools::isSubmit('exportSearchAutocompletionConfSubmit'))
+		if (Tools::isSubmit('exportSearchAutocompletionConfSubmit'))
 		{
 			$this->oPrediggoConfig->autocompletion_active 		= (int)Tools::safeOutput(Tools::getValue('autocompletion_active'));
             $this->oPrediggoConfig->search_nb_min_chars         = (int)Tools::safeOutput(Tools::getValue('search_nb_min_chars'));
 			$this->oPrediggoConfig->autocompletion_nb_items 	= (int)Tools::safeOutput(Tools::getValue('autocompletion_nb_items'));
-            $this->oPrediggoConfig->search_0_template_name 		    =      Tools::safeOutput(Tools::getValue('search_0_template_name'));
-            $this->oPrediggoConfig->autoc_template_name         =      Tools::safeOutput(Tools::getValue('autoc_template_name'));
-            $this->oPrediggoConfig->autop_template_name         =      Tools::safeOutput(Tools::getValue('autop_template_name'));
-            $this->oPrediggoConfig->autocat_template_name         =      Tools::safeOutput(Tools::getValue('autocat_template_name'));
-            $this->oPrediggoConfig->autos_template_name         =      Tools::safeOutput(Tools::getValue('autos_template_name'));
+            $this->oPrediggoConfig->search_0_template_name 		= Tools::safeOutput(Tools::getValue('search_0_template_name'));
+            $this->oPrediggoConfig->autoc_template_name         = Tools::safeOutput(Tools::getValue('autoc_template_name'));
+            $this->oPrediggoConfig->autop_template_name         = Tools::safeOutput(Tools::getValue('autop_template_name'));
+            $this->oPrediggoConfig->autocat_template_name       = Tools::safeOutput(Tools::getValue('autocat_template_name'));
+            $this->oPrediggoConfig->autos_template_name         = Tools::safeOutput(Tools::getValue('autos_template_name'));
 
-			foreach($this->context->controller->getLanguages() as $aLanguage)
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->suggest_words[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('suggest_words_'.(int)$aLanguage['id_lang']));
 
-			if($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Main configuration settings of search autocompletion updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration of search autocompletion settings');
@@ -1690,11 +1701,11 @@ class Prediggo extends Module
 		// Add the specific jquery ui plugins, module JS & CSS
 		$this->context->controller->addJqueryUI('ui.tabs');
 		$this->context->controller->addJqueryPlugin('autocomplete');
-        if(substr(_PS_VERSION_,0,3) == 1.6){
+        if (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
 		    $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
-        } else {
+         else
             $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
-        }
+
 		$this->context->controller->addCss(array(
 			($this->_path).'css/admin/'.$this->name.'.css' => 'all',
 			_PS_JS_DIR_.'jquery/ui/themes/base/jquery.ui.all.css'
@@ -2150,8 +2161,8 @@ class Prediggo extends Module
 		);
 
 		$this->fields_value['attribute_selector'] 	= array(
-			'attributes' 	=> explode(',',$this->oPrediggoConfig->attributes_groups_ids),
-			'features'		=> explode(',',$this->oPrediggoConfig->features_ids),
+			'attributes' 	=> explode(',', $this->oPrediggoConfig->attributes_groups_ids),
+			'features'		=> explode(',', $this->oPrediggoConfig->features_ids),
 		);
 
 		/*
@@ -2180,8 +2191,8 @@ class Prediggo extends Module
 		);
 
 		$this->fields_value['products_ids_not_recommendable'] = array();
-		if(!empty($this->oPrediggoConfig->products_ids_not_recommendable))
-			foreach(explode(',',$this->oPrediggoConfig->products_ids_not_recommendable) as $iID)
+		if (!empty($this->oPrediggoConfig->products_ids_not_recommendable))
+			foreach (explode(',', $this->oPrediggoConfig->products_ids_not_recommendable) as $iID)
 			{
 				$oProduct = new Product((int)$iID, false, (int)$this->context->cookie->id_lang, (int)$this->context->shop->id, $this->context);
 				$this->fields_value['products_ids_not_recommendable'][] = array(
@@ -2217,8 +2228,8 @@ class Prediggo extends Module
 		);
 
 		$this->fields_value['products_ids_not_searchable'] = array();
-		if(!empty($this->oPrediggoConfig->products_ids_not_searchable))
-			foreach(explode(',',$this->oPrediggoConfig->products_ids_not_searchable) as $iID)
+		if (!empty($this->oPrediggoConfig->products_ids_not_searchable))
+			foreach (explode(',', $this->oPrediggoConfig->products_ids_not_searchable) as $iID)
 			{
 				$oProduct = new Product((int)$iID, false, (int)$this->context->cookie->id_lang, (int)$this->context->shop->id, $this->context);
 				$this->fields_value['products_ids_not_searchable'][] = array(
@@ -4775,12 +4786,12 @@ class Prediggo extends Module
 	 /**
 	private function displayFooterRecommendations($sHookName, $params, $iVariantId)
 	{
-		if(!$this->oPrediggoConfig->web_site_id_checked)
+		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$params['customer'] = $this->context->customer;
         $this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, $iVariantId);
-        if(!$this->aRecommendations[$sHookName])
+        if (!$this->aRecommendations[$sHookName])
 			return false;
 
 		// Display Main Configuration management

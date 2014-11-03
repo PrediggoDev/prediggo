@@ -16,7 +16,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author Prediggo SA <info@prediggo.com> / CeboWeb <dev@ceboweb.com>
-*  @copyright  2008-2012 Prediggo SA
+*  @copyright  2008-2014 Prediggo SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of Prediggo SA
 *}
@@ -111,7 +111,7 @@
             <div><span>{l s=' Prediggo is the only “complete” solution that does not require integration with your ERP, Cookies or Javascript. Our solutions work on a data export, so they integrate in days, not weeks.  !' mod='prediggo'}</span></div>
             <p></p>
             <li><span>{l s='A superior service ' mod='prediggo'}</span></li>
-            <div><span>{l s=' Since we started in 2008, customer service has been one of our core values. So it is no wonder that our customer/'s have reported a 100%  satisfaction rate in our 2012 and 2013 surveys!' mod='prediggo'}</span></div>
+            <div><span>{l s=' Since we started in 2008, customer service has been one of our core values. So it is no wonder that our customer\'s have reported a 100%  satisfaction rate in our 2012 and 2013 surveys!' mod='prediggo'}</span></div>
         </ol>
         <ol>
             <p></p>

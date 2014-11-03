@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -49,7 +48,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
         parent::__construct();
 
         $this->oPrediggoConfig = new PrediggoConfig($this->context);
-        if(!$this->oPrediggoConfig->search_active)
+        if (!$this->oPrediggoConfig->search_active)
             Tools::redirect('index.php');
 
         $this->sRepositoryPath = _PS_MODULE_DIR_.'prediggo/logs/';
@@ -64,9 +63,9 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      */
     public function initContent()
     {
-        if($oPrediggoResult = $this->launchSearch((int)$this->oPrediggoConfig->search_nb_items))
+        if ($oPrediggoResult = $this->launchSearch((int)$this->oPrediggoConfig->search_nb_items))
         {
-            if(isset($this->context->cookie->id_compare))
+            if (isset($this->context->cookie->id_compare))
                 $this->context->smarty->assign('compareProducts', CompareProduct::getCompareProducts((int)$this->context->cookie->id_compare));
 
             $this->context->smarty->assign(array(
@@ -109,7 +108,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      *
      * @param string $sQuery Search query
      */
-    function setQuery($sQuery)
+    public function setQuery($sQuery)
     {
         $this->sQuery = $sQuery;
     }
@@ -119,7 +118,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      *
      * @param string $sRefineOption Refine option
      */
-    function setRefineOption($sRefineOption)
+    public function setRefineOption($sRefineOption)
     {
         $this->sRefineOption = $sRefineOption;
     }
@@ -131,19 +130,18 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      */
     public function getAutocomplete()
     {
-
         parent::process();
 
-        if(!$this->oPrediggoConfig->autocompletion_active)
+        if (!$this->oPrediggoConfig->autocompletion_active)
             return '';
 
         $aItems = array();
 
         /* If $sQuery is empty return the prediggo suggestion and products */
-        if(strlen($this->sQuery) >= $this->oPrediggoConfig->search_nb_min_chars
+        if (Tools::strlen($this->sQuery) >= $this->oPrediggoConfig->search_nb_min_chars
             && $oPrediggoResult = $this->launchAutoComplete())
         {
-            foreach($oPrediggoResult->getSuggestedWords() as $oSuggestedWords)
+            foreach ($oPrediggoResult->getSuggestedWords() as $oSuggestedWords)
             {
                 $this->context->smarty->assign(array('oSuggestedWords' => $oSuggestedWords));
                 $aItems[] = array(
@@ -154,7 +152,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
                 );
             }
 
-            foreach($oPrediggoResult->getSuggestedAttributes() as $oSuggestedAttributes)
+            foreach ($oPrediggoResult->getSuggestedAttributes() as $oSuggestedAttributes)
             {
                 $this->context->smarty->assign(array('oSuggestedAttributes' => $oSuggestedAttributes));
                 $aItems[] = array(
@@ -165,7 +163,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
                 );
             }
 
-            foreach($this->oPrediggoCall->getSuggestedProducts($oPrediggoResult, (int)$this->context->cookie->id_lang, (int)$this->oPrediggoConfig->autocompletion_nb_items) as $aRecommendation)
+            foreach ($this->oPrediggoCall->getSuggestedProducts($oPrediggoResult, (int)$this->context->cookie->id_lang, (int)$this->oPrediggoConfig->autocompletion_nb_items) as $aRecommendation)
             {
                 $this->context->smarty->assign(array('aRecommendation' => $aRecommendation));
                 $aItems[] = array(
@@ -177,11 +175,11 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
             }
         }
         /* If $sQuery is empty return the suggestion words defined by the client in the BO */
-        elseif(strlen($this->sQuery) == 0)
+        elseif (Tools::strlen($this->sQuery) == 0)
         {
-            if($aSuggestWords = explode(',',$this->oPrediggoConfig->suggest_words[(int)$this->context->cookie->id_lang]))
+            if ($aSuggestWords = explode(',', $this->oPrediggoConfig->suggest_words[(int)$this->context->cookie->id_lang]))
             {
-                foreach($aSuggestWords as $sSuggestWord)
+                foreach ($aSuggestWords as $sSuggestWord)
                 {
                     $this->context->smarty->assign(array('sSuggestWord' => trim($sSuggestWord)));
                     $aItems[] = array(
@@ -204,7 +202,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      */
     public function launchSearch($nb_items = 0)
     {
-        if(empty($this->sQuery))
+        if (empty($this->sQuery))
             return false;
 
         $params = array(
@@ -217,7 +215,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
         );
         $oResult = $this->oPrediggoCall->getSearch($params);
 
-        if($this->oPrediggoConfig->logs_generation)
+        if ($this->oPrediggoConfig->logs_generation)
             $this->setSearchLogFile('Search', $this->oPrediggoCall->getLogs());
 
         return $oResult;
@@ -230,7 +228,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      */
     public function launchAutoComplete()
     {
-        if(empty($this->sQuery))
+        if (empty($this->sQuery))
             return false;
 
         $params = array(
@@ -242,7 +240,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
 
         $oResult = $this->oPrediggoCall->getAutoComplete($params);
 
-        if($this->oPrediggoConfig->logs_generation)
+        if ($this->oPrediggoConfig->logs_generation)
             $this->setSearchLogFile('Search', $this->oPrediggoCall->getLogs());
 
         return $oResult;
@@ -268,9 +266,9 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
     {
         $sEntityLogFileName = $this->sRepositoryPath.'log-fo_search.txt';
         $aLogs[0] .= ' {'.$sHookName.'}';
-        if($handle = fopen($sEntityLogFileName, 'a'))
+        if ($handle = fopen($sEntityLogFileName, 'a'))
         {
-            foreach($aLogs as $sLog)
+            foreach ($aLogs as $sLog)
                 fwrite($handle, $sLog."\n");
             fclose($handle);
         }

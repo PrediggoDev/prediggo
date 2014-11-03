@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 * 2007-2014 PrestaShop
 *
 * NOTICE OF LICENSE
@@ -19,9 +18,9 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author PrestaShop SA <contact@prestashop.com>
+* @author    PrestaShop SA <contact@prestashop.com>
 * @copyright 2007-2014 PrestaShop SA
-* @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 */
 
@@ -74,8 +73,10 @@ class PrediggoCall
     /**
      * Initialise the object variables
      *
-     * @param string $sShopId Web site Id
+     * @param $sShopName
+     * @param $sTokenId
      * @param string $sServerUrl Server URL
+     * @internal param string $sShopId Web site Id
      */
     public function ___construct($sShopName, $sTokenId, $sServerUrl)
     {
@@ -139,17 +140,16 @@ class PrediggoCall
 
 
 		//add the basket ids
-		if(!isset($params['cart']) || !(int)$params['cart']->id)
-		{
-			return false;
-		}
+		if (!isset($params['cart']) || !(int)$params['cart']->id)
+		    return false;
+
 
         $this->oRecoParam = new GetBasketRecommendationParam();
         $aProducts = $params['cart']->getProducts();
-        if(!count($aProducts))
+        if (!count($aProducts))
             return false;
 
-        foreach($params['cart']->getProducts() as $aProduct)
+        foreach ($params['cart']->getProducts() as $aProduct)
             $this->oRecoParam->addBasketItem((int)Context::getContext()->shop->id, $aProduct['id_product']);
 
 	//echo 'Adding product'.(int)Context::getContext()->shop->id.'_/_'. $aProduct['id_product'] .'into basket';
@@ -167,11 +167,9 @@ class PrediggoCall
     {
         $this->oRecoParam = new GetCategoryRecommendationParam();
 		
-		if (count($params['condition'])==0 || count($params['condition'][0])==null || count($params['condition'][1])==null)
-		{
-			//echo 'aboting category reco has no condition';
-			return;
-		}
+		if (count($params['condition']) == 0 || count($params['condition'][0]) == null || count($params['condition'][1]) == null)
+		    return;
+
 		
         $this->oRecoParam->setVariantId($params['variant_id']);
 		$this->oRecoParam->setRefererUrl(!empty($_SERVER['HTTP_REFERER'])?$_SERVER['HTTP_REFERER']:'');
@@ -198,15 +196,16 @@ class PrediggoCall
         $this->oRecoParam->getItemInfo()->setItemId((int)Tools::getValue('id_product'));
         return $this->getRecommendations($params, 'getItemRecommendation');
     }
-	
+
 
     /**
      * Get Block layered Recommendations
      *
      * @param array $params list of specific params
+     * @param $variantId
      * @return array list of Product Recommendations
      */
-    public function getBlockLayeredRecommendations($params,$variantId)
+    public function getBlockLayeredRecommendations($params, $variantId)
     {
         $this->oRecoParam = new GetCategoryRecommendationParam();
         $this->oRecoParam->setVariantId($variantId);
@@ -218,24 +217,25 @@ class PrediggoCall
     /**
      * Set block layered filters as prediggo conditions
      *
-     * @param array $aFilters list of block layered filters
+     * @param array|bool $aFilters list of block layered filters
+     * @param $id_lang
      * @return integer $id_lang Lang id
      */
     public function addConditions($aFilters = false, $id_lang)
     {
-        if(!$aFilters
+        if (!$aFilters
             || !is_array($aFilters))
             return false;
 
-        foreach($aFilters as $k => $aFilterValues)
+        foreach ($aFilters as $k => $aFilterValues)
         {
-            if(is_array($aFilterValues)
-                && sizeof($aFilterValues))
+            if (is_array($aFilterValues)
+                && count($aFilterValues))
             {
-                switch($k)
+                switch ($k)
                 {
                     case 'id_attribute_group' :
-                        foreach($aFilterValues as $aFilterValue)
+                        foreach ($aFilterValues as $aFilterValue)
                         {
                             $aIDS = explode('_', $aFilterValue);
                             $oAttributeGroup = new AttributeGroup((int)$aIDS[0], (int)$id_lang);
@@ -245,7 +245,7 @@ class PrediggoCall
                         break;
 
                     case 'id_feature' :
-                        foreach($aFilterValues as $aFilterValue)
+                        foreach ($aFilterValues as $aFilterValue)
                         {
                             $aIDS = explode('_', $aFilterValues);
                             $oFeature = new Feature((int)$aIDS[0], (int)$id_lang);
@@ -288,17 +288,14 @@ class PrediggoCall
      * Set the main prediggo call params
      *
      * @param array $params list of specific params
+     * @return bool
      */
     private function setMainParamData($params)
     {
-        // If no session exists
-        if (!isset($_SESSION))
-            session_start();
-
         $this->oRecoParam->setServerUrl($this->sServerUrl);
         $this->oRecoParam->setShopId($this->sShopId);
         $this->oRecoParam->setSessionId(md5(session_id()));
-        if(method_exists($this->oRecoParam, 'setLanguageCode'))
+        if (method_exists($this->oRecoParam, 'setLanguageCode'))
             $this->oRecoParam->setLanguageCode(Language::getIsoById((int)$params['cookie']->id_lang));
         return true;
     }
@@ -307,10 +304,11 @@ class PrediggoCall
      * Set the recommendations call params
      *
      * @param array $params list of specific params
+     * @return bool
      */
     private function setRecommendationParamData($params)
     {
-        if(!$this->setMainParamData($params))
+        if (!$this->setMainParamData($params))
             return false;
 
         $this->oRecoParam->setNbRecommendation((int)$params['nb_items']);
@@ -337,7 +335,7 @@ class PrediggoCall
         try
         {
             $this->_logs[] = '[LAUNCH] : '.$sFunction;
-            if($oResult = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
+            if ($oResult = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
             {
 				$this->_logs[] = '[VARIANT ID] : '.(int)$params['variant_id'];
                 $this->_logs[] = '[NB ITEMS ASKED] : '.(int)$params['nb_items'];
@@ -391,12 +389,13 @@ class PrediggoCall
      *
      * @param array $params list of specific params
      * @param string $sFunction name of the prediggo function to call depending the type of notification
+     * @return bool
      */
     private function setNotification($params, $sFunction)
     {
         $this->_logs[] = '[BEGIN] ['.date('c').'] ACTION : '.$sFunction;
 
-        if(!$this->setMainParamData($params))
+        if (!$this->setMainParamData($params))
             return false;
 
         try
@@ -405,7 +404,7 @@ class PrediggoCall
             $this->_logs[] = '[CUSTOMER/GUEST] : '.(($params['customer']->isLogged())?'customer'.(int)$params['customer']->id:'guest'.(int)$params['customer']->id_guest);
             $this->_logs[] = '[SESSIONID] : '.$this->oRecoParam->getSessionId();
 
-            if($result = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
+            if ($result = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
                 $this->_logs[] = '[OK] Notification: '.$sFunction;
             else
                 $this->_logs[] = '[ERROR] : '.$sFunction;
@@ -432,8 +431,8 @@ class PrediggoCall
     {
         $this->oRecoParam = new AutoCompleteParam();
 
-        if(!empty($params['filters']) && is_array($params['filters']))
-            foreach($params['filters'] as $filter => $val)
+        if (!empty($params['filters']) && is_array($params['filters']))
+            foreach ($params['filters'] as $filter => $val)
                 $this->oRecoParam->addCondition($filter, $val);
 
         $this->oRecoParam->setInputQuery($params['query']);
@@ -449,15 +448,15 @@ class PrediggoCall
     public function getSearch($params)
     {
         $this->oRecoParam = new GetSearchPageRecommendationParam();
-        if(!empty($params['filters']) && is_array($params['filters']))
-            foreach($params['filters'] as $filter => $val)
+        if (!empty($params['filters']) && is_array($params['filters']))
+            foreach ($params['filters'] as $filter => $val)
                 $this->oRecoParam->addCondition($filter, $val);
 
         $this->oRecoParam->setServerUrl();
         $this->oRecoParam->setSearchString($params['query']);
         $this->oRecoParam->setNbRecommendation(0);
         $this->oRecoParam->setMaxNbResultsPerPage((int)$params['nb_items']);
-        if(!empty($params['option']))
+        if (!empty($params['option']))
             $this->oRecoParam->setSearchRefiningOption($params['option']);
 
         return $this->setSearch($params, 'getSearchPageRecommendation');
@@ -472,16 +471,16 @@ class PrediggoCall
     public function getSearchCat($params)
     {
         $this->oRecoParam = new GetSearchPageRecommendationParam();
-        if(!empty($params['filters']) && is_array($params['filters']))
-            foreach($params['filters'] as $filter => $val)
+        if (!empty($params['filters']) && is_array($params['filters']))
+            foreach ($params['filters'] as $filter => $val)
                 $this->oRecoParam->addCondition($filter, $val);
 
         $this->oRecoParam->setServerUrl();
         $this->oRecoParam->setSearchString($params['query']);
-        $this->oRecoParam->addCondition($params['conditionP'],$params['conditionV']);
+        $this->oRecoParam->addCondition($params['conditionP'], $params['conditionV']);
         $this->oRecoParam->setNbRecommendation(0);
         $this->oRecoParam->setMaxNbResultsPerPage((int)$params['nb_items']);
-        if(!empty($params['option']))
+        if (!empty($params['option']))
             $this->oRecoParam->setSearchRefiningOption($params['option']);
 
         return $this->setSearch($params, 'getSearchPageRecommendation');
@@ -498,7 +497,7 @@ class PrediggoCall
     {
         $this->_logs[] = '[BEGIN] ['.date('c').'] ACTION : '.$sFunction;
 
-        if(!$this->setMainParamData($params))
+        if (!$this->setMainParamData($params))
             return false;
 
         $oResult = false;
@@ -509,7 +508,7 @@ class PrediggoCall
             $this->_logs[] = '[CUSTOMER/GUEST] : '.(($params['customer']->isLogged())?'customer'.(int)$params['customer']->id:'guest'.(int)$params['customer']->id_guest);
             $this->_logs[] = '[SESSIONID] : '.$this->oRecoParam->getSessionId();
 
-            if($oResult = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
+            if ($oResult = call_user_func(array('PrediggoService', $sFunction), $this->oRecoParam))
                 $this->_logs[] = '[OK] : '.$sFunction;
             else
                 $this->_logs[] = '[FAIL] : '.$sFunction;
@@ -533,7 +532,7 @@ class PrediggoCall
      */
     public function getExecTime()
     {
-        return 	$this->execTime;
+        return $this->execTime;
     }
 
     /**
@@ -546,8 +545,8 @@ class PrediggoCall
         return $this->_logs;
     }
 
-    public function getSuggestedAttributes($oResult){
-
+    public function getSuggestedAttributes($oResult)
+    {
         $aAttName = $oResult->getAttributeName();
         $aAttVal = $oResult->getAttributeValue();
 
@@ -568,16 +567,16 @@ class PrediggoCall
     {
         $aRecommendedItems = $oResult->getSuggestedProducts();
 
-        if(empty($aRecommendedItems))
+        if (empty($aRecommendedItems))
             return false;
 
-        $this->_logs[] = '[NB ITEMS RECEIVED] : '.(int)sizeof($aRecommendedItems);
+        $this->_logs[] = '[NB ITEMS RECEIVED] : '.(int)count($aRecommendedItems);
 
         $aRecommendedItems = array_slice($aRecommendedItems, 0, $nb_items);
 
         $aIds = array();
 
-        foreach($aRecommendedItems as $oItem)
+        foreach ($aRecommendedItems as $oItem)
         {
             $iIDProduct = (int)$oItem->getProductId();
             $aIds[] = (int)$iIDProduct;
@@ -585,7 +584,7 @@ class PrediggoCall
         }
 
         $sql = 'SELECT p.*, pa.`id_product_attribute`, pl.`description`, pl.`description_short`, pl.`available_now`, pl.`available_later`, pl.`link_rewrite`, pl.`meta_description`, pl.`meta_keywords`, pl.`meta_title`, pl.`name`, i.`id_image`, il.`legend`, m.`name` AS manufacturer_name, tl.`name` AS tax_name, t.`rate`, cl.`name` AS category_default, DATEDIFF(p.`date_add`, DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt((int)Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? (int)Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new,
-					(p.`price` * IF(t.`rate`,((100 + (t.`rate`))/100),1)) AS orderprice
+					(p.`price` * if (t.`rate`,((100 + (t.`rate`))/100),1)) AS orderprice
 				FROM `'._DB_PREFIX_.'category_product` cp
 				LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
 				LEFT JOIN `'._DB_PREFIX_.'product_attribute` pa ON (p.`id_product` = pa.`id_product` AND default_on = 1)
@@ -599,14 +598,14 @@ class PrediggoCall
 			    LEFT JOIN `'._DB_PREFIX_.'tax` t ON (t.`id_tax` = tr.`id_tax`)
 				LEFT JOIN `'._DB_PREFIX_.'tax_lang` tl ON (t.`id_tax` = tl.`id_tax` AND tl.`id_lang` = '.(int)($id_lang).')
 				LEFT JOIN `'._DB_PREFIX_.'manufacturer` m ON m.`id_manufacturer` = p.`id_manufacturer`
-				WHERE p.`id_product` IN ( '.join(',',$aIds).') GROUP BY p.`id_product`';
+				WHERE p.`id_product` IN ( '.join(',', $aIds).') GROUP BY p.`id_product`';
 
         $aQueryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sql);
         $aItemsTmp = Product::getProductsProperties($id_lang, $aQueryResult);
         $aItems = array();
-        foreach($aRecommendedItems as $l => $oItem)
-            foreach($aItemsTmp as $k => $aItem)
-                if((int)$aItem['id_product'] == (int)$oItem->getProductId())
+        foreach ($aRecommendedItems as $l => $oItem)
+            foreach ($aItemsTmp as $k => $aItem)
+                if ((int)$aItem['id_product'] == (int)$oItem->getProductId())
                 {
                     $aItemsTmp[$k]['notificationId'] = $oItem->getNotificationId();
                     $aItems[$l] = $aItemsTmp[$k];
@@ -627,13 +626,13 @@ class PrediggoCall
     public function getProducts($oResult, $id_lang)
     {
         $aRecommendedItems = $oResult->getRecommendedItems();
-        if(empty($aRecommendedItems))
+        if (empty($aRecommendedItems))
             return false;
 
-        $this->_logs[] = '[NB ITEMS RECEIVED] : '.(int)sizeof($aRecommendedItems);
+        $this->_logs[] = '[NB ITEMS RECEIVED] : '.(int)count($aRecommendedItems);
 
         $aIds = array();
-        foreach($aRecommendedItems as $oItem)
+        foreach ($aRecommendedItems as $oItem)
         {
             $iIDProduct = (int)$oItem->getItemId();
             $aIds[] = (int)$iIDProduct;
@@ -641,7 +640,7 @@ class PrediggoCall
         }
 
         $sql = 'SELECT p.*, pa.`id_product_attribute`, pl.`description`, pl.`description_short`, pl.`available_now`, pl.`available_later`, pl.`link_rewrite`, pl.`meta_description`, pl.`meta_keywords`, pl.`meta_title`, pl.`name`, i.`id_image`, il.`legend`, m.`name` AS manufacturer_name, tl.`name` AS tax_name, t.`rate`, cl.`name` AS category_default, DATEDIFF(p.`date_add`, DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt((int)Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? (int)Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new,
-					(p.`price` * IF(t.`rate`,((100 + (t.`rate`))/100),1)) AS orderprice
+					(p.`price` * if (t.`rate`,((100 + (t.`rate`))/100),1)) AS orderprice
 				FROM `'._DB_PREFIX_.'category_product` cp
 				LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
 				LEFT JOIN `'._DB_PREFIX_.'product_attribute` pa ON (p.`id_product` = pa.`id_product` AND default_on = 1)
@@ -655,14 +654,14 @@ class PrediggoCall
 			    LEFT JOIN `'._DB_PREFIX_.'tax` t ON (t.`id_tax` = tr.`id_tax`)
 				LEFT JOIN `'._DB_PREFIX_.'tax_lang` tl ON (t.`id_tax` = tl.`id_tax` AND tl.`id_lang` = '.(int)($id_lang).')
 				LEFT JOIN `'._DB_PREFIX_.'manufacturer` m ON m.`id_manufacturer` = p.`id_manufacturer`
-				WHERE p.`id_product` IN ( '.join(',',$aIds).') GROUP BY p.`id_product`';
+				WHERE p.`id_product` IN ( '.join(',', $aIds).') GROUP BY p.`id_product`';
 
         $aQueryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sql);
         $aItemsTmp = Product::getProductsProperties($id_lang, $aQueryResult);
         $aItems = array();
-        foreach($aRecommendedItems as $l => $oItem)
-            foreach($aItemsTmp as $k => $aItem)
-                if((int)$aItem['id_product'] == (int)$oItem->getItemId())
+        foreach ($aRecommendedItems as $l => $oItem)
+            foreach ($aItemsTmp as $k => $aItem)
+                if ((int)$aItem['id_product'] == (int)$oItem->getItemId())
                 {
                     $aItemsTmp[$k]['notificationId'] = $oItem->getNotificationId();
                     $aItems[$l] = $aItemsTmp[$k];
@@ -687,13 +686,12 @@ class PrediggoCall
 				FROM `'._DB_PREFIX_.'manufacturer`
 				WHERE `id_manufacturer` = '.(int)$sSupplier.'';
 
-
         $aQueryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sql);
 
         $aItems = $aQueryResult[0]['name'];
 
         unset($sql);
-        unset($aRecommendedSupplier);
+        //unset($aRecommendedSupplier);
         unset($aQueryResult);
         return $aItems;
 
@@ -704,8 +702,8 @@ class PrediggoCall
      */
     public function getSupplierId($oPrediggoResult)
     {
-        foreach($oPrediggoResult->getDrillDownGroups() as $oSupplierDDG)
-            foreach($oSupplierDDG->getFilteringOptions() as $oSupplierFO)
+        foreach ($oPrediggoResult->getDrillDownGroups() as $oSupplierDDG)
+            foreach ($oSupplierDDG->getFilteringOptions() as $oSupplierFO)
                 if ($oSupplierDDG->getFilteredAttributeName() == 'supplierid')
                     return $this->getSuppliers($oSupplierFO->getTextValue());
     }
@@ -723,11 +721,11 @@ class PrediggoCall
             $oRecoParam->setSessionId(md5(session_id()));
             $oRecoParam->addCondition('genre', 'Home');
             $oCallResult = call_user_func(array('PrediggoService', 'getCategoryRecommendation'), $oRecoParam);
-            if($oCallResult === false)
+            if ($oCallResult === false)
                 return false;
             return true;
         }
-        catch(PrediggoException $ex)
+        catch (PrediggoException $ex)
         {
             return false;
         }
@@ -742,12 +740,10 @@ class PrediggoCall
             //echo $file;
             $file_headers = @get_headers($file);
 			//echo '<H1>PREDIGGO LICENSE VERIFICATION FAILED</H1><BR>';
-            if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
+            if ($file_headers[0] == 'HTTP/1.1 404 Not Found')
                 return false;
-            }
-            else {
+            else
                 return true;
-            }
     }
 	
 	
@@ -761,23 +757,23 @@ class PrediggoCall
   public function getProductRecommendations($params,$variantId)
     {
 		echo ' Entering getProductRecommendations<br>';
-        if($variantId == 0){
+        if ($variantId == 0){
             $params['nb_items'] = (int)$this->oPrediggoConfig->product_nb_items;
             $params['block_title'] = pSQL($this->oPrediggoConfig->product_block_title[(int)$params['cookie']->id_lang]);
             $params2 = $params;
-        }elseif($variantId == 1){
+        }elseif ($variantId == 1){
             $params['nb_items'] = (int)$this->oPrediggoConfig->product_nb_items_one;
             $params['block_title'] = pSQL($this->oPrediggoConfig->product_block_title_one[(int)$params['cookie']->id_lang]);
             $params2 = $params;
-        }elseif($variantId == 2){
+        }elseif ($variantId == 2){
             $params['nb_items'] = (int)$this->oPrediggoConfig->product_nb_items_two;
             $params['block_title'] = pSQL($this->oPrediggoConfig->product_block_title_two[(int)$params['cookie']->id_lang]);
             $params2 = $params;
-        }elseif($variantId == 3){
+        }elseif ($variantId == 3){
             $params['nb_items'] = (int)$this->oPrediggoConfig->product_nb_items_th;
             $params['block_title'] = pSQL($this->oPrediggoConfig->product_block_title_th[(int)$params['cookie']->id_lang]);
             $params2 = $params;
-        }elseif($variantId == 4){
+        }elseif ($variantId == 4){
             $params['nb_items'] = (int)$this->oPrediggoConfig->product_nb_items_fo;
             $params['block_title'] = pSQL($this->oPrediggoConfig->product_block_title_fo[(int)$params['cookie']->id_lang]);
             $params2 = $params;
