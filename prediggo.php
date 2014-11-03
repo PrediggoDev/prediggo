@@ -148,7 +148,6 @@ class Prediggo extends Module
 		);
 	}
 
-
     /**
      * Hook Header : Add Media CSS & JS
      *
@@ -524,7 +523,7 @@ class Prediggo extends Module
 			'tax_enabled' 		=> (int)Configuration::get('PS_TAX'),
 			'display_qties' 	=> (int)Configuration::get('PS_DISPLAY_QTIES'),
 			'display_ht' 		=> !Tax::excludeTaxeOption(),
-			'sImageType' 		=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+			'sImageType' 		=> $this->oPrediggoConfig->imgType(),
 		));
 
 		return $this->display(__FILE__, $this->aRecommendations[$sHookName][0]['block_template']);
@@ -558,7 +557,7 @@ class Prediggo extends Module
 			'tax_enabled' 		=> (int)Configuration::get('PS_TAX'),
 			'display_qties' 	=> (int)Configuration::get('PS_DISPLAY_QTIES'),
 			'display_ht' 		=> !Tax::excludeTaxeOption(),
-			'sImageType' 		=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+			'sImageType' 		=> $this->oPrediggoConfig->imgType(),
 		));
 
 		return $this->display(__FILE__, 'list_recommendations.tpl');
@@ -620,7 +619,7 @@ class Prediggo extends Module
 		&& $this->oPrediggoConfig->autocompletion_active)
 		{
 			$this->smarty->assign(array(
-				'sImageType' 		=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+				'sImageType' => $this->oPrediggoConfig->imgType(),
 			));
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autoc_template_name;
 			return $this->display(__FILE__, $template);
@@ -697,7 +696,7 @@ class Prediggo extends Module
 			'tax_enabled'		=> (int)Configuration::get('PS_TAX'),
 			'display_qties' 	=> (int)Configuration::get('PS_DISPLAY_QTIES'),
 			'display_ht' 		=> !Tax::excludeTaxeOption(),
-			'sImageType' 		=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+			'sImageType' 		=> $this->oPrediggoConfig->imgType(),
 		));
 
 		return $this->display(__FILE__, 'list_recommendations.tpl');
@@ -4801,7 +4800,7 @@ class Prediggo extends Module
 			'tax_enabled' 		=> (int)Configuration::get('PS_TAX'),
 			'display_qties' 	=> (int)Configuration::get('PS_DISPLAY_QTIES'),
 			'display_ht' 		=> !Tax::excludeTaxeOption(),
-			'sImageType' 		=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+			'sImageType' 		=> $this->oPrediggoConfig->imgType(),
 		));
 
 		return $this->display(__FILE__, 'footer_recommendations.tpl');

@@ -24,7 +24,7 @@
 * International Registered Trademark & Property of PrestaShop SA
 */
 
-require_once(_PS_MODULE_DIR_.'prediggo/classes_prediggo/PrediggoService.php');
+require_once(_PS_MODULE_DIR_.'prediggo/sdk/PrediggoService.php');
 require_once(_PS_MODULE_DIR_.'prediggo/classes/PrediggoConfig.php');
 
 class PrediggoCall

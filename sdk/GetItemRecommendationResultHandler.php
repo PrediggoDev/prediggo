@@ -1,6 +1,6 @@
 <?php
 
-require_once( 'GetRecommendationResultHandler.php' );
+require_once('GetRecommendationResultHandler.php');
 
 
 /**

@@ -82,7 +82,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
                 'bSearchandizingActive' 		=> $this->oPrediggoConfig->searchandizing_active,
                 'aCustomRedirections' 			=> $oPrediggoResult->getCustomRedirections(),
                 'comparator_max_item' 			=> (int)(Configuration::get('PS_COMPARATOR_MAX_ITEM')),
-                'sImageType' 					=> (Tools::version_compare(_PS_VERSION_, '1.5.1', '>=')?'home_default':'home'),
+                'sImageType' 					=> $this->oPrediggoConfig->imgType(),
                 'bRewriteEnabled'				=> (int)Configuration::get('PS_REWRITING_SETTINGS'),
             ));
         }
@@ -249,6 +249,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
     /**
      * Get the current search products
      *
+     * @param $oPrediggoResult
      * @return array list of products
      */
     public function getProducts($oPrediggoResult)

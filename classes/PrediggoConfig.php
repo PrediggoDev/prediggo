@@ -2034,4 +2034,9 @@ class PrediggoConfig
 	{
 		return $this->oContext;
 	}
+
+    public function imgType()
+    {
+        return (Tools::version_compare(_PS_VERSION_, '1.5', '>=')?'home_default':'home');
+    }
 }

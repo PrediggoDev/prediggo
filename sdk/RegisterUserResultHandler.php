@@ -1,6 +1,6 @@
 <?php
 
-require_once( 'DefaultResultHandler.php' );
+require_once('DefaultResultHandler.php');
 
 /**
  * Result handler for RegisterUser queries.

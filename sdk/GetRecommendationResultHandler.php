@@ -1,7 +1,7 @@
 <?php
 
-require_once( 'DefaultResultHandler.php' );
-require_once( 'ProfileRecommendations.php' );
+require_once('DefaultResultHandler.php');
+require_once('ProfileRecommendations.php');
 
 /**
  * Basic result handler for all GetXXXRecommendation queries.

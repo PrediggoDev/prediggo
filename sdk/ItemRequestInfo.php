@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('Utils.php' );
+require_once('Utils.php');
 
 /**
  * Data class representing a minimal product description.
