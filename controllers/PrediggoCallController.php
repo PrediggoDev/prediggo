@@ -725,7 +725,7 @@ class PrediggoCallController
         }
     }
 
- /**
+    /**
      * Export the client Configuration
      *
      * @return Client export configuration file from Db
@@ -737,38 +737,22 @@ class PrediggoCallController
         $fp = fopen(_PS_MODULE_DIR_.'prediggo/xmlfiles/export_configuration.sql', 'w');
         $fp2 = fopen(_PS_MODULE_DIR_.'prediggo/xmlfiles/export_configuration_lang.sql', 'w');
         $aQueryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sql2);
-            //fputs($fp2, 'INSERT INTO `'. _DB_PREFIX_.'configuration_lang`'.' (`id_configuration`, `id_lang`, `value`, `date_upd`)'.' VALUES'."\r");
-            foreach ($aQueryResult as $row)
-                if (empty($row['value']))
-                    fputs($fp2, 'UPDATE `'._DB_PREFIX_.'configuration_lang` SET `id_configuration` = '.$row['id_configuration'].',`id_lang` = '.$row['id_lang'].',`value` = \''.'NULL'.'\''.',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration_lang`.`id_configuration` = '.$row['id_configuration'].' AND `'._DB_PREFIX_.'configuration_lang`.`id_lang` = '.$row['id_lang'].';'."\r");
-                else
-                    fputs($fp2, 'UPDATE `'._DB_PREFIX_.'configuration_lang` SET `id_configuration` = '.$row['id_configuration'].',`id_lang` = '.$row['id_lang'].',`value` = \''.$row['value'].'\''.',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration_lang`.`id_configuration` = '.$row['id_configuration'].' AND `'._DB_PREFIX_.'configuration_lang`.`id_lang` = '.$row['id_lang'].';'."\r");
+
+        foreach ($aQueryResult as $row)
+        {
+            $row['value'] = (empty($row['value'])) ? 'NULL' : $row['value'];
+            fputs($fp2, 'UPDATE `'._DB_PREFIX_.'configuration_lang` SET `id_configuration` = '.$row['id_configuration'].',`id_lang` = '.$row['id_lang'].',`value` = \''.$row['value'].'\''.',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration_lang`.`id_configuration` = '.$row['id_configuration'].' AND `'. _DB_PREFIX_.'configuration_lang`.`id_lang` = '.$row['id_lang'].';'."\r");
+        }
+
         $aQueryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sql);
-            //fputs($fp,'INSERT INTO `'._DB_PREFIX_.'configuration`'.' (`id_configuration`, `id_shop_group`, `id_shop`, `name`, `value`, `date_add`, `date_upd`)'.' VALUES'."\r");
-            foreach ($aQueryResult as $row)
-               if (empty($row['id_shop_group']) && empty($row['id_shop']) && empty($row['value']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.'NULL'.',`id_shop` = '.'NULL'.',`name` = \''.$row['name'].'\''.',`value` = '.'NULL'.',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
 
-               elseif (empty($row['id_shop_group']) && empty($row['id_shop']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.'NULL'.',`id_shop` = '.'NULL'.',`name` = \''.$row['name'].'\''.',`value` = \''.$row['value'].'\',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               elseif (empty($row['id_shop_group']) && empty($row['value']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.'NULL'.',`id_shop` = '.$row['id_shop'].',`name` = \''.$row['name'].'\''.',`value` = '.'NULL'.',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               elseif (empty($row['id_shop']) && empty($row['value']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.$row['id_shop_group'].',`id_shop` = '.'NULL'.',`name` = \''.$row['name'].'\''.',`value` = '.'NULL'.',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               elseif (empty($row['id_shop_group']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.'NULL'.',`id_shop` = '.$row['id_shop'].',`name` = \''.$row['name'].'\''.',`value` = \''.$row['value'].'\',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               elseif (empty($row['id_shop']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.$row['id_shop_group'].',`id_shop` = '.'NULL'.',`name` = \''.$row['name'].'\''.',`value` = \''.$row['value'].'\',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               elseif (empty($row['value']))
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.$row['id_shop_group'].',`id_shop` = '.$row['id_shop'].',`name` = \''.$row['name'].'\''.',`value` = '.'NULL'.',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
-
-               else
-                   fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.$row['id_shop_group'].',`id_shop` = '.$row['id_shop'].',`name` = \''.$row['name'].'\''.',`value` = \''.$row['value'].'\',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
+        foreach ($aQueryResult as $row)
+        {
+            $row['id_shop_group'] = (empty($row['id_shop_group'])) ? 'NULL' : $row['id_shop_group'];
+            $row['id_shop'] = (empty($row['id_shop'])) ? 'NULL' : $row['id_shop'];
+            $row['value'] = (empty($row['value'])) ? 'NULL' : $row['value'];
+            fputs($fp, 'UPDATE `'._DB_PREFIX_.'configuration` SET `id_configuration` = '.$row['id_configuration'].',`id_shop_group` = '.$row['id_shop_group'].',`id_shop` = '.$row['id_shop'].',`name` = \''.$row['name'].'\''.',`value` = \''.$row['value'].'\',`date_add` = \''.$row['date_add'].'\',`date_upd` = \''.$row['date_upd'].'\''.' WHERE `'._DB_PREFIX_.'configuration`.`id_configuration` = '.$row['id_configuration'].';'."\r");
+        }
         fclose($fp);
         fclose($fp2);
         unset($aQueryResult);
