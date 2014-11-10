@@ -63,7 +63,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
      */
     public function initContent()
     {
-        if ($oPrediggoResult = $this->launchSearch((int)$this->oPrediggoConfig->search_nb_items))
+        if ($oPrediggoResult = $this->launchSearch())
         {
             if (isset($this->context->cookie->id_compare))
                 $this->context->smarty->assign('compareProducts', CompareProduct::getCompareProducts((int)$this->context->cookie->id_compare));
@@ -197,10 +197,9 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
     /**
      * Execute a prediggo search
      *
-     * @param integer $nb_items Number of products
      * @return PrediggoService $oResult Object containing all the search results
      */
-    public function launchSearch($nb_items = 0)
+    public function launchSearch()
     {
         if (empty($this->sQuery))
             return false;
@@ -210,7 +209,6 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
             'cookie' 	=> $this->context->cookie,
             'cart' 		=> $this->context->cart,
             'query' 	=> $this->sQuery,
-            'nb_items' 	=> (int)$nb_items,
             'option' 	=> $this->sRefineOption
         );
         $oResult = $this->oPrediggoCall->getSearch($params);

@@ -452,7 +452,7 @@ class PrediggoCall
             foreach ($params['filters'] as $filter => $val)
                 $this->oRecoParam->addCondition($filter, $val);
 
-        $this->oRecoParam->setServerUrl();
+        $this->oRecoParam->setServerUrl($this->oPrediggoConfig->server_url_recommendations);
         $this->oRecoParam->setSearchString($params['query']);
         $this->oRecoParam->setNbRecommendation(0);
         $this->oRecoParam->setMaxNbResultsPerPage((int)$params['nb_items']);
@@ -479,7 +479,6 @@ class PrediggoCall
         $this->oRecoParam->setSearchString($params['query']);
         $this->oRecoParam->addCondition($params['conditionP'], $params['conditionV']);
         $this->oRecoParam->setNbRecommendation(0);
-        $this->oRecoParam->setMaxNbResultsPerPage((int)$params['nb_items']);
         if (!empty($params['option']))
             $this->oRecoParam->setSearchRefiningOption($params['option']);
 
