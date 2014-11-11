@@ -260,7 +260,6 @@ div#prediggo_autocomplete{
 		#center_column div.prediggo_reco_blocklayered div.block_content ul.prediggo_products,
 		#footer div.prediggo_reco_footer div.block_content ul.prediggo_products{
 			background-color:#FFF;
-			display:inline-table;
 		}
 
 			#center_column div.prediggo_reco_blocklayered div.block_content ul.prediggo_products li,
