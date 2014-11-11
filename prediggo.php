@@ -68,7 +68,7 @@ class Prediggo extends Module
 	{
         $this->name = 'prediggo';
 		$this->tab = 'advertising_marketing';
-		$this->version = '1.5';
+		$this->version = '1.5.1';
 		$this->author = 'PrestaShop';
 		$this->need_instance = 0;
 		$this->_html = '';
@@ -1700,13 +1700,14 @@ class Prediggo extends Module
 		// Add the specific jquery ui plugins, module JS & CSS
 		$this->context->controller->addJqueryUI('ui.tabs');
 		$this->context->controller->addJqueryPlugin('autocomplete');
-        if (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
-            if (_PS_VERSION_ == "1.6.0.9")
-                $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_6_0_9.js');
-            else
-		        $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
-         else
+        if (Tools::substr(_PS_VERSION_, 0, 3) == 1.5)
             $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
+
+		elseif (_PS_VERSION_ == "1.6.0.9" || _PS_VERSION_ == "1.6.0.10" || _PS_VERSION_ == "1.6.0.11" || _PS_VERSION_ == "1.6.0.12")
+            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_6_0_9.js');
+
+        elseif (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
+            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
 
 		$this->context->controller->addCss(array(
 			($this->_path).'css/admin/'.$this->name.'.css' => 'all',
