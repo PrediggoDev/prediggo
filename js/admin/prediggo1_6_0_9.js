@@ -64,10 +64,10 @@ $(document).ready(function(){
     $('div#fieldset_customer_0_conf_26, div#fieldset_customer_1_conf_27')
         .appendTo('div#cust_reco_config');
 
-    $('div#fieldset_search_conf_29, div#fieldset_search_autocompletion_conf_30')
+    $('div#fieldset_search_conf_29')
         .appendTo('div#search_conf');
 
-    $('div#fieldset_search_autocompletion_conf_29')
+    $('div#fieldset_search_autocompletion_conf_30')
         .appendTo('div#search_autocompletion_conf');
 
     // Init the tabs

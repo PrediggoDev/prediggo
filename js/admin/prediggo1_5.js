@@ -64,7 +64,7 @@ $(document).ready(function(){
     $('fieldset#fieldset_customer_0_conf, fieldset#fieldset_customer_1_conf')
         .appendTo('div#cust_reco_config');
 
-    $('fieldset#fieldset_search_conf, fieldset#fieldset_search_autocompletion_conf')
+    $('fieldset#fieldset_search_conf')
         .appendTo('div#search_conf');
 
     $('fieldset#fieldset_search_autocompletion_conf')
