@@ -49,7 +49,7 @@
 		<input type="hidden" name="input_{$input.name}" id="input_{$input.name}" value="{foreach from=$fields_value[$input.name] item=element}{$element.id},{/foreach}" />
 
 		<div id="ajax_choose_product">
-			<p style="clear:both;margin-top:0;">
+			<p class="ajax_choose_product">
 				<input type="text"
 					name="{$input.name}"
 					id="{if isset($input.id)}{$input.id}{else}{$input.name}{/if}"
@@ -67,7 +67,7 @@
 		<ul id="ul_{$input.name}">
 			{if count($fields_value[$input.name])}
 				{foreach from=$fields_value[$input.name] item=element}
-					<li class="deleteElement" name="{$element.id}" style="cursor: pointer;">
+					<li id="deleteElement" class="deleteElement" name="{$element.id}">
 						{$element.name|escape:'htmlall':'UTF-8'}
 						<img src="../img/admin/delete.gif"/>
 					</li>
@@ -81,7 +81,7 @@
 
 {block name="field"}
 	{if $input.type == 'hint'}
-		<div class="hint" style="display:block;margin-bottom:20px;">
+		<div id="deleteElement" class="hint">
 			{$input.content}
 		</div>
 	{else}
