@@ -1,5 +1,6 @@
-{*
-* 2007-2014 PrestaShop
+<?php
+/*
+* 2007-2012 PrestaShop 
 *
 * NOTICE OF LICENSE
 *
@@ -18,20 +19,18 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2014 PrestaShop SA
-*  @version  Release: $Revision: 6594 $
+*  @copyright  2007-2012 PrestaShop SA
+*  @version  Release: $Revision: 13573 $
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*}
-
-<div id="prediggo_search">
-	<form method="get" action="{$link->getModuleLink('prediggo', 'search')|escape:'htmlall':'UTF-8'}">
-		<p>
-			<input type="text" name="q" value="{if isset($smarty.post.q)}{$smarty.post.q|htmlentities:$ENT_QUOTES:'utf-8'|stripslashes}{/if}" />
-			<input type="submit" value="{l s='Search' mod='prediggo'}" />
-			<input type="hidden" name="fc" value="module" />
-			<input type="hidden" name="module" value="prediggo" />
-			<input type="hidden" name="controller" value="search" />
-		</p>
-	</form>
-</div>
+*/
+				    	
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header("Last-Modified: ".gmdate("D, d M Y H:i:s")." GMT");
+						
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+						
+header("Location: ../");
+exit;

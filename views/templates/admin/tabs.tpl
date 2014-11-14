@@ -30,62 +30,57 @@
 		</li>
 		<li>
 			<a href="#main_conf">
-                <img src="{$path}/img/logoconfig.jpg" alt="fr" title="fr">{l s=' Main Configuration' mod='prediggo'}
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logoconfig.jpg" alt="fr" title="fr">{l s=' Main Configuration' mod='prediggo'}
 			</a>
 		</li>
 		<li>
 			<a href="#export_conf">
-                <img src="{$path}/img/logoconfig.jpg" alt="fr" title="fr">{l s=' Export Configuration' mod='prediggo'}
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logoconfig.jpg" alt="fr" title="fr">{l s=' Export Configuration' mod='prediggo'}
 			</a>
 		</li>
-        {*<li>
-            <a href="#category_conf">
-                <img src="{$path}/img/logoconfig.jpg" alt="fr" title="fr">{l s=' Category Configuration' mod='prediggo'}
-            </a>
-        </li>*}
         <li>
-            <a href="#search_conf" style="color:rgb(138, 173, 220)">
-                <img src="{$path}/img/logointelligentsearch.jpg" alt="fr" title="fr">{l s=' Search Configuration' mod='prediggo'}
+            <a href="#search_conf" class="search">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logointelligentsearch.jpg" alt="fr" title="fr">{l s=' Search Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#search_autocompletion_conf" style="color:rgb(138, 173, 220)">
-                <img src="{$path}/img/logointelligentsearch.jpg" alt="fr" title="fr">{l s=' Autocomplete Configuration' mod='prediggo'}
+            <a href="#search_autocompletion_conf" class="search">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logointelligentsearch.jpg" alt="fr" title="fr">{l s=' Autocomplete Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#home_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Home Recommendations Configuration' mod='prediggo'}
+            <a href="#home_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Home Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#all_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' All Page Recommendations Configuration' mod='prediggo'}
+            <a href="#all_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' All Page Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#prod_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Product Recommendations Configuration' mod='prediggo'}
+            <a href="#prod_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Product Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#cat_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Category Recommendations Configuration' mod='prediggo'}
+            <a href="#cat_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Category Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#bask_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Basket Recommendations Configuration' mod='prediggo'}
+            <a href="#bask_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Basket Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#cust_reco_config" style="color: rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Customer Recommendations Configuration' mod='prediggo'}
+            <a href="#cust_reco_config" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Customer Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
         <li>
-            <a href="#layered_reco_conf" style="color:rgb(175, 24, 23)">
-                <img src="{$path}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Layered Recommendations Configuration' mod='prediggo'}
+            <a href="#layered_reco_conf" class="autocomplete">
+                <img src="{$path|escape:'htmlall':'UTF-8'}/img/logosemanticmerchandising.jpg" alt="fr" title="fr">{l s=' Layered Recommendations Configuration' mod='prediggo'}
             </a>
         </li>
 	</ul>
@@ -115,10 +110,10 @@
         </ol>
         <ol>
             <p></p>
-            <li style="list-style-type:disc">
-            {l s='Contact us through our website and ask for a demo ! ' mod='prediggo'} <a href="http://www.prediggo.com/fr/prestashop/?lang=en" id="here" target="_blank" title="{l s='Contact us through our website ' mod='prediggo'}" style="color:blue;text-decoration:underline">{l s='>> HERE <<' mod='prediggo'}</a>
+            <li>
+            {l s='Contact us through our website and ask for a demo ! ' mod='prediggo'} <a href="http://www.prediggo.com/fr/prestashop/?lang=en" id="here" target="_blank" title="{l s='Contact us through our website ' mod='prediggo'}">{l s='>> HERE <<' mod='prediggo'}</a>
             </li>
-            <li style="list-style-type:disc">
+            <li>
                 {l s='Or give us a call +41 (0) 21 550 51 35' mod='prediggo'}
             </li>
         </ol>
@@ -134,5 +129,4 @@
     <div id="cust_reco_config"></div>
     <div id="search_autocompletion_conf"></div>
 	<div id="search_conf"></div>
-    <div id="category_conf"></div>
 </div>

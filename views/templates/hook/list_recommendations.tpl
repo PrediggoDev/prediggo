@@ -25,8 +25,8 @@
 *}
 
 {if sizeof($aRecommendations.$hook_name.items)}
-    <div id="prediggo_reco_{$page_name}_{$hook_name}" class="block prediggo_reco_{$hook_name}">
-        <h4>{$aRecommendations.$hook_name.block_title}</h4>
+    <div id="prediggo_reco_{$page_name|escape:'htmlall':'UTF-8'}_{$hook_name|escape:'htmlall':'UTF-8'}" class="block prediggo_reco_{$hook_name|escape:'htmlall':'UTF-8'}">
+        <h4>{$aRecommendations.$hook_name.block_title|escape:'htmlall':'UTF-8'}</h4>
         <div class="block_content">
             <ul class="prediggo_products">
                 {foreach from=$aRecommendations.$hook_name.items item="aRecommendation" name="aRecommendationLoop"}

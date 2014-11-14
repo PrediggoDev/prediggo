@@ -45,7 +45,7 @@
                 if($('#layered_form').length == 0)
                 {
                     $('.selectProductSort').change(function(){
-                        var requestSortProducts = '{$request}';
+                        var requestSortProducts = '{$request|escape:'htmlall':'UTF-8'}';
                         var splitData = $(this).val().split(':');
                         document.location.href = requestSortProducts + ((requestSortProducts.indexOf('?') < 0) ? '?' : '&') + 'orderby=' + splitData[0] + '&orderway=' + splitData[1];
                     });

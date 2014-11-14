@@ -25,10 +25,10 @@
 
 {block name="input"}
     {if $input.type == 'button'}
-    	<input type="submit" name="{$input.name}" 
+    	<input type="submit" name="{$input.name|escape:'htmlall':'UTF-8'}" 
     	{if isset($input.class) && $input.class}class="{$input.class}"{/if}  
     	{if isset($input.disabled) && $input.disabled}disabled="disabled"{/if} 
-    	value="{$input.title}">
+    	value="{$input.title|escape:'htmlall':'UTF-8'}">
 	{elseif $input.type == 'attribute_selector'}
 		<ul id="prediggo_attributes">
 			{foreach from=$input.values.attributes item="aGroupAttribute"}
@@ -51,7 +51,7 @@
 		<div id="ajax_choose_product">
 			<p class="ajax_choose_product">
 				<input type="text"
-					name="{$input.name}"
+					name="{$input.name|escape:'htmlall':'UTF-8'}"
 					id="{if isset($input.id)}{$input.id}{else}{$input.name}{/if}"
 					value=""
 					{if isset($input.class)}class="{$input.class}"{/if}
@@ -64,10 +64,10 @@
 			<p class="preference_description">{l s='(Do not forget to save the product afterward)' mod='prediggo'}</p>
 		</div>
 				
-		<ul id="ul_{$input.name}">
+		<ul id="ul_{$input.name|escape:'htmlall':'UTF-8'}">
 			{if count($fields_value[$input.name])}
 				{foreach from=$fields_value[$input.name] item=element}
-					<li id="deleteElement" class="deleteElement" name="{$element.id}">
+					<li id="deleteElement" class="deleteElement" name="{$element.id|escape:'htmlall':'UTF-8'}">
 						{$element.name|escape:'htmlall':'UTF-8'}
 						<img src="../img/admin/delete.gif"/>
 					</li>
@@ -82,7 +82,7 @@
 {block name="field"}
 	{if $input.type == 'hint'}
 		<div id="deleteElement" class="hint">
-			{$input.content}
+			{$input.content|escape:'htmlall':'UTF-8'}
 		</div>
 	{else}
 		{$smarty.block.parent}

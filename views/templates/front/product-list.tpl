@@ -32,7 +32,7 @@
 				{if isset($comparator_max_item) && $comparator_max_item}
 					<p class="compare">
 						<input type="checkbox" class="comparator" id="comparator_item_{$product.id_product}" value="comparator_item_{$product.id_product}" {if isset($compareProducts) && is_array($compareProducts) && in_array($product.id_product, $compareProducts)}checked="checked"{/if} /> 
-						<label for="comparator_item_{$product.id_product}">{l s='Select to compare' mod='prediggo'}</label>
+						<label for="comparator_item_{$product.id_product|escape:'htmlall':'UTF-8'}">{l s='Select to compare' mod='prediggo'}</label>
 					</p>
 				{/if}
 			</div>

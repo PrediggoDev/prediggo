@@ -75,7 +75,7 @@
 
 		{if sizeof($aCancellableFiltersGroups)}
 			<ul>
-				<li>{l s='Filters selected' mod='prediggo'} <a href="?q={$sPrediggoQuery}" title="{l s='clear all' mod='prediggo'}" class="delete_filter"></a></li>
+				<li>{l s='Filters selected' mod='prediggo'} <a href="?q={$sPrediggoQuery|escape:'htmlall':'UTF-8'}" title="{l s='clear all' mod='prediggo'}" class="delete_filter"></a></li>
 				{foreach from=$aCancellableFiltersGroups item="oCancellableOptionGroup"}
 					{foreach from=$oCancellableOptionGroup->getFilteringOptions() item="oFilteringOption"}
 					<li>

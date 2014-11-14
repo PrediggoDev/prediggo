@@ -47,7 +47,7 @@
 	{if $aCustomRedirections|@sizeof>0 && $bSearchandizingActive}
 		{foreach from=$aCustomRedirections item="oCustomRedirection"}
 			<div class="searchandizingBox">
-				<a href="{$oCustomRedirection->getTargetUrl()}">
+				<a href="{$oCustomRedirection->getTargetUrl()|escape:'htmlall':'UTF-8'}">
 					<p>
 						<img src="{$oCustomRedirection->getPictureUrl()|escape:'htmlall':'UTF-8'}" alt="{$oCustomRedirection->getLabel()|escape:'htmlall':'UTF-8'}"  />
 					</p>
