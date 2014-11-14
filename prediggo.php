@@ -908,26 +908,26 @@ class Prediggo extends Module
 	public function checkModuleConstraints()
 	{
 		if (!extension_loaded('dom'))
-			$this->_errors[] = $this->l('Please activate the PHP extension "DOM" to allow the use of the module.');
+			$this->_errors[] = Tools::displayError('Please activate the PHP extension "DOM" to allow the use of the module.');
 
 		if (!extension_loaded('curl'))
-			$this->_errors[] = $this->l('Please activate the PHP extension "curl" to allow the use of the module.');
+			$this->_errors[] = Tools::displayError('Please activate the PHP extension "curl" to allow the use of the module.');
 
 		if (!$this->oPrediggoConfig->web_site_id_checked)
-			$this->_warnings[] = $this->l('Please update the field "Web Site ID", in the "Main Configuration" tab.');
+			$this->adminDisplayWarning('Please update the field "Web Site ID", in the "Main Configuration" tab.');
 
 		// API can't be call if curl extension is not installed on PHP config.
 		if ((int)ini_get('max_execution_time') < 3000)
-			$this->_warnings[] = $this->l('Please update the PHP option "max_execution_time" to a minimum of "3000". (Current value : ').(int)ini_get('max_execution_time').$this->l(')');
+			$this->adminDisplayWarning(sprintf('Please update the PHP option "max_execution_time" to a minimum of "3000". (Current value : %d)',(int)ini_get('max_execution_time')));
 
 		if ((int)ini_get('max_input_time') < 3000)
-			$this->_warnings[] = $this->l('Please update the PHP option "max_input_time" to a minimum of "3000". (Current value : ').(int)ini_get('max_input_time').$this->l(')');
+			$this->adminDisplayWarning(sprintf('Please update the PHP option "max_input_time" to a minimum of "3000". (Current value : %d)',(int)ini_get('max_input_time')));
 
 		if ((int)ini_get('memory_limit') < 384)
-			$this->_warnings[] = $this->l('Please update the PHP option "memory_limit" to a minimum of "384M". (Current value : ').ini_get('memory_limit').$this->l(')');
+			$this->adminDisplayWarning(sprintf('Please update the PHP option "memory_limit" to a minimum of "384M". (Current value : %s)',ini_get('memory_limit')));
 
 		if ((int)(Shop::isFeatureActive() && Shop::getContext() != Shop::CONTEXT_SHOP))
-			$this->_warnings[] = $this->l('Please select a shop on the top block to configure the specific settings.');
+			$this->adminDisplayWarning('Please select a shop on the top block to configure the specific settings.');
 	}
 
     private function checkServerCheck(){
