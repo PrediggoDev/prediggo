@@ -87,7 +87,7 @@
 
 	<div id="prediggo_presentation">
         <a href="http://www.prediggo.com" target="_blank" title="Prediggo">
-            <img src="{$path}/img/logo.png" title="{l s='Prediggo' mod='prediggo'}" alt="{l s='Prediggo' mod='prediggo'}" />
+            <img src="{$path|escape:'htmlall':'UTF-8'}/img/logo.png" title="{l s='Prediggo' mod='prediggo'}" alt="{l s='Prediggo' mod='prediggo'}" />
         </a>
         <p><span>{l s='Prediggo is the Agile Alternative for comprehensive Merchandising ' mod='prediggo'}</span></p>
 

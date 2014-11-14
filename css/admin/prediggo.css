@@ -96,4 +96,19 @@ fieldset{
 				border-width:0;
 			}
 
+#prediggo_presentation > ol > li{
+	list-style-type:disc;
+}
 
+#prediggo_presentation > ol > li > a{
+	color:blue;
+	text-decoration:underline;
+}
+
+#prediggo_configuration > ul > li > a.search{
+	color:rgb(138, 173, 220);
+}
+
+#prediggo_configuration > ul > li > a.autocomplete{
+	color: rgb(175, 24, 23);
+}
