@@ -528,42 +528,6 @@ class Prediggo extends Module
 
 		return $this->display(__FILE__, $this->aRecommendations[$sHookName][0]['block_template']);
 	}
-	
-	/**
-	 * Display the recommendations by hook
-	 *
-	 * @param string $sHookName Hook Name
-	 * @param array $params list of specific data
-     * @param int $iVariantId Id of the Variant
-	 * @return string Html
-	 */
-    /**
-	private function displayRecommendations($sHookName, $params, $iVariantId)
-	{
-		if (!$this->oPrediggoConfig->web_site_id_checked)
-			return false;
-
-		$params['customer'] = $this->context->customer;
-		
-		$this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, $iVariantId);
-		if (!$this->aRecommendations[$sHookName])
-			return false;
-
-		// Display Main Configuration management
-		$this->smarty->assign(array(
-			'hook_name' 		=> $sHookName,
-			'aRecommendations' 	=> $this->aRecommendations,
-
-			'tax_enabled' 		=> (int)Configuration::get('PS_TAX'),
-			'display_qties' 	=> (int)Configuration::get('PS_DISPLAY_QTIES'),
-			'display_ht' 		=> !Tax::excludeTaxeOption(),
-			'sImageType' 		=> $this->oPrediggoConfig->imgType(),
-		));
-
-		return $this->display(__FILE__, 'list_recommendations.tpl');
-
-	}*/
-
 
     /**
      * Hook Authentication : Notify prediggo that a recommendations has been clicked
@@ -587,10 +551,11 @@ class Prediggo extends Module
 	 */
 	private function displaySearchFilterBlock($params)
 	{
-		if ($this->oPrediggoConfig->web_site_id_checked
-		&& $this->oPrediggoConfig->layered_navigation_active)
+		if ($this->oPrediggoConfig->web_site_id_checked && $this->oPrediggoConfig->layered_navigation_active)
+		{
             $template = $this->oPrediggoConfig->search_filter_block_template_name;
 			return $this->display(__FILE__, $template);
+		}
 	}
 
 	/**
@@ -601,10 +566,12 @@ class Prediggo extends Module
 	 */
 	private function displaySearchBlock($params)
 	{
-		if ($this->oPrediggoConfig->web_site_id_checked
-		&& $this->oPrediggoConfig->search_active)
+		if ($this->oPrediggoConfig->web_site_id_checked	&& $this->oPrediggoConfig->search_active)
+		{
             $template = $this->oPrediggoConfig->search_0_template_name;
 			return $this->display(__FILE__, $template);
+		}
+
 	}
 
 	/**
@@ -636,8 +603,10 @@ class Prediggo extends Module
 		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active
 		&& $this->oPrediggoConfig->autocompletion_active)
+		{
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autop_template_name;
 			return $this->display(__FILE__, $template);
+		}
 	}
 
     /**
@@ -650,8 +619,10 @@ class Prediggo extends Module
         if ($this->oPrediggoConfig->web_site_id_checked
             && $this->oPrediggoConfig->search_active
             && $this->oPrediggoConfig->autocompletion_active)
-            $template = 'views/templates/hook/'.$this->oPrediggoConfig->autocat_template_name;
-        return $this->display(__FILE__, $template);
+		{
+			$template = 'views/templates/hook/' . $this->oPrediggoConfig->autocat_template_name;
+			return $this->display(__FILE__, $template);
+		}
     }
 
 	/**
@@ -664,8 +635,10 @@ class Prediggo extends Module
 		if ($this->oPrediggoConfig->web_site_id_checked
 		&& $this->oPrediggoConfig->search_active
 		&& $this->oPrediggoConfig->autocompletion_active)
+		{
             $template = 'views/templates/hook/'.$this->oPrediggoConfig->autos_template_name;
 			return $this->display(__FILE__, $template);
+		}
 	}
 
 	/**
