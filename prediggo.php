@@ -1800,33 +1800,6 @@ class Prediggo extends Module
             ),
             'input' => array(
                 array(
-                    'label' 	=> $this->l('Export Configuration:'),
-                    'type' 		=> 'button',
-                    'name' 		=> 'ClientConfigurationExportSubmit',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Export Configuration   '),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' => $this->l('Reload Configuration File:'),
-                    'type' 	=> 'file',
-                    'name' 	=> 'Import',
-                ),
-                array(
-                    'label' => $this->l('Reload Configuration_lang File:'),
-                    'type' 	=> 'file',
-                    'name' 	=> 'Import2',
-                ),
-                'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                array(
-                    'label' 	=> $this->l('Reload Configuration:'),
-                    'type' 		=> 'button',
-                    'name' 		=> 'ClientConfigurationImportSubmit',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Reload Configuration   '),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
                     'label' 	=> $this->l('Reset All Hooks:'),
                     'type' 		=> 'button',
                     'name' 		=> 'registerAllHooks',
