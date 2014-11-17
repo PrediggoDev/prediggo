@@ -2334,8 +2334,8 @@ class Prediggo extends Module
 		$this->fields_value['home_0_block_label'] 	= $this->oPrediggoConfig->home_0_block_label;
 
 		/*
-     * HOMEPAGE RECOMMENDATIONS - block 1
-     */
+		 * HOMEPAGE RECOMMENDATIONS - block 1
+		 */
 
 		$this->fields_form['home_1_reco_conf']['form'] = array(
 			'legend' => array(
@@ -3101,8 +3101,8 @@ class Prediggo extends Module
 		$this->fields_value['basket_0_block_label'] 	= $this->oPrediggoConfig->basket_0_block_label;
 
 		/*
-     * Basket RECOMMENDATIONS - block 1
-     */
+		 * Basket RECOMMENDATIONS - block 1
+		 */
 
 		$this->fields_form['basket_1_reco_conf']['form'] = array(
 			'legend' => array(
@@ -3292,8 +3292,8 @@ class Prediggo extends Module
 		$this->fields_value['basket_2_block_label'] 	= $this->oPrediggoConfig->basket_2_block_label;
 
 		/*
-     * Basket RECOMMENDATIONS - block 3
-     */
+		 * Basket RECOMMENDATIONS - block 3
+		 */
 
 		$this->fields_form['basket_3_reco_conf']['form'] = array(
 			'legend' => array(
@@ -3483,8 +3483,8 @@ class Prediggo extends Module
 		$this->fields_value['basket_4_block_label'] 	= $this->oPrediggoConfig->basket_4_block_label;
 
 		/*
-     * Basket RECOMMENDATIONS - block 5
-     */
+		 * Basket RECOMMENDATIONS - block 5
+		 */
 
 		$this->fields_form['basket_5_reco_conf']['form'] = array(
 			'legend' => array(
@@ -4060,67 +4060,6 @@ class Prediggo extends Module
 		$this->fields_value['customer_1_block_label'] 	= $this->oPrediggoConfig->customer_1_block_label;
 
 		/*
-         * CUSTOMER PAGE RECOMMENDATIONS
-         */
-		/*$this->fields_form['customer_reco_conf']['form'] = array(
-			'legend' => array(
-				'title' => $this->l('Customers pages configuration'),
-				'image' => _PS_ADMIN_IMG_.'picture.gif'
-			),
-			'input' => array(
-				array(
-					'label' => $this->l('Display the recommendations block:'),
-					'type' 		=> 'radio',
-					'name' 		=> 'customer_recommendations',
-					'class' 	=> 't',
-					'is_bool' 	=> true,
-					'values' 	=> array(
-						array(
-							'id' 	=> 'customer_recommendations_on',
-							'value' => 1,
-							'label' => $this->l('Yes')
-						),
-						array(
-							'id' 	=> 'customer_recommendations_off',
-							'value' => 0,
-							'label' => $this->l('No')
-						),
-					),
-					'required'	=> true,
-					'desc' 		=> $this->l('Add a block of recommended products in the customers pages of your website'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
-				),
-				array(
-					'label' 	=> $this->l('Number of items in the recommendations block:'),
-					'type' 		=> 'text',
-					'name' 		=> 'customer_nb_items',
-					'desc' 		=> $this->l('Number of recommended products in the block'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
-				),
-				array(
-					'label'		=> $this->l('Title of the recommendation block :'),
-					'type' 		=> 'text',
-					'name' 		=> 'customer_block_title',
-					'size'		=> 50,
-					'lang' 		=> true,
-					'desc' 		=> $this->l('Title of the block'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
-				),
-				array(
-					'type' 		=> 'button',
-					'name' 		=> 'exportCustomerRecommendationConfSubmit',
-					'class' 	=> 'button',
-					'title' 	=> $this->l('   Save   '),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
-				),
-			),
-		);*/
-
-		//$this->fields_value['customer_recommendations']	= (int)$this->oPrediggoConfig->customer_recommendations;
-		//$this->fields_value['customer_nb_items'] 		= (int)$this->oPrediggoConfig->customer_nb_items;
-		//$this->fields_value['customer_block_title'] 	= $this->oPrediggoConfig->customer_block_title;
-
-		/*
 		 * BLOCK LAYERED MODULE RECOMMENDATIONS
 		 */
 		$this->fields_form['blocklayered_reco_conf']['form'] = array(
@@ -4372,7 +4311,7 @@ class Prediggo extends Module
 
 		/*
 		 * SEARCH AUTOCOMPLETION CONFIGURATION
-		*/
+		 */
 		$this->fields_form['search_autocompletion_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Autocompletion configuration'),
