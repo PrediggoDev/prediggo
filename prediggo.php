@@ -1,28 +1,28 @@
 <?php
 /**
-* 2007-2014 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-* @author    PrestaShop SA <contact@prestashop.com>
-* @copyright 2007-2014 PrestaShop SA
-* @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
-* International Registered Trademark & Property of PrestaShop SA
-*/
+ * 2007-2014 PrestaShop
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ *
+ * @author    PrestaShop SA <contact@prestashop.com>
+ * @copyright 2007-2014 PrestaShop SA
+ * @license   http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ * International Registered Trademark & Property of PrestaShop SA
+ */
 
 if (!defined('_PS_VERSION_'))
 	exit;
@@ -55,32 +55,32 @@ class Prediggo extends Module
 	/** @var array list of Products by hook */
 	public $aRecommendations;
 
-    /** @var string Hook Name */
-    public $sHookName;
+	/** @var string Hook Name */
+	public $sHookName;
 
-    /** @var int Variant ID */
-    public $iVariantId;
+	/** @var int Variant ID */
+	public $iVariantId;
 
 	/**
 	 * Constructor
-	*/
+	 */
 	public function __construct()
 	{
-        $this->name = 'prediggo';
+		$this->name = 'prediggo';
 		$this->tab = 'advertising_marketing';
 		$this->version = '1.5.1';
 		$this->author = 'PrestaShop';
 		$this->need_instance = 0;
 		$this->_html = '';
 		$this->multishop_context = true;
-        $this->sHookName = '';
+		$this->sHookName = '';
 
 		parent::__construct();
 
 		$this->displayName = $this->l('Prediggo');
 		$this->description = $this->l('Offers interactive products recommendations in the front office');
 
-        $this->bootstrap = true;
+		$this->bootstrap = true;
 		$this->_warnings = array();
 		$this->_confirmations = array();
 		$this->_errors = array();
@@ -97,44 +97,44 @@ class Prediggo extends Module
 
 	/**
 	 * Install Procedure
-     * La liste des hooks se trouve en http://doc.prestashop.com/display/PS15/Hooks+in+PrestaShop+1.5
+	 * La liste des hooks se trouve en http://doc.prestashop.com/display/PS15/Hooks+in+PrestaShop+1.5
 	 */
 	public function install()
 	{
 		return ($this->oPrediggoConfig->install()
-				&& parent::install()
-				&& $this->registerAllHooks()
+			&& parent::install()
+			&& $this->registerAllHooks()
 		);
 	}
-	
+
 	/**
 	 * Registration Hook Procedure
-     * La liste des hooks se trouve en http://doc.prestashop.com/display/PS15/Hooks+in+PrestaShop+1.5
+	 * La liste des hooks se trouve en http://doc.prestashop.com/display/PS15/Hooks+in+PrestaShop+1.5
 	 */
 	public function registerAllHooks()
 	{
 		return ($this->registerHook('displayTop')
-				&& $this->registerHook('displayHeader')
-				&& $this->registerHook('displayLeftColumn')
-				&& $this->registerHook('displayRightColumn')
-				&& $this->registerHook('displayFooter')
-				&& $this->registerHook('actionAuthentication')
-				&& $this->registerHook('actionCustomerAccountAdd')
-				&& $this->registerHook('displayPaymentTop')
-				&& $this->registerHook('displayHome')
-				&& $this->registerHook('displayFooterProduct')
-                && $this->registerHook('displayLeftColumnProduct')
-				&& $this->registerHook('displayRightColumnProduct')
-                && $this->registerHook('displayShoppingCartFooter')
-                && $this->registerHook('displayShoppingCart')
-                && $this->registerHook('displayOrderDetail')
-                && $this->registerHook('displayProductTab')
-                && $this->registerHook('displayBeforeCarrier')
-                && $this->registerHook('displayCarrierList')
-				&& $this->registerHook('displayOrderConfirmation')
-                && $this->registerHook('displayCustomerAccount')
-                && $this->registerHook('displayMyAccountBlock')
-                && $this->registerHook('displayMyAccountBlockfooter')
+			&& $this->registerHook('displayHeader')
+			&& $this->registerHook('displayLeftColumn')
+			&& $this->registerHook('displayRightColumn')
+			&& $this->registerHook('displayFooter')
+			&& $this->registerHook('actionAuthentication')
+			&& $this->registerHook('actionCustomerAccountAdd')
+			&& $this->registerHook('displayPaymentTop')
+			&& $this->registerHook('displayHome')
+			&& $this->registerHook('displayFooterProduct')
+			&& $this->registerHook('displayLeftColumnProduct')
+			&& $this->registerHook('displayRightColumnProduct')
+			&& $this->registerHook('displayShoppingCartFooter')
+			&& $this->registerHook('displayShoppingCart')
+			&& $this->registerHook('displayOrderDetail')
+			&& $this->registerHook('displayProductTab')
+			&& $this->registerHook('displayBeforeCarrier')
+			&& $this->registerHook('displayCarrierList')
+			&& $this->registerHook('displayOrderConfirmation')
+			&& $this->registerHook('displayCustomerAccount')
+			&& $this->registerHook('displayMyAccountBlock')
+			&& $this->registerHook('displayMyAccountBlockfooter')
 		);
 	}
 
@@ -144,16 +144,16 @@ class Prediggo extends Module
 	public function uninstall()
 	{
 		return	($this->oPrediggoConfig->uninstall()
-				&& parent::uninstall()
+			&& parent::uninstall()
 		);
 	}
 
-    /**
-     * Hook Header : Add Media CSS & JS
-     *
-     * @param array $params list of specific data
-     * @return bool
-     */
+	/**
+	 * Hook Header : Add Media CSS & JS
+	 *
+	 * @param array $params list of specific data
+	 * @return bool
+	 */
 	public function hookDisplayHeader($params)
 	{
 		if (!isset($params['cookie']->id_guest))
@@ -161,8 +161,8 @@ class Prediggo extends Module
 
 		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
-		
-		
+
+
 		//add the js for the autocomplete but also the notify
 		if ($this->oPrediggoCallController->isPageAccessible())
 		{
@@ -172,8 +172,8 @@ class Prediggo extends Module
 
 		// Check if prediggo module can be executed in this page
 		if ($this->oPrediggoCallController->isPageAccessible()
-		|| $this->oPrediggoCallController->getPageName() == 'prediggo_search'
-		|| $this->oPrediggoConfig->search_active)
+			|| $this->oPrediggoCallController->getPageName() == 'prediggo_search'
+			|| $this->oPrediggoConfig->search_active)
 		{
 			$this->context->controller->addCSS(($this->_path).'css/front/'.($this->name).'.css', 'all');
 			$this->context->controller->addJS(array(
@@ -183,30 +183,30 @@ class Prediggo extends Module
 		}
 	}
 
-    /**
-     * Hook Home : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
+	/**
+	 * Hook Home : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
 	public function hookDisplayHome($params)
 	{
 		//this is usefull to register all the hooks again
 		//$this->registerAllHooks();
-		
+
 		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY HOME PAGE<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayHome', $params);
 	}
 
-    /**
-     * Hook Right Column : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
+	/**
+	 * Hook Right Column : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
 	public function hookDisplayRightColumn($params)
 	{
 		//echo '<BR><BR>DISPLAY RIGHT COLUMN - page name '.$this->oPrediggoCallController->getPageName().'<br>';
@@ -217,18 +217,18 @@ class Prediggo extends Module
 		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
 
-		
+
 		// Get list of recommendations
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
 	}
 
-    /**
-     * Hook Left Column : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
+	/**
+	 * Hook Left Column : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
 	public function hookDisplayLeftColumn($params)
 	{
 		// Get list of recommendations
@@ -245,12 +245,12 @@ class Prediggo extends Module
 		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumn', $params).$this->displaySearchFilterBlock($params);
 	}
 
-    /**
-     * Hook Top : Display the prediggo search block
-     *
-     * @param array $params list of specific data
-     * @return string
-     */
+	/**
+	 * Hook Top : Display the prediggo search block
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 */
 	public function hookDisplayTop($params)
 	{
 		//echo '<BR><BR>DISPLAY TOP<br>';
@@ -261,20 +261,20 @@ class Prediggo extends Module
 		else if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->manufacturerPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayTop'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
 
-        //$this->displaySearchBlock($params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
+		//$this->displaySearchBlock($params).$this->displayRecommendationsWithDynamicTemplate('displayTop', $params);
 		return $this->displayRecommendationsWithDynamicTemplate('displayTop', $params).$this->displaySearchBlock($params);
 	}
 
-    /**
-     * Hook Footer : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
+	/**
+	 * Hook Footer : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
 	public function hookDisplayFooter($params)
 	{
-	//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
+		//check if we are on a catgogry page, need to do this as no category hook In Presta 1.5:(
 		if (strcmp ($this->oPrediggoCallController->getPageName(), $this->oPrediggoConfig->categoryPageName) == 0)
 			return $this->displayRecommendationsWithDynamicTemplate('displayRightColumn'.$this->oPrediggoCallController->getPageName(), $params).$this->displayRecommendationsWithDynamicTemplate('displayRightColumn', $params);
 
@@ -286,13 +286,13 @@ class Prediggo extends Module
 	}
 
 
-    /**
-     * Hook Left Column Product : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
+	/**
+	 * Hook Left Column Product : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
 	public function hookDisplayLeftColumnProduct($params)
 	{
 		// Get list of recommendations
@@ -300,164 +300,164 @@ class Prediggo extends Module
 		return $this->displayRecommendationsWithDynamicTemplate('displayLeftColumnProduct', $params);
 	}
 
-    /**
-     * Hook Right Column Product : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayRightColumnProduct($params)
-    {
-        // Get list of recommendations
+	/**
+	 * Hook Right Column Product : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayRightColumnProduct($params)
+	{
+		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY displayRightColumnProduct<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumnProduct', $params);
-    }
+	}
 
-    /**
-     * Hook Product Tab : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayProductTab($params)
-    {
+	/**
+	 * Hook Product Tab : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayProductTab($params)
+	{
 		//echo '<BR><BR>DISPLAY getProductTablE<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayRightColumnProduct', $params);
-    }
+	}
 
 
-    /**
-     * Hook Shopping Cart Footer : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayShoppingCartFooter($params)
-    {
-        // Get list of recommendations
+	/**
+	 * Hook Shopping Cart Footer : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayShoppingCartFooter($params)
+	{
+		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY displayShoppingCartFooter<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayShoppingCartFooter', $params);
-    }
+	}
 
-    /**
-     * Hook Shopping Cart : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayShoppingCart($params)
-    {
-        // Get list of recommendations
+	/**
+	 * Hook Shopping Cart : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayShoppingCart($params)
+	{
+		// Get list of recommendations
 		//echo '<BR><BR>DISPLAY displayShoppingCart<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayShoppingCart', $params);
-    }
+	}
 
-    /**
-     * Hook Order Detail : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayOrderDetail($params)
-    {
+	/**
+	 * Hook Order Detail : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayOrderDetail($params)
+	{
 		//echo '<BR><BR>DISPLAY displayOrderDetail<br>';
-        // Get list of recommendations
+		// Get list of recommendations
 		return $this->displayRecommendationsWithDynamicTemplate('displayOrderDetail', $params);
-    }
+	}
 
-    /**
-     * Hook Before Carrier : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayBeforeCarrier($params)
-    {
+	/**
+	 * Hook Before Carrier : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayBeforeCarrier($params)
+	{
 		//echo '<BR><BR>DISPLAY displayBeforeCarrier<br>';
-        // Get list of recommendations
+		// Get list of recommendations
 		return $this->displayRecommendationsWithDynamicTemplate('displayBeforeCarrier', $params);
-    }
+	}
 
-    /**
-     * Hook Carrier List : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayCarrierList($params)
-    {
+	/**
+	 * Hook Carrier List : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayCarrierList($params)
+	{
 		//echo '<BR><BR>DISPLAY displayCarrierList<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayCarrierList', $params);
-    }
+	}
 
-    /**
-     * Hook Carrier List : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayOrderConfirmation($params)
-    {
+	/**
+	 * Hook Carrier List : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayOrderConfirmation($params)
+	{
 		//echo '<BR><BR>DISPLAY order confirmation<br>';
 		return $this->displayRecommendationsWithDynamicTemplate('displayOrderConfirmation', $params);
-    }
+	}
 
-    /**
-     * Hook Customer Account : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayCustomerAccount($params)
-    {
-        //echo '<BR><BR>DISPLAY order confirmation Customer Account<br>';
-        $params['customer'] = $this->context->customer;
-        return $this->displayRecommendationsWithDynamicTemplate('displayCustomerAccount', $params);
-    }
+	/**
+	 * Hook Customer Account : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayCustomerAccount($params)
+	{
+		//echo '<BR><BR>DISPLAY order confirmation Customer Account<br>';
+		$params['customer'] = $this->context->customer;
+		return $this->displayRecommendationsWithDynamicTemplate('displayCustomerAccount', $params);
+	}
 
-    /**
-     * Hook Customer Account : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayMyAccountBlock($params)
-    {
-        //echo '<BR><BR>DISPLAY order confirmation My Account Block<br>';
-        $params['customer'] = $this->context->customer;
-        return $this->displayRecommendationsWithDynamicTemplate('displayMyAccountBlock', $params);
-    }
+	/**
+	 * Hook Customer Account : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayMyAccountBlock($params)
+	{
+		//echo '<BR><BR>DISPLAY order confirmation My Account Block<br>';
+		$params['customer'] = $this->context->customer;
+		return $this->displayRecommendationsWithDynamicTemplate('displayMyAccountBlock', $params);
+	}
 
-    /**
-     * Hook Customer Account : Display the recommendations
-     *
-     * @param array $params list of specific data
-     * @return string
-     * @int int to choose your Variant ID
-     */
-    public function hookDisplayMyAccountBlockfooter($params)
-    {
-        //echo '<BR><BR>DISPLAY order confirmation My Account Block Footer<br>';
-        $params['customer'] = $this->context->customer;
-        return $this->displayRecommendationsWithDynamicTemplate('displayMyAccountBlockfooter', $params);
-    }
+	/**
+	 * Hook Customer Account : Display the recommendations
+	 *
+	 * @param array $params list of specific data
+	 * @return string
+	 * @int int to choose your Variant ID
+	 */
+	public function hookDisplayMyAccountBlockfooter($params)
+	{
+		//echo '<BR><BR>DISPLAY order confirmation My Account Block Footer<br>';
+		$params['customer'] = $this->context->customer;
+		return $this->displayRecommendationsWithDynamicTemplate('displayMyAccountBlockfooter', $params);
+	}
 
-    /**
-     * Hook Authentication : Notify prediggo that the user is authenticated
-     *
-     * @param array $params list of specific data
-     * @return bool
-     */
+	/**
+	 * Hook Authentication : Notify prediggo that the user is authenticated
+	 *
+	 * @param array $params list of specific data
+	 * @return bool
+	 */
 	public function hookActionAuthentication($params)
 	{
 		if (!$this->oPrediggoConfig->web_site_id_checked)
@@ -466,12 +466,12 @@ class Prediggo extends Module
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-    /**
-     * Hook Payment Top : Notify prediggo that the user is authenticated
-     *
-     * @param array $params list of specific data
-     * @return bool
-     */
+	/**
+	 * Hook Payment Top : Notify prediggo that the user is authenticated
+	 *
+	 * @param array $params list of specific data
+	 * @return bool
+	 */
 	public function hookDisplayPaymentTop($params)
 	{
 		if (!$this->oPrediggoConfig->web_site_id_checked)
@@ -481,12 +481,12 @@ class Prediggo extends Module
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-    /**
-     * Hook Create Account : Notify prediggo that the user is authenticated
-     *
-     * @param array $params list of specific data
-     * @return bool
-     */
+	/**
+	 * Hook Create Account : Notify prediggo that the user is authenticated
+	 *
+	 * @param array $params list of specific data
+	 * @return bool
+	 */
 	public function hookActionCustomerAccountAdd($params)
 	{
 		if (!$this->oPrediggoConfig->web_site_id_checked)
@@ -495,27 +495,27 @@ class Prediggo extends Module
 		$this->oPrediggoCallController->notifyPrediggo('user', $params);
 	}
 
-    /**
-     * Display the recommendations by hook using dynamic templates
-     *
-     * @param string $sHookName Hook Name
-     * @param array $params list of specific data
-     * @internal param int $iVariantId Id of the Variant
-     * @return string Html
-     */
+	/**
+	 * Display the recommendations by hook using dynamic templates
+	 *
+	 * @param string $sHookName Hook Name
+	 * @param array $params list of specific data
+	 * @internal param int $iVariantId Id of the Variant
+	 * @return string Html
+	 */
 	private function displayRecommendationsWithDynamicTemplate($sHookName, $params)
 	{
 		if (!$this->oPrediggoConfig->web_site_id_checked)
 			return false;
 
 		$params['customer'] = $this->context->customer;
-		
+
 		$this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendationsWithDynamicTemplate($sHookName, $params);
 
 		if (!$this->aRecommendations[$sHookName] || count($this->aRecommendations[$sHookName]) == 0 || count($this->aRecommendations[$sHookName][0]) == 0)
 			return false;
 
-		
+
 		// Display Main Configuration management
 		$this->smarty->assign(array(
 			'hook_name' 		=> $sHookName,
@@ -529,12 +529,12 @@ class Prediggo extends Module
 		return $this->display(__FILE__, $this->aRecommendations[$sHookName][0]['block_template']);
 	}
 
-    /**
-     * Hook Authentication : Notify prediggo that a recommendations has been clicked
-     *
-     * @param array $params list of specific data
-     * @return bool
-     */
+	/**
+	 * Hook Authentication : Notify prediggo that a recommendations has been clicked
+	 *
+	 * @param array $params list of specific data
+	 * @return bool
+	 */
 	public function setProductNotification($params)
 	{
 		if (!$this->oPrediggoConfig->web_site_id_checked)
@@ -553,7 +553,7 @@ class Prediggo extends Module
 	{
 		if ($this->oPrediggoConfig->web_site_id_checked && $this->oPrediggoConfig->layered_navigation_active)
 		{
-            $template = $this->oPrediggoConfig->search_filter_block_template_name;
+			$template = $this->oPrediggoConfig->search_filter_block_template_name;
 			return $this->display(__FILE__, $template);
 		}
 	}
@@ -568,7 +568,7 @@ class Prediggo extends Module
 	{
 		if ($this->oPrediggoConfig->web_site_id_checked	&& $this->oPrediggoConfig->search_active)
 		{
-            $template = $this->oPrediggoConfig->search_0_template_name;
+			$template = $this->oPrediggoConfig->search_0_template_name;
 			return $this->display(__FILE__, $template);
 		}
 
@@ -582,13 +582,13 @@ class Prediggo extends Module
 	public function displayAutocompleteDidYouMean()
 	{
 		if ($this->oPrediggoConfig->web_site_id_checked
-		&& $this->oPrediggoConfig->search_active
-		&& $this->oPrediggoConfig->autocompletion_active)
+			&& $this->oPrediggoConfig->search_active
+			&& $this->oPrediggoConfig->autocompletion_active)
 		{
 			$this->smarty->assign(array(
 				'sImageType' => $this->oPrediggoConfig->imgType(),
 			));
-            $template = 'views/templates/hook/'.$this->oPrediggoConfig->autoc_template_name;
+			$template = 'views/templates/hook/'.$this->oPrediggoConfig->autoc_template_name;
 			return $this->display(__FILE__, $template);
 		}
 	}
@@ -601,29 +601,29 @@ class Prediggo extends Module
 	public function displayAutocompleteProduct()
 	{
 		if ($this->oPrediggoConfig->web_site_id_checked
-		&& $this->oPrediggoConfig->search_active
-		&& $this->oPrediggoConfig->autocompletion_active)
+			&& $this->oPrediggoConfig->search_active
+			&& $this->oPrediggoConfig->autocompletion_active)
 		{
-            $template = 'views/templates/hook/'.$this->oPrediggoConfig->autop_template_name;
+			$template = 'views/templates/hook/'.$this->oPrediggoConfig->autop_template_name;
 			return $this->display(__FILE__, $template);
 		}
 	}
 
-    /**
-     * Display the autocompletion categories
-     *
-     * @return string Html
-     */
-    public function displayAutocompleteAttributes()
-    {
-        if ($this->oPrediggoConfig->web_site_id_checked
-            && $this->oPrediggoConfig->search_active
-            && $this->oPrediggoConfig->autocompletion_active)
+	/**
+	 * Display the autocompletion categories
+	 *
+	 * @return string Html
+	 */
+	public function displayAutocompleteAttributes()
+	{
+		if ($this->oPrediggoConfig->web_site_id_checked
+			&& $this->oPrediggoConfig->search_active
+			&& $this->oPrediggoConfig->autocompletion_active)
 		{
 			$template = 'views/templates/hook/' . $this->oPrediggoConfig->autocat_template_name;
 			return $this->display(__FILE__, $template);
 		}
-    }
+	}
 
 	/**
 	 * Display the autocompletion suggestions
@@ -633,10 +633,10 @@ class Prediggo extends Module
 	public function displayAutocompleteSuggest()
 	{
 		if ($this->oPrediggoConfig->web_site_id_checked
-		&& $this->oPrediggoConfig->search_active
-		&& $this->oPrediggoConfig->autocompletion_active)
+			&& $this->oPrediggoConfig->search_active
+			&& $this->oPrediggoConfig->autocompletion_active)
 		{
-            $template = 'views/templates/hook/'.$this->oPrediggoConfig->autos_template_name;
+			$template = 'views/templates/hook/'.$this->oPrediggoConfig->autos_template_name;
 			return $this->display(__FILE__, $template);
 		}
 	}
@@ -657,7 +657,7 @@ class Prediggo extends Module
 		$params['filters'] = $this->getSelectedFilters();
 		$params['customer'] = $this->context->customer;
 
-        $this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, 0);
+		$this->aRecommendations[$sHookName] = $this->oPrediggoCallController->getListOfRecommendations($sHookName, $params, 0);
 		if (!$this->aRecommendations[$sHookName])
 			return false;
 
@@ -675,18 +675,18 @@ class Prediggo extends Module
 		return $this->display(__FILE__, 'list_recommendations.tpl');
 	}
 
-    /* Display the categories */
-    public function displayCategories($params)
-    {
-        if (!$this->oPrediggoConfig->web_site_id_checked)
-            return false;
+	/* Display the categories */
+	public function displayCategories($params)
+	{
+		if (!$this->oPrediggoConfig->web_site_id_checked)
+			return false;
 
-        if (!$this->isCached('blockcategories.tpl', $this->getCacheId()))
-        {
-            // Get all groups for this customer and concatenate them as a string: "1,2,3..."
-            $groups = implode(', ', Customer::getGroupsStatic((int)$this->context->customer->id));
-            $maxdepth = Configuration::get('BLOCK_CATEG_MAX_DEPTH');
-            if (!$result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
+		if (!$this->isCached('blockcategories.tpl', $this->getCacheId()))
+		{
+			// Get all groups for this customer and concatenate them as a string: "1,2,3..."
+			$groups = implode(', ', Customer::getGroupsStatic((int)$this->context->customer->id));
+			$maxdepth = Configuration::get('BLOCK_CATEG_MAX_DEPTH');
+			if (!$result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
 				SELECT DISTINCT c.id_parent, c.id_category, cl.name, cl.description, cl.link_rewrite
 				FROM `'._DB_PREFIX_.'category` c
 				INNER JOIN `'._DB_PREFIX_.'category_lang` cl ON (c.`id_category` = cl.`id_category` AND cl.`id_lang` = '.(int)$this->context->language->id.Shop::addSqlRestrictionOnLang('cl').')
@@ -696,81 +696,81 @@ class Prediggo extends Module
 				'.((int)$maxdepth != 0 ? ' AND `level_depth` <= '.(int)$maxdepth : '').'
 				AND c.id_category IN (SELECT id_category FROM `'._DB_PREFIX_.'category_group` WHERE `id_group` IN ('.pSQL($groups).'))
 				ORDER BY `level_depth` ASC, '.(Configuration::get('BLOCK_CATEG_SORT') ? 'cl.`name`' : 'cs.`position`').' '.(Configuration::get('BLOCK_CATEG_SORT_WAY') ? 'DESC' : 'ASC')))
-                return;
+				return;
 
-            $resultParents = array();
-            $resultIds = array();
-            $isDhtml = (Configuration::get('BLOCK_CATEG_DHTML') == 1 ? true : false);
+			$resultParents = array();
+			$resultIds = array();
+			$isDhtml = (Configuration::get('BLOCK_CATEG_DHTML') == 1 ? true : false);
 
-            foreach ($result as &$row)
-            {
-                $resultParents[$row['id_parent']][] = &$row;
-                $resultIds[$row['id_category']] = &$row;
-            }
+			foreach ($result as &$row)
+			{
+				$resultParents[$row['id_parent']][] = &$row;
+				$resultIds[$row['id_category']] = &$row;
+			}
 
-            $blockCategTree = $this->getTree($resultParents, $resultIds, Configuration::get('BLOCK_CATEG_MAX_DEPTH'));
-            unset($resultParents, $resultIds);
+			$blockCategTree = $this->getTree($resultParents, $resultIds, Configuration::get('BLOCK_CATEG_MAX_DEPTH'));
+			unset($resultParents, $resultIds);
 
-            $this->smarty->assign('blockCategTree', $blockCategTree);
-            $this->smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'prediggo/views/templates/front/category-tree-branch.tpl');
-            $this->smarty->assign('isDhtml', $isDhtml);
-        }
+			$this->smarty->assign('blockCategTree', $blockCategTree);
+			$this->smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'prediggo/views/templates/front/category-tree-branch.tpl');
+			$this->smarty->assign('isDhtml', $isDhtml);
+		}
 
-        $id_category = (int)Tools::getValue('id_category');
-        $id_product = (int)Tools::getValue('id_product');
+		$id_category = (int)Tools::getValue('id_category');
+		$id_product = (int)Tools::getValue('id_product');
 
-        if (Tools::isSubmit('id_category'))
-        {
-            $this->context->cookie->last_visited_category = (int)$id_category;
-            $this->smarty->assign('currentCategoryId', $this->context->cookie->last_visited_category);
-        }
+		if (Tools::isSubmit('id_category'))
+		{
+			$this->context->cookie->last_visited_category = (int)$id_category;
+			$this->smarty->assign('currentCategoryId', $this->context->cookie->last_visited_category);
+		}
 
-        if (Tools::isSubmit('id_product'))
-        {
-            if (!isset($this->context->cookie->last_visited_category)
-                || !Product::idIsOnCategoryId($id_product, array('0' => array('id_category' => $this->context->cookie->last_visited_category)))
-                || !Category::inShopStatic($this->context->cookie->last_visited_category, $this->context->shop))
-            {
-                $product = new Product((int)$id_product);
-                if (isset($product) && Validate::isLoadedObject($product))
-                    $this->context->cookie->last_visited_category = (int)$product->id_category_default;
-            }
-            $this->smarty->assign('currentCategoryId', (int)$this->context->cookie->last_visited_category);
-        }
+		if (Tools::isSubmit('id_product'))
+		{
+			if (!isset($this->context->cookie->last_visited_category)
+				|| !Product::idIsOnCategoryId($id_product, array('0' => array('id_category' => $this->context->cookie->last_visited_category)))
+				|| !Category::inShopStatic($this->context->cookie->last_visited_category, $this->context->shop))
+			{
+				$product = new Product((int)$id_product);
+				if (isset($product) && Validate::isLoadedObject($product))
+					$this->context->cookie->last_visited_category = (int)$product->id_category_default;
+			}
+			$this->smarty->assign('currentCategoryId', (int)$this->context->cookie->last_visited_category);
+		}
 
-        $display = $this->display(__FILE__, 'views/templates/front/blockcategories.tpl', $this->getCacheId());
-        return $display;
-    }
+		$display = $this->display(__FILE__, 'views/templates/front/blockcategories.tpl', $this->getCacheId());
+		return $display;
+	}
 
-    /* get cache ID */
-    protected function getCacheId($name = null)
-    {
-        parent::getCacheId($name);
+	/* get cache ID */
+	protected function getCacheId($name = null)
+	{
+		parent::getCacheId($name);
 
-        $groups = implode(', ', Customer::getGroupsStatic((int)$this->context->customer->id));
-        $id_product = (int)Tools::getValue('id_product', 0);
-        $id_category = (int)Tools::getValue('id_category', 0);
-        $id_lang = (int)$this->context->language->id;
-        return 'blockcategories|'.(int)Tools::usingSecureMode().'|'.$this->context->shop->id.'|'.$groups.'|'.$id_lang.'|'.$id_product.'|'.$id_category;
-    }
+		$groups = implode(', ', Customer::getGroupsStatic((int)$this->context->customer->id));
+		$id_product = (int)Tools::getValue('id_product', 0);
+		$id_category = (int)Tools::getValue('id_category', 0);
+		$id_lang = (int)$this->context->language->id;
+		return 'blockcategories|'.(int)Tools::usingSecureMode().'|'.$this->context->shop->id.'|'.$groups.'|'.$id_lang.'|'.$id_product.'|'.$id_category;
+	}
 
-    /* get category tree */
-    public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0)
-    {
-        if (is_null($id_category))
-            $id_category = $this->context->shop->getCategory();
+	/* get category tree */
+	public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0)
+	{
+		if (is_null($id_category))
+			$id_category = $this->context->shop->getCategory();
 
-        $children = array();
-        if (isset($resultParents[$id_category]) && count($resultParents[$id_category]) && ($maxDepth == 0 || $currentDepth < $maxDepth))
-            foreach ($resultParents[$id_category] as $subcat)
-                $children[] = $this->getTree($resultParents, $resultIds, $maxDepth, $subcat['id_category'], $currentDepth + 1);
-        if (!isset($resultIds[$id_category]))
-            return false;
-        $return = array('id' => $id_category, 'link' => $this->context->link->getCategoryLink($id_category, $resultIds[$id_category]['link_rewrite']),
-            'name' => $resultIds[$id_category]['name'], 'desc'=> $resultIds[$id_category]['description'],
-            'children' => $children);
-        return $return;
-    }
+		$children = array();
+		if (isset($resultParents[$id_category]) && count($resultParents[$id_category]) && ($maxDepth == 0 || $currentDepth < $maxDepth))
+			foreach ($resultParents[$id_category] as $subcat)
+				$children[] = $this->getTree($resultParents, $resultIds, $maxDepth, $subcat['id_category'], $currentDepth + 1);
+		if (!isset($resultIds[$id_category]))
+			return false;
+		$return = array('id' => $id_category, 'link' => $this->context->link->getCategoryLink($id_category, $resultIds[$id_category]['link_rewrite']),
+			'name' => $resultIds[$id_category]['name'], 'desc'=> $resultIds[$id_category]['description'],
+			'children' => $children);
+		return $return;
+	}
 
 	/**
 	 * Get the blocklayered filters
@@ -874,7 +874,7 @@ class Prediggo extends Module
 	{
 		// Web site id verification for older version
 		if (!$this->oPrediggoConfig->web_site_id_checked
-		&& !Configuration::hasKey('PREDIGGO_WEB_SITE_ID_CHECKED'))
+			&& !Configuration::hasKey('PREDIGGO_WEB_SITE_ID_CHECKED'))
 			$this->checkWebSiteId();
 
 		if (count($_POST))
@@ -930,9 +930,9 @@ class Prediggo extends Module
 			$this->adminDisplayWarning('Please select a shop on the top block to configure the specific settings.');
 	}
 
-    private function checkServerCheck(){
-        $this->oPrediggoConfig->server_url_check 			= Tools::safeOutput(Tools::getValue('server_url_check'));
-    }
+	private function checkServerCheck(){
+		$this->oPrediggoConfig->server_url_check 			= Tools::safeOutput(Tools::getValue('server_url_check'));
+	}
 
 	/**
 	 * Set the data once an updated is processed in the BO
@@ -942,31 +942,31 @@ class Prediggo extends Module
 		// Set the main configuration
 		if (Tools::isSubmit('mainConfSubmit'))
 		{
-            $this->oPrediggoConfig->shop_name                           = Tools::safeOutput(Tools::getValue('shop_name'));
-            $this->oPrediggoConfig->token_id         			        = Tools::safeOutput(Tools::getValue('token_id'));
-            $this->oPrediggoConfig->gateway_profil_id                         = Tools::safeOutput(Tools::getValue('gateway_profil_id'));
+			$this->oPrediggoConfig->shop_name                           = Tools::safeOutput(Tools::getValue('shop_name'));
+			$this->oPrediggoConfig->token_id         			        = Tools::safeOutput(Tools::getValue('token_id'));
+			$this->oPrediggoConfig->gateway_profil_id                         = Tools::safeOutput(Tools::getValue('gateway_profil_id'));
 			if ($this->oPrediggoConfig->save()){
-                $this->checkServerCheck();
+				$this->checkServerCheck();
 				$this->_confirmations[] = $this->l('Main settings updated');
-            }
+			}
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration settings');
 
 		}
 
-        // Set the server configuration
-        if (Tools::isSubmit('serverConfSubmit'))
-        {
-            $this->oPrediggoConfig->web_site_id                         = Tools::safeOutput(Tools::getValue('web_site_id'));
-            $this->oPrediggoConfig->server_url_recommendations 			= Tools::safeOutput(Tools::getValue('server_url_recommendations'));
+		// Set the server configuration
+		if (Tools::isSubmit('serverConfSubmit'))
+		{
+			$this->oPrediggoConfig->web_site_id                         = Tools::safeOutput(Tools::getValue('web_site_id'));
+			$this->oPrediggoConfig->server_url_recommendations 			= Tools::safeOutput(Tools::getValue('server_url_recommendations'));
 
-            if ($this->oPrediggoConfig->save()) {
-                $this->checkWebSiteId();
-                $this->_confirmations[] = $this->l('Server settings updated');
-            }
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the export configuration settings');
-        }
+			if ($this->oPrediggoConfig->save()) {
+				$this->checkWebSiteId();
+				$this->_confirmations[] = $this->l('Server settings updated');
+			}
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the export configuration settings');
+		}
 
 		// Set the export configuration
 		if (Tools::isSubmit('exportConfSubmit'))
@@ -990,9 +990,9 @@ class Prediggo extends Module
 		// Set the export configuration
 		if (Tools::isSubmit('logsSubmit'))
 		{
-            $this->oPrediggoConfig->logs_generation 				= (int)Tools::safeOutput(Tools::getValue('logs_generation'));
+			$this->oPrediggoConfig->logs_generation 				= (int)Tools::safeOutput(Tools::getValue('logs_generation'));
 
-            if ($this->oPrediggoConfig->save())
+			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Logs settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the Logs configuration settings');
@@ -1002,37 +1002,37 @@ class Prediggo extends Module
 
 		// Launch the file export
 		if (Tools::isSubmit('manualExportSubmit')
-		&& !count($this->_errors))
+			&& !count($this->_errors))
 			$this->oDataExtractorController->launchExport();
 
 
-        // Launch the file Import
-        if (Tools::isSubmit('ClientConfigurationImportSubmit')
-            && !count($this->_errors))
-        {
-            if ($this->oPrediggoConfig->save()){
-                $location = _PS_MODULE_DIR_.'prediggo/xmlfiles/import.sql';
-                $location2 = _PS_MODULE_DIR_.'prediggo/xmlfiles/import2.sql';
-                 if (copy($_FILES['Import']['tmp_name'], $location) && copy($_FILES['Import2']['tmp_name'], $location2)) {
-                     $this->oPrediggoCallController->import_client_config2();
-                     $this->oPrediggoCallController->import_client_config();
-                 }
-                 else
-                     $this->_errors[] = $this->l('An error occurred while importing the client configuration');
-            }
-            else
-                $this->_errors[] = $this->l('An error occurred while importing the client configuration');
-        }
+		// Launch the file Import
+		if (Tools::isSubmit('ClientConfigurationImportSubmit')
+			&& !count($this->_errors))
+		{
+			if ($this->oPrediggoConfig->save()){
+				$location = _PS_MODULE_DIR_.'prediggo/xmlfiles/import.sql';
+				$location2 = _PS_MODULE_DIR_.'prediggo/xmlfiles/import2.sql';
+				if (copy($_FILES['Import']['tmp_name'], $location) && copy($_FILES['Import2']['tmp_name'], $location2)) {
+					$this->oPrediggoCallController->import_client_config2();
+					$this->oPrediggoCallController->import_client_config();
+				}
+				else
+					$this->_errors[] = $this->l('An error occurred while importing the client configuration');
+			}
+			else
+				$this->_errors[] = $this->l('An error occurred while importing the client configuration');
+		}
 
-        // Launch the configuration export
-        if (Tools::isSubmit('ClientConfigurationExportSubmit')
-            && !count($this->_errors))
-        {
-            if ($this->oPrediggoConfig->save())
-                $this->oPrediggoCallController->export_client_config();
-            else
-                $this->_errors[] = $this->l('An error occurred while exporting the client configuration');
-        }
+		// Launch the configuration export
+		if (Tools::isSubmit('ClientConfigurationExportSubmit')
+			&& !count($this->_errors))
+		{
+			if ($this->oPrediggoConfig->save())
+				$this->oPrediggoCallController->export_client_config();
+			else
+				$this->_errors[] = $this->l('An error occurred while exporting the client configuration');
+		}
 
 		// Set the export attributes
 		if (Tools::isSubmit('exportPrediggoAttributesSubmit'))
@@ -1102,38 +1102,38 @@ class Prediggo extends Module
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration of recommendations settings');
 		}
 
-        // Set the recommendations main configuration
-        if (Tools::isSubmit('registerAllHooks'))
-        {
-            if ($this->oPrediggoConfig->save())
-                $this->registerAllHooks();
-            else
-                $this->_errors[] = $this->l('An error occurred while launching the register of all Hooks');
-        }
+		// Set the recommendations main configuration
+		if (Tools::isSubmit('registerAllHooks'))
+		{
+			if ($this->oPrediggoConfig->save())
+				$this->registerAllHooks();
+			else
+				$this->_errors[] = $this->l('An error occurred while launching the register of all Hooks');
+		}
 
-        // Set the homepage recommendations block configuration
-        if (Tools::isSubmit('HookConfigurationSubmit'))
-        {
-            $this->oPrediggoConfig->hook_left_column            = (int)Tools::safeOutput(Tools::getValue('hook_left_column'));
-            $this->oPrediggoConfig->hook_right_column           = (int)Tools::safeOutput(Tools::getValue('hook_right_column'));
-            $this->oPrediggoConfig->hook_footer                 = (int)Tools::safeOutput(Tools::getValue('hook_footer'));
-            $this->oPrediggoConfig->hook_home                   = (int)Tools::safeOutput(Tools::getValue('hook_home'));
-            $this->oPrediggoConfig->hook_footer_product         = (int)Tools::safeOutput(Tools::getValue('hook_footer_product'));
-            $this->oPrediggoConfig->hook_left_column_product    = (int)Tools::safeOutput(Tools::getValue('hook_left_column_product'));
-            $this->oPrediggoConfig->hook_right_column_product   = (int)Tools::safeOutput(Tools::getValue('hook_right_column_product'));
-            $this->oPrediggoConfig->hook_shopping_cart_footer   = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart_footer'));
-            $this->oPrediggoConfig->hook_shopping_cart          = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart'));
-            $this->oPrediggoConfig->hook_product_comparison     = (int)Tools::safeOutput(Tools::getValue('hook_product_comparison'));
-            $this->oPrediggoConfig->hook_order_detail           = (int)Tools::safeOutput(Tools::getValue('hook_order_detail'));
-            $this->oPrediggoConfig->hook_product_tab            = (int)Tools::safeOutput(Tools::getValue('hook_product_tab'));
-            $this->oPrediggoConfig->hook_before_carrier         = (int)Tools::safeOutput(Tools::getValue('hook_before_carrier'));
-            $this->oPrediggoConfig->hook_carrier_list           = (int)Tools::safeOutput(Tools::getValue('hook_carrier_list'));
+		// Set the homepage recommendations block configuration
+		if (Tools::isSubmit('HookConfigurationSubmit'))
+		{
+			$this->oPrediggoConfig->hook_left_column            = (int)Tools::safeOutput(Tools::getValue('hook_left_column'));
+			$this->oPrediggoConfig->hook_right_column           = (int)Tools::safeOutput(Tools::getValue('hook_right_column'));
+			$this->oPrediggoConfig->hook_footer                 = (int)Tools::safeOutput(Tools::getValue('hook_footer'));
+			$this->oPrediggoConfig->hook_home                   = (int)Tools::safeOutput(Tools::getValue('hook_home'));
+			$this->oPrediggoConfig->hook_footer_product         = (int)Tools::safeOutput(Tools::getValue('hook_footer_product'));
+			$this->oPrediggoConfig->hook_left_column_product    = (int)Tools::safeOutput(Tools::getValue('hook_left_column_product'));
+			$this->oPrediggoConfig->hook_right_column_product   = (int)Tools::safeOutput(Tools::getValue('hook_right_column_product'));
+			$this->oPrediggoConfig->hook_shopping_cart_footer   = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart_footer'));
+			$this->oPrediggoConfig->hook_shopping_cart          = (int)Tools::safeOutput(Tools::getValue('hook_shopping_cart'));
+			$this->oPrediggoConfig->hook_product_comparison     = (int)Tools::safeOutput(Tools::getValue('hook_product_comparison'));
+			$this->oPrediggoConfig->hook_order_detail           = (int)Tools::safeOutput(Tools::getValue('hook_order_detail'));
+			$this->oPrediggoConfig->hook_product_tab            = (int)Tools::safeOutput(Tools::getValue('hook_product_tab'));
+			$this->oPrediggoConfig->hook_before_carrier         = (int)Tools::safeOutput(Tools::getValue('hook_before_carrier'));
+			$this->oPrediggoConfig->hook_carrier_list           = (int)Tools::safeOutput(Tools::getValue('hook_carrier_list'));
 
-            if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Hook configuration settings updated');
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the hook configuration settings');
-        }
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('Hook configuration settings updated');
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the hook configuration settings');
+		}
 
 		// Set the homepage recommendations block configuration
 		if (Tools::isSubmit('exportHome0RecommendationConfSubmit'))
@@ -1141,52 +1141,52 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->home_0_activated 	        = Tools::safeOutput(Tools::getValue('home_0_activated'));
 
 			$this->oPrediggoConfig->home_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('home_0_nb_items'));
-			
+
 			$this->oPrediggoConfig->home_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('home_0_variant_id'));
-			
+
 			$this->oPrediggoConfig->home_0_hook_name 			= Tools::safeOutput(Tools::getValue('home_0_hook_name'));
 
 			$this->oPrediggoConfig->home_0_template_name 		= Tools::safeOutput(Tools::getValue('home_0_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->home_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_0_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Homepage recommendations block #0 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		if (Tools::isSubmit('exportHome1RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->home_1_activated 	        = Tools::safeOutput(Tools::getValue('home_1_activated'));
 
 			$this->oPrediggoConfig->home_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('home_1_nb_items'));
-			
+
 			$this->oPrediggoConfig->home_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('home_1_variant_id'));
-			
+
 			$this->oPrediggoConfig->home_1_hook_name 			= Tools::safeOutput(Tools::getValue('home_1_hook_name'));
 
 			$this->oPrediggoConfig->home_1_template_name 		= Tools::safeOutput(Tools::getValue('home_1_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->home_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_1_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Homepage recommendations block #1 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the homepage recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportAllPage0RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->allpage_0_activated 	    = Tools::safeOutput(Tools::getValue('allpage_0_activated'));
 
 			$this->oPrediggoConfig->allpage_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_0_nb_items'));
-			
+
 			$this->oPrediggoConfig->allpage_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_0_variant_id'));
-			
+
 			$this->oPrediggoConfig->allpage_0_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_0_hook_name'));
 
 			$this->oPrediggoConfig->allpage_0_template_name 	= Tools::safeOutput(Tools::getValue('allpage_0_template_name'));
@@ -1199,16 +1199,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the homepage recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportAllPage1RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->allpage_1_activated 	    = Tools::safeOutput(Tools::getValue('allpage_1_activated'));
 
 			$this->oPrediggoConfig->allpage_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_1_nb_items'));
-			
+
 			$this->oPrediggoConfig->allpage_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_1_variant_id'));
-			
+
 			$this->oPrediggoConfig->allpage_1_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_1_hook_name'));
 
 			$this->oPrediggoConfig->allpage_1_template_name 	= Tools::safeOutput(Tools::getValue('allpage_1_template_name'));
@@ -1221,16 +1221,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the homepage recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportAllPage2RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->allpage_2_activated 	    = Tools::safeOutput(Tools::getValue('allpage_2_activated'));
 
 			$this->oPrediggoConfig->allpage_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('allpage_2_nb_items'));
-			
+
 			$this->oPrediggoConfig->allpage_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('allpage_2_variant_id'));
-			
+
 			$this->oPrediggoConfig->allpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('allpage_2_hook_name'));
 
 			$this->oPrediggoConfig->allpage_2_template_name 	= Tools::safeOutput(Tools::getValue('allpage_2_template_name'));
@@ -1243,16 +1243,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportProductPage0RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->productpage_0_activated 	= Tools::safeOutput(Tools::getValue('productpage_0_activated'));
 
 			$this->oPrediggoConfig->productpage_0_nb_items 		= (int)Tools::safeOutput(Tools::getValue('productpage_0_nb_items'));
-			
+
 			$this->oPrediggoConfig->productpage_0_variant_id 	= (int)Tools::safeOutput(Tools::getValue('productpage_0_variant_id'));
-			
+
 			$this->oPrediggoConfig->productpage_0_hook_name 	= Tools::safeOutput(Tools::getValue('productpage_0_hook_name'));
 
 			$this->oPrediggoConfig->productpage_0_template_name = Tools::safeOutput(Tools::getValue('productpage_0_template_name'));
@@ -1265,16 +1265,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportProductPage1RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->productpage_1_activated 	    = Tools::safeOutput(Tools::getValue('productpage_1_activated'));
 
 			$this->oPrediggoConfig->productpage_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('productpage_1_nb_items'));
-			
+
 			$this->oPrediggoConfig->productpage_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('productpage_1_variant_id'));
-			
+
 			$this->oPrediggoConfig->productpage_1_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_1_hook_name'));
 
 			$this->oPrediggoConfig->productpage_1_template_name 	= Tools::safeOutput(Tools::getValue('productpage_1_template_name'));
@@ -1287,16 +1287,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportProductPage2RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->productpage_2_activated 	    = Tools::safeOutput(Tools::getValue('productpage_2_activated'));
 
 			$this->oPrediggoConfig->productpage_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('productpage_2_nb_items'));
-			
+
 			$this->oPrediggoConfig->productpage_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('productpage_2_variant_id'));
-			
+
 			$this->oPrediggoConfig->productpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
 
 			$this->oPrediggoConfig->productpage_2_template_name 	= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
@@ -1309,146 +1309,146 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the basket recommendations block configuration
 		if (Tools::isSubmit('exportBasket0RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_0_activated 	        = Tools::safeOutput(Tools::getValue('basket_0_activated'));
 
 			$this->oPrediggoConfig->basket_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_0_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_0_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_0_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_0_hook_name 			= Tools::safeOutput(Tools::getValue('basket_0_hook_name'));
 
 			$this->oPrediggoConfig->basket_0_template_name 		= Tools::safeOutput(Tools::getValue('basket_0_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_0_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #0 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		if (Tools::isSubmit('exportBasket1RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_1_activated 	        = Tools::safeOutput(Tools::getValue('basket_1_activated'));
 
 			$this->oPrediggoConfig->basket_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_1_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_1_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_1_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_1_hook_name 			= Tools::safeOutput(Tools::getValue('basket_1_hook_name'));
 
 			$this->oPrediggoConfig->basket_1_template_name 		= Tools::safeOutput(Tools::getValue('basket_1_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_1_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #1 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the basket recommendations block configuration
 		if (Tools::isSubmit('exportBasket2RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_2_activated 	        = Tools::safeOutput(Tools::getValue('basket_2_activated'));
 
 			$this->oPrediggoConfig->basket_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_2_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_2_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_2_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_2_hook_name 			= Tools::safeOutput(Tools::getValue('basket_2_hook_name'));
 
 			$this->oPrediggoConfig->basket_2_template_name 		= Tools::safeOutput(Tools::getValue('basket_2_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_2_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #2 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		if (Tools::isSubmit('exportBasket3RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_3_activated 	        = Tools::safeOutput(Tools::getValue('basket_3_activated'));
 
 			$this->oPrediggoConfig->basket_3_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_3_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_3_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_3_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_3_hook_name 			= Tools::safeOutput(Tools::getValue('basket_3_hook_name'));
 
 			$this->oPrediggoConfig->basket_3_template_name 		= Tools::safeOutput(Tools::getValue('basket_3_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_3_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_3_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the basket recommendations block configuration
 		if (Tools::isSubmit('exportBasket4RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_4_activated 	        = Tools::safeOutput(Tools::getValue('basket_4_activated'));
 
 			$this->oPrediggoConfig->basket_4_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_4_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_4_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_4_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_4_hook_name 			= Tools::safeOutput(Tools::getValue('basket_4_hook_name'));
 
 			$this->oPrediggoConfig->basket_4_template_name 		= Tools::safeOutput(Tools::getValue('basket_4_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_4_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_4_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #4 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
-        // Set the basket recommendations block configuration
+		// Set the basket recommendations block configuration
 		if (Tools::isSubmit('exportBasket5RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->basket_5_activated 	        = Tools::safeOutput(Tools::getValue('basket_5_activated'));
 
 			$this->oPrediggoConfig->basket_5_nb_items 			= (int)Tools::safeOutput(Tools::getValue('basket_5_nb_items'));
-			
+
 			$this->oPrediggoConfig->basket_5_variant_id 		= (int)Tools::safeOutput(Tools::getValue('basket_5_variant_id'));
-			
+
 			$this->oPrediggoConfig->basket_5_hook_name 			= Tools::safeOutput(Tools::getValue('basket_5_hook_name'));
 
 			$this->oPrediggoConfig->basket_5_template_name 		= Tools::safeOutput(Tools::getValue('basket_5_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->basket_5_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_5_block_label_'.(int)$aLanguage['id_lang']));
-	
+
 			if ($this->oPrediggoConfig->save())
 				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
-			// Set the Product recommendations block configuration bloc  1
+
+		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportCategory0RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->category_0_activated 	        = Tools::safeOutput(Tools::getValue('category_0_activated'));
 
 			$this->oPrediggoConfig->category_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_0_nb_items'));
-			
+
 			$this->oPrediggoConfig->category_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_0_variant_id'));
-			
+
 			$this->oPrediggoConfig->category_0_hook_name 			= Tools::safeOutput(Tools::getValue('category_0_hook_name'));
 
 			$this->oPrediggoConfig->category_0_template_name 		= Tools::safeOutput(Tools::getValue('category_0_template_name'));
@@ -1461,16 +1461,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportCategory1RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->category_1_activated 	        = Tools::safeOutput(Tools::getValue('category_1_activated'));
 
 			$this->oPrediggoConfig->category_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_1_nb_items'));
-			
+
 			$this->oPrediggoConfig->category_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_1_variant_id'));
-			
+
 			$this->oPrediggoConfig->category_1_hook_name 			= Tools::safeOutput(Tools::getValue('category_1_hook_name'));
 
 			$this->oPrediggoConfig->category_1_template_name 		= Tools::safeOutput(Tools::getValue('category_1_template_name'));
@@ -1483,16 +1483,16 @@ class Prediggo extends Module
 			else
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
-		
+
 		// Set the Product recommendations block configuration bloc  1
 		if (Tools::isSubmit('exportCategory2RecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->category_2_activated 	        = Tools::safeOutput(Tools::getValue('category_2_activated'));
 
 			$this->oPrediggoConfig->category_2_nb_items 			= (int)Tools::safeOutput(Tools::getValue('category_2_nb_items'));
-			
+
 			$this->oPrediggoConfig->category_2_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('category_2_variant_id'));
-			
+
 			$this->oPrediggoConfig->productpage_2_hook_name 		= Tools::safeOutput(Tools::getValue('productpage_2_hook_name'));
 
 			$this->oPrediggoConfig->productpage_2_template_name 	= Tools::safeOutput(Tools::getValue('productpage_2_template_name'));
@@ -1506,89 +1506,89 @@ class Prediggo extends Module
 				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
-        // Set the Product recommendations block configuration bloc  1
-        if (Tools::isSubmit('exportCustomer0RecommendationConfSubmit'))
-        {
-            $this->oPrediggoConfig->customer_0_activated 	        = Tools::safeOutput(Tools::getValue('customer_0_activated'));
-
-            $this->oPrediggoConfig->customer_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_0_nb_items'));
-
-            $this->oPrediggoConfig->customer_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_0_variant_id'));
-
-            $this->oPrediggoConfig->customer_0_hook_name 			= Tools::safeOutput(Tools::getValue('customer_0_hook_name'));
-
-            $this->oPrediggoConfig->customer_0_template_name 		= Tools::safeOutput(Tools::getValue('customer_0_template_name'));
-
-            foreach ($this->context->controller->getLanguages() as $aLanguage)
-                $this->oPrediggoConfig->customer_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_0_block_label_'.(int)$aLanguage['id_lang']));
-
-            if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Customer Page #0 recommendations block configuration settings updated');
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
-        }
-
-        // Set the Product recommendations block configuration bloc  1
-        if (Tools::isSubmit('exportCustomer1RecommendationConfSubmit'))
-        {
-            $this->oPrediggoConfig->customer_1_activated 	        = Tools::safeOutput(Tools::getValue('customer_1_activated'));
-
-            $this->oPrediggoConfig->customer_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_1_nb_items'));
-
-            $this->oPrediggoConfig->customer_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_1_variant_id'));
-
-            $this->oPrediggoConfig->customer_1_hook_name 			= Tools::safeOutput(Tools::getValue('customer_1_hook_name'));
-
-            $this->oPrediggoConfig->customer_1_template_name 		= Tools::safeOutput(Tools::getValue('customer_1_template_name'));
-
-            foreach ($this->context->controller->getLanguages() as $aLanguage)
-                $this->oPrediggoConfig->customer_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_1_block_label_'.(int)$aLanguage['id_lang']));
-
-            if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Customer Page #1 recommendations block configuration settings updated');
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
-        }
-
-        /*// Set the customers pages recommendations block configuration
-		if (Tools::isSubmit('exportCustomerRecommendationConfSubmit'))
+		// Set the Product recommendations block configuration bloc  1
+		if (Tools::isSubmit('exportCustomer0RecommendationConfSubmit'))
 		{
-			$this->oPrediggoConfig->customer_recommendations 	= Tools::safeOutput(Tools::getValue('customer_recommendations'));
-			$this->oPrediggoConfig->customer_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_nb_items'));
+			$this->oPrediggoConfig->customer_0_activated 	        = Tools::safeOutput(Tools::getValue('customer_0_activated'));
+
+			$this->oPrediggoConfig->customer_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_0_nb_items'));
+
+			$this->oPrediggoConfig->customer_0_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_0_variant_id'));
+
+			$this->oPrediggoConfig->customer_0_hook_name 			= Tools::safeOutput(Tools::getValue('customer_0_hook_name'));
+
+			$this->oPrediggoConfig->customer_0_template_name 		= Tools::safeOutput(Tools::getValue('customer_0_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
-				$this->oPrediggoConfig->customer_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_block_title_'.(int)$aLanguage['id_lang']));
+				$this->oPrediggoConfig->customer_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Customers pages recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->l('Customer Page #0 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the customers pages recommendations block configuration of recommendations settings');
-		}*/
+				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+		}
 
+		// Set the Product recommendations block configuration bloc  1
+		if (Tools::isSubmit('exportCustomer1RecommendationConfSubmit'))
+		{
+			$this->oPrediggoConfig->customer_1_activated 	        = Tools::safeOutput(Tools::getValue('customer_1_activated'));
 
-        // Set the 404 page recommendations block configuration
-        if (Tools::isSubmit('export404RecommendationConfSubmit'))
+			$this->oPrediggoConfig->customer_1_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_1_nb_items'));
+
+			$this->oPrediggoConfig->customer_1_variant_id 		    = (int)Tools::safeOutput(Tools::getValue('customer_1_variant_id'));
+
+			$this->oPrediggoConfig->customer_1_hook_name 			= Tools::safeOutput(Tools::getValue('customer_1_hook_name'));
+
+			$this->oPrediggoConfig->customer_1_template_name 		= Tools::safeOutput(Tools::getValue('customer_1_template_name'));
+
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
+				$this->oPrediggoConfig->customer_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_1_block_label_'.(int)$aLanguage['id_lang']));
+
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('Customer Page #1 recommendations block configuration settings updated');
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+		}
+
+		/*// Set the customers pages recommendations block configuration
+        if (Tools::isSubmit('exportCustomerRecommendationConfSubmit'))
         {
-            $this->oPrediggoConfig->error_recommendations 	= Tools::safeOutput(Tools::getValue('error_recommendations'));
-            $this->oPrediggoConfig->error_nb_items 			= (int)Tools::safeOutput(Tools::getValue('error_nb_items'));
+            $this->oPrediggoConfig->customer_recommendations 	= Tools::safeOutput(Tools::getValue('customer_recommendations'));
+            $this->oPrediggoConfig->customer_nb_items 			= (int)Tools::safeOutput(Tools::getValue('customer_nb_items'));
 
             foreach ($this->context->controller->getLanguages() as $aLanguage)
-                $this->oPrediggoConfig->error_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('error_block_title_'.(int)$aLanguage['id_lang']));
+                $this->oPrediggoConfig->customer_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_block_title_'.(int)$aLanguage['id_lang']));
 
             if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('404 page recommendations block configuration settings updated');
+                $this->_confirmations[] = $this->l('Customers pages recommendations block configuration settings updated');
             else
-                $this->_errors[] = $this->l('An error occurred while updating the 404 page recommendations block configuration of recommendations settings');
-        }
+                $this->_errors[] = $this->l('An error occurred while updating the customers pages recommendations block configuration of recommendations settings');
+        }*/
+
+
+		// Set the 404 page recommendations block configuration
+		if (Tools::isSubmit('export404RecommendationConfSubmit'))
+		{
+			$this->oPrediggoConfig->error_recommendations 	= Tools::safeOutput(Tools::getValue('error_recommendations'));
+			$this->oPrediggoConfig->error_nb_items 			= (int)Tools::safeOutput(Tools::getValue('error_nb_items'));
+
+			foreach ($this->context->controller->getLanguages() as $aLanguage)
+				$this->oPrediggoConfig->error_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('error_block_title_'.(int)$aLanguage['id_lang']));
+
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('404 page recommendations block configuration settings updated');
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the 404 page recommendations block configuration of recommendations settings');
+		}
 
 		// Set the blocklayered module recommendations block configuration
 		if (Tools::isSubmit('exportBlocklayeredRecommendationConfSubmit'))
 		{
 			$this->oPrediggoConfig->blocklayered_0_recommendations 	    = Tools::safeOutput(Tools::getValue('blocklayered_0_recommendations'));
-            $this->oPrediggoConfig->blocklayered_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('blocklayered_0_nb_items'));
-            $this->oPrediggoConfig->blocklayered_0_variant_id 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_variant_id'));
-            $this->oPrediggoConfig->blocklayered_0_hook_name 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_hook_name'));
-            $this->oPrediggoConfig->blocklayered_0_template_name 	    = Tools::safeOutput(Tools::getValue('blocklayered_0_template_name'));
+			$this->oPrediggoConfig->blocklayered_0_nb_items 			= (int)Tools::safeOutput(Tools::getValue('blocklayered_0_nb_items'));
+			$this->oPrediggoConfig->blocklayered_0_variant_id 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_variant_id'));
+			$this->oPrediggoConfig->blocklayered_0_hook_name 	        = Tools::safeOutput(Tools::getValue('blocklayered_0_hook_name'));
+			$this->oPrediggoConfig->blocklayered_0_template_name 	    = Tools::safeOutput(Tools::getValue('blocklayered_0_template_name'));
 
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
@@ -1604,12 +1604,12 @@ class Prediggo extends Module
 		if (Tools::isSubmit('mainSearchConfSubmit'))
 		{
 			$this->oPrediggoConfig->search_active 				    	    = (int)Tools::safeOutput(Tools::getValue('search_active'));
-            $this->oPrediggoConfig->search_main_template_name 		        = Tools::safeOutput(Tools::getValue('search_main_template_name'));
-            $this->oPrediggoConfig->pagination_template_name                = Tools::safeOutput(Tools::getValue('pagination_template_name'));
-            $this->oPrediggoConfig->search_filter_block_template_name 	    = Tools::safeOutput(Tools::getValue('search_filter_block_template_name'));
-            $this->oPrediggoConfig->search_filters_sort_by_template_name    = Tools::safeOutput(Tools::getValue('search_filters_sort_by_template_name'));
-            $this->oPrediggoConfig->prod_compare_template_name              = Tools::safeOutput(Tools::getValue('prod_compare_template_name'));
-            $this->oPrediggoConfig->prod_list_template_name                 = Tools::safeOutput(Tools::getValue('prod_list_template_name'));
+			$this->oPrediggoConfig->search_main_template_name 		        = Tools::safeOutput(Tools::getValue('search_main_template_name'));
+			$this->oPrediggoConfig->pagination_template_name                = Tools::safeOutput(Tools::getValue('pagination_template_name'));
+			$this->oPrediggoConfig->search_filter_block_template_name 	    = Tools::safeOutput(Tools::getValue('search_filter_block_template_name'));
+			$this->oPrediggoConfig->search_filters_sort_by_template_name    = Tools::safeOutput(Tools::getValue('search_filters_sort_by_template_name'));
+			$this->oPrediggoConfig->prod_compare_template_name              = Tools::safeOutput(Tools::getValue('prod_compare_template_name'));
+			$this->oPrediggoConfig->prod_list_template_name                 = Tools::safeOutput(Tools::getValue('prod_list_template_name'));
 			$this->oPrediggoConfig->searchandizing_active 			        = (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
 			$this->oPrediggoConfig->layered_navigation_active 		        = (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
@@ -1619,41 +1619,41 @@ class Prediggo extends Module
 				$this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
 		}
 
-        // Set the category main configuration
-        if (Tools::isSubmit('mainCategoryConfSubmit'))
-        {
-            $this->oPrediggoConfig->category_active 					= (int)Tools::safeOutput(Tools::getValue('category_active'));
-            $this->oPrediggoConfig->category_0_template_name 		    = Tools::safeOutput(Tools::getValue('category_0_template_name'));
+		// Set the category main configuration
+		if (Tools::isSubmit('mainCategoryConfSubmit'))
+		{
+			$this->oPrediggoConfig->category_active 					= (int)Tools::safeOutput(Tools::getValue('category_active'));
+			$this->oPrediggoConfig->category_0_template_name 		    = Tools::safeOutput(Tools::getValue('category_0_template_name'));
 
-            if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Main configuration settings of Category updated');
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the main configuration of Category settings');
-        }
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('Main configuration settings of Category updated');
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the main configuration of Category settings');
+		}
 
-        // Set the searchs main configuration
-        if (Tools::isSubmit('searchandizingSubmit'))
-        {
-            $this->oPrediggoConfig->searchandizing_active 			= (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
-            $this->oPrediggoConfig->layered_navigation_active 		= (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
+		// Set the searchs main configuration
+		if (Tools::isSubmit('searchandizingSubmit'))
+		{
+			$this->oPrediggoConfig->searchandizing_active 			= (int)Tools::safeOutput(Tools::getValue('searchandizing_active'));
+			$this->oPrediggoConfig->layered_navigation_active 		= (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
-            if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
-            else
-                $this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
-        }
+			if ($this->oPrediggoConfig->save())
+				$this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
+			else
+				$this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
+		}
 
 		// Set the searchs autocompletion configuration
 		if (Tools::isSubmit('exportSearchAutocompletionConfSubmit'))
 		{
 			$this->oPrediggoConfig->autocompletion_active 		= (int)Tools::safeOutput(Tools::getValue('autocompletion_active'));
-            $this->oPrediggoConfig->search_nb_min_chars         = (int)Tools::safeOutput(Tools::getValue('search_nb_min_chars'));
+			$this->oPrediggoConfig->search_nb_min_chars         = (int)Tools::safeOutput(Tools::getValue('search_nb_min_chars'));
 			$this->oPrediggoConfig->autocompletion_nb_items 	= (int)Tools::safeOutput(Tools::getValue('autocompletion_nb_items'));
-            $this->oPrediggoConfig->search_0_template_name 		= Tools::safeOutput(Tools::getValue('search_0_template_name'));
-            $this->oPrediggoConfig->autoc_template_name         = Tools::safeOutput(Tools::getValue('autoc_template_name'));
-            $this->oPrediggoConfig->autop_template_name         = Tools::safeOutput(Tools::getValue('autop_template_name'));
-            $this->oPrediggoConfig->autocat_template_name       = Tools::safeOutput(Tools::getValue('autocat_template_name'));
-            $this->oPrediggoConfig->autos_template_name         = Tools::safeOutput(Tools::getValue('autos_template_name'));
+			$this->oPrediggoConfig->search_0_template_name 		= Tools::safeOutput(Tools::getValue('search_0_template_name'));
+			$this->oPrediggoConfig->autoc_template_name         = Tools::safeOutput(Tools::getValue('autoc_template_name'));
+			$this->oPrediggoConfig->autop_template_name         = Tools::safeOutput(Tools::getValue('autop_template_name'));
+			$this->oPrediggoConfig->autocat_template_name       = Tools::safeOutput(Tools::getValue('autocat_template_name'));
+			$this->oPrediggoConfig->autos_template_name         = Tools::safeOutput(Tools::getValue('autos_template_name'));
 
 			foreach ($this->context->controller->getLanguages() as $aLanguage)
 				$this->oPrediggoConfig->suggest_words[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('suggest_words_'.(int)$aLanguage['id_lang']));
@@ -1673,14 +1673,14 @@ class Prediggo extends Module
 		// Add the specific jquery ui plugins, module JS & CSS
 		$this->context->controller->addJqueryUI('ui.tabs');
 		$this->context->controller->addJqueryPlugin('autocomplete');
-        if (Tools::substr(_PS_VERSION_, 0, 3) == 1.5)
-            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
+		if (Tools::substr(_PS_VERSION_, 0, 3) == 1.5)
+			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
 
 		elseif (_PS_VERSION_ == "1.6.0.9" || _PS_VERSION_ == "1.6.0.10" || _PS_VERSION_ == "1.6.0.11" || _PS_VERSION_ == "1.6.0.12")
-            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_6_0_9.js');
+			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_6_0_9.js');
 
-        elseif (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
-            $this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
+		elseif (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
+			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
 
 		$this->context->controller->addCss(array(
 			($this->_path).'css/admin/'.$this->name.'.css' => 'all',
@@ -1715,30 +1715,30 @@ class Prediggo extends Module
 				'image' => _PS_ADMIN_IMG_.'employee.gif'
 			),
 			'input' => array(
-                array(
-                    'label' 	=> $this->l('Shop Name'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'shop_name',
-                    'size'		=> 50,
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Shop Name of the current shop')
-                ),
+				array(
+					'label' 	=> $this->l('Shop Name'),
+					'type' 		=> 'text',
+					'name' 		=> 'shop_name',
+					'size'		=> 50,
+					'required'	=> true,
+					'desc' 		=> $this->l('Shop Name of the current shop')
+				),
 				array(
 					'label' 	=> $this->l('Token ID'),
 					'type' 		=> 'text',
 					'name' 		=> 'token_id',
 					'size'		=> 50,
-                    'required'	=> true,
+					'required'	=> true,
 					'desc' 		=> $this->l('Token ID of the current shop')
 				),
-                array(
-                    'label' 	=> $this->l('Profil ID'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'gateway_profil_id',
-                    'size'		=> 50,
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Profile ID of the current shop')
-                ),
+				array(
+					'label' 	=> $this->l('Profil ID'),
+					'type' 		=> 'text',
+					'name' 		=> 'gateway_profil_id',
+					'size'		=> 50,
+					'required'	=> true,
+					'desc' 		=> $this->l('Profile ID of the current shop')
+				),
 				array(
 					'type' 		=> 'button',
 					'name' 		=> 'mainConfSubmit',
@@ -1748,109 +1748,109 @@ class Prediggo extends Module
 			),
 		);
 
-        $this->fields_value['shop_name'] 			= $this->oPrediggoConfig->shop_name;
-        $this->fields_value['token_id'] 			= $this->oPrediggoConfig->token_id;
+		$this->fields_value['shop_name'] 			= $this->oPrediggoConfig->shop_name;
+		$this->fields_value['token_id'] 			= $this->oPrediggoConfig->token_id;
 		$this->fields_value['gateway_profil_id'] 	= (int)$this->context->shop->id;
 
-        /*
-		 * SERVER CONFIGURATION
-		 */
-        $this->fields_form['server_conf']['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Server Configuration'),
-                'image' => _PS_ADMIN_IMG_.'manufacturers.gif'
-            ),
-            'input' => array(
-                array(
-                    'label' 	=> $this->l('Web Site ID'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'web_site_id',
-                    'size'		=> 50,
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Login of the Prediggo solution')
-                ),
-                array(
-                    'label' 	=> $this->l('URL of prediggo server:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'server_url_recommendations',
-                    'size'		=> 50,
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Url called to get the prediggo solution'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'type' 		=> 'button',
-                    'name' 		=> 'serverConfSubmit',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Save   '),
-                ),
-            ),
-        );
+		/*
+         * SERVER CONFIGURATION
+         */
+		$this->fields_form['server_conf']['form'] = array(
+			'legend' => array(
+				'title' => $this->l('Server Configuration'),
+				'image' => _PS_ADMIN_IMG_.'manufacturers.gif'
+			),
+			'input' => array(
+				array(
+					'label' 	=> $this->l('Web Site ID'),
+					'type' 		=> 'text',
+					'name' 		=> 'web_site_id',
+					'size'		=> 50,
+					'required'	=> true,
+					'desc' 		=> $this->l('Login of the Prediggo solution')
+				),
+				array(
+					'label' 	=> $this->l('URL of prediggo server:'),
+					'type' 		=> 'text',
+					'name' 		=> 'server_url_recommendations',
+					'size'		=> 50,
+					'required'	=> true,
+					'desc' 		=> $this->l('Url called to get the prediggo solution'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'serverConfSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save   '),
+				),
+			),
+		);
 
-        $this->fields_value['web_site_id'] 			        = $this->oPrediggoConfig->web_site_id;
-        $this->fields_value['server_url_recommendations'] 	= $this->oPrediggoConfig->server_url_recommendations;
+		$this->fields_value['web_site_id'] 			        = $this->oPrediggoConfig->web_site_id;
+		$this->fields_value['server_url_recommendations'] 	= $this->oPrediggoConfig->server_url_recommendations;
 
-        /*
+		/*
         * IMPORT/EXPORT CLIENT CONFIGURATION
         */
-        $this->fields_form['client_import_export_configuration']['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Import/Export client configuration'),
-                'image' => _PS_ADMIN_IMG_.'quick.gif'
-            ),
-            'input' => array(
-                array(
-                    'label' 	=> $this->l('Reset All Hooks:'),
-                    'type' 		=> 'button',
-                    'name' 		=> 'registerAllHooks',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Reset All Hooks   '),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-            ),
-        );
+		$this->fields_form['client_import_export_configuration']['form'] = array(
+			'legend' => array(
+				'title' => $this->l('Import/Export client configuration'),
+				'image' => _PS_ADMIN_IMG_.'quick.gif'
+			),
+			'input' => array(
+				array(
+					'label' 	=> $this->l('Reset All Hooks:'),
+					'type' 		=> 'button',
+					'name' 		=> 'registerAllHooks',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Reset All Hooks   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+			),
+		);
 
-        /*
+		/*
          * LOG CONFIGURATION
          */
-        $this->fields_form['logs_configuration']['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Logs configuration'),
-                'image' => _PS_ADMIN_IMG_.'quick.gif'
-            ),
-            'input' => array(
-                array(
-                    'label' 	=> $this->l('Logs activation'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'logs_generation',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'logs_generation_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'logs_generation_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('The logs files are stored in the folder "logs" of the module'),
-                ),
-            array(
-                'type' 		=> 'button',
-                'name' 		=> 'logsSubmit',
-                'class' 	=> 'button',
-                'title' 	=> $this->l('   Save   '),
-                'disabled'	=> ((int)($iShopContext)?'disabled':'')
-            ),
-            ),
-        );
+		$this->fields_form['logs_configuration']['form'] = array(
+			'legend' => array(
+				'title' => $this->l('Logs configuration'),
+				'image' => _PS_ADMIN_IMG_.'quick.gif'
+			),
+			'input' => array(
+				array(
+					'label' 	=> $this->l('Logs activation'),
+					'type' 		=> 'radio',
+					'name' 		=> 'logs_generation',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'logs_generation_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'logs_generation_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('The logs files are stored in the folder "logs" of the module'),
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'logsSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':'')
+				),
+			),
+		);
 
-        $this->fields_value['logs_generation'] 				        = (int)$this->oPrediggoConfig->logs_generation;
+		$this->fields_value['logs_generation'] 				        = (int)$this->oPrediggoConfig->logs_generation;
 
 		/*
 		 * EXPORT MAIN CONFIGURATION
@@ -1973,50 +1973,50 @@ class Prediggo extends Module
 					'desc' 		=> $this->l('Define if the product\'s descriptions are included in the export of the products'),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
-                array(
-                    'label' 	=> $this->l('Product\'s active only export activation'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'export_product_active',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'export_product_active_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'export_product_active_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('When activated only active products included and when not activated disable products included'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' 	=> $this->l('Product\'s price > 0 only export activation'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'export_product_price',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'export_product_price_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'export_product_price_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('When activated only price > 0 included and when not activated price >=0 included'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
+				array(
+					'label' 	=> $this->l('Product\'s active only export activation'),
+					'type' 		=> 'radio',
+					'name' 		=> 'export_product_active',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'export_product_active_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'export_product_active_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('When activated only active products included and when not activated disable products included'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Product\'s price > 0 only export activation'),
+					'type' 		=> 'radio',
+					'name' 		=> 'export_product_price',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'export_product_price_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'export_product_price_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('When activated only price > 0 included and when not activated price >=0 included'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
 				array(
 					'label' 	=> $this->l('Product minimum quantity:'),
 					'type' 		=> 'text',
@@ -2049,10 +2049,9 @@ class Prediggo extends Module
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
-					'type' 		=> 'hint',
+					'label' 	=> false,
+					'type' 		=> 'free',
 					'name' 		=> 'protection_xml_path',
-					'content' 	=> $this->l('If you want to execute the export by a cron, use the following link:').
-									' <a href="'.$sCronFilePath.'">'.$sCronFilePath.'</a>.',
 				),
 				array(
 					'label' 	=> $this->l('Launch the files export by clicking on the following button:'),
@@ -2070,11 +2069,13 @@ class Prediggo extends Module
 		$this->fields_value['customers_file_generation'] 			= (int)$this->oPrediggoConfig->customers_file_generation;
 		$this->fields_value['export_product_image'] 				= (int)$this->oPrediggoConfig->export_product_image;
 		$this->fields_value['export_product_description'] 			= (int)$this->oPrediggoConfig->export_product_description;
-        $this->fields_value['export_product_active'] 			    = (int)$this->oPrediggoConfig->export_product_active;
-        $this->fields_value['export_product_price'] 			    = (int)$this->oPrediggoConfig->export_product_price;
+		$this->fields_value['export_product_active'] 			    = (int)$this->oPrediggoConfig->export_product_active;
+		$this->fields_value['export_product_price'] 			    = (int)$this->oPrediggoConfig->export_product_price;
 		$this->fields_value['export_product_min_quantity'] 			= (int)$this->oPrediggoConfig->export_product_min_quantity;
 		$this->fields_value['nb_days_order_valide']			 		= (int)$this->oPrediggoConfig->nb_days_order_valide;
 		$this->fields_value['nb_days_customer_last_visit_valide'] 	= (int)$this->oPrediggoConfig->nb_days_customer_last_visit_valide;
+		$this->fields_value['protection_xml_path']					= $this->l('If you want to execute the export by a cron, use the following link:').' <a href="'.$sCronFilePath.'">'.$sCronFilePath.'</a>.</br>';
+
 
 		/*
 		 * ATTRIBUTE SELECTION
@@ -2155,25 +2156,25 @@ class Prediggo extends Module
 		 * SEARCH BLACK LIST
 		 */
 		$this->fields_form['black_list_search']['form'] = array(
-				'legend' => array(
-					'title' => $this->l('Products not included in the searchs'),
-					'image' => _PS_ADMIN_IMG_.'nav-logout.gif'
+			'legend' => array(
+				'title' => $this->l('Products not included in the searchs'),
+				'image' => _PS_ADMIN_IMG_.'nav-logout.gif'
+			),
+			'input' => array(
+				array(
+					'label' 	=> $this->l('Product:'),
+					'type' 		=> 'autocomplete',
+					'name' 		=> 'products_ids_not_searchable',
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
-				'input' => array(
-					array(
-						'label' 	=> $this->l('Product:'),
-						'type' 		=> 'autocomplete',
-						'name' 		=> 'products_ids_not_searchable',
-						'disabled'	=> ((int)($iShopContext)?'disabled':''),
-					),
-					array(
-						'type' 		=> 'button',
-						'name' 		=> 'exportNotSearchSubmit',
-						'class' 	=> 'button',
-						'title' 	=> $this->l('   Save the black list   '),
-						'disabled'	=> ((int)($iShopContext)?'disabled':''),
-					),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'exportNotSearchSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save the black list   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
+			),
 		);
 
 		$this->fields_value['products_ids_not_searchable'] = array();
@@ -2200,13 +2201,9 @@ class Prediggo extends Module
 			),
 			'input' => array(
 				array(
-					'type' 		=> 'hint',
+					'type' 		=> 'free',
 					'name' 		=> 'export_cron',
-					'content' 	=> $this->l('Your files are created into your PrestaShop plateform into the following folder :').
-					' <a href="'.$sExportRepositoryPath.'">'.$sExportRepositoryPath.'</a>.<br/>'.
-					$this->l('The data contained into these files are critical and require a protection.').
-					$this->l('Please restrict the access to these files by applying a protection with an authentication requiring a login and a password!').'<br/>'.
-					$this->l('The Basic Authentication module is not configured by default on Nginx web server. Please, refer to this documentation to configure it : http://wiki.nginx.org/HttpAuthBasicModule.'),
+					'label' 	=> false,
 				),
 				array(
 					'label' 	=> $this->l('Login:'),
@@ -2233,11 +2230,17 @@ class Prediggo extends Module
 
 		$this->fields_value['htpasswd_user'] 	= $this->oPrediggoConfig->htpasswd_user;
 		$this->fields_value['htpasswd_pwd'] 	= $this->oPrediggoConfig->htpasswd_pwd;
-		
+		$this->fields_value['export_cron']  = $this->l('Your files are created into your PrestaShop plateform into the following folder :').
+			' <a href="'.$sExportRepositoryPath.'">'.$sExportRepositoryPath.'</a>.<br/>'.
+			$this->l('The data contained into these files are critical and require a protection.').
+			$this->l('Please restrict the access to these files by applying a protection with an authentication requiring a login and a password!').'<br/>'.
+			$this->l('The Basic Authentication module is not configured by default on Nginx web server. Please, refer to this documentation to configure it : http://wiki.nginx.org/HttpAuthBasicModule.');
+
+
 		/*
 		 * HOMEPAGE RECOMMENDATIONS - block 0
-		 */ 
-		 
+		 */
+
 		$this->fields_form['home_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Home Page Block Configuration - #0'),
@@ -2291,7 +2294,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksHomePage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -2302,8 +2305,7 @@ class Prediggo extends Module
 					'name' 		=> 'home_0_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -2330,11 +2332,11 @@ class Prediggo extends Module
 		$this->fields_value['home_0_hook_name'] 	= $this->oPrediggoConfig->home_0_hook_name;
 		$this->fields_value['home_0_template_name'] = $this->oPrediggoConfig->home_0_template_name;
 		$this->fields_value['home_0_block_label'] 	= $this->oPrediggoConfig->home_0_block_label;
-		
-			/*
-		 * HOMEPAGE RECOMMENDATIONS - block 1
-		 */ 
-		 
+
+		/*
+     * HOMEPAGE RECOMMENDATIONS - block 1
+     */
+
 		$this->fields_form['home_1_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Home Page Block Configuration - #1'),
@@ -2388,7 +2390,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksHomePage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -2399,8 +2401,7 @@ class Prediggo extends Module
 					'name' 		=> 'home_1_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -2427,12 +2428,12 @@ class Prediggo extends Module
 		$this->fields_value['home_1_hook_name'] 	= $this->oPrediggoConfig->home_1_hook_name;
 		$this->fields_value['home_1_template_name'] = $this->oPrediggoConfig->home_1_template_name;
 		$this->fields_value['home_1_block_label'] 	= $this->oPrediggoConfig->home_1_block_label;
-		
-		
+
+
 		/*
 		 * ALL PAGE RECOMMENDATIONS - block 0
-		 */ 
-		 
+		 */
+
 		$this->fields_form['allpage_0_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('All Page Block Configuration - #0'),
@@ -2486,7 +2487,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksAllPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2496,8 +2497,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'allpage_0_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -2525,11 +2525,11 @@ class Prediggo extends Module
 		$this->fields_value['allpage_0_hook_name'] 	= $this->oPrediggoConfig->allpage_0_hook_name;
 		$this->fields_value['allpage_0_template_name'] = $this->oPrediggoConfig->allpage_0_template_name;
 		$this->fields_value['allpage_0_block_label'] 	= $this->oPrediggoConfig->allpage_0_block_label;
-		
+
 		/*
 		 * ALL PAGE RECOMMENDATIONS - block 1
-		 */ 
-		 
+		 */
+
 		$this->fields_form['allpage_1_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('All Page Block Configuration - #1'),
@@ -2583,7 +2583,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksAllPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2593,8 +2593,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'allpage_1_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -2622,11 +2621,11 @@ class Prediggo extends Module
 		$this->fields_value['allpage_1_hook_name'] 		= $this->oPrediggoConfig->allpage_1_hook_name;
 		$this->fields_value['allpage_1_template_name'] 	= $this->oPrediggoConfig->allpage_1_template_name;
 		$this->fields_value['allpage_1_block_label'] 	= $this->oPrediggoConfig->allpage_1_block_label;
-		
+
 		/*
 		 * ALL PAGE RECOMMENDATIONS - block 2
-		 */ 
-		 
+		 */
+
 		$this->fields_form['allpage_2_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('All Page Block Configuration - #2'),
@@ -2680,7 +2679,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksAllPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2690,8 +2689,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'allpage_2_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -2719,10 +2717,10 @@ class Prediggo extends Module
 		$this->fields_value['allpage_2_hook_name'] 		= $this->oPrediggoConfig->allpage_2_hook_name;
 		$this->fields_value['allpage_2_template_name'] 	= $this->oPrediggoConfig->allpage_2_template_name;
 		$this->fields_value['allpage_2_block_label'] 	= $this->oPrediggoConfig->allpage_2_block_label;
-		
+
 		/*
 		 * PRODUCT PAGE RECOMMENDATIONS - block 0
-		 */  
+		 */
 		$this->fields_form['productpage_0_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Product Page Block Configuration - #0'),
@@ -2776,7 +2774,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksProductPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2786,8 +2784,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'productpage_0_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -2815,11 +2812,11 @@ class Prediggo extends Module
 		$this->fields_value['productpage_0_hook_name'] 	= $this->oPrediggoConfig->productpage_0_hook_name;
 		$this->fields_value['productpage_0_template_name'] = $this->oPrediggoConfig->productpage_0_template_name;
 		$this->fields_value['productpage_0_block_label'] 	= $this->oPrediggoConfig->productpage_0_block_label;
-		
+
 		/*
 		 * PRODUCT PAGE RECOMMENDATIONS - block 1
-		 */ 
-		 
+		 */
+
 		$this->fields_form['productpage_1_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Product Page Block Configuration - #1'),
@@ -2873,7 +2870,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksProductPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2883,8 +2880,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'productpage_1_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -2912,11 +2908,11 @@ class Prediggo extends Module
 		$this->fields_value['productpage_1_hook_name'] 		= $this->oPrediggoConfig->productpage_1_hook_name;
 		$this->fields_value['productpage_1_template_name'] 	= $this->oPrediggoConfig->productpage_1_template_name;
 		$this->fields_value['productpage_1_block_label'] 	= $this->oPrediggoConfig->productpage_1_block_label;
-		
+
 		/*
 		 * PRODUCT PAGE RECOMMENDATIONS - block 2
-		 */ 
-		 
+		 */
+
 		$this->fields_form['productpage_2_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Product Page Block Configuration - #2'),
@@ -2970,7 +2966,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksProductPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -2980,8 +2976,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'productpage_2_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -3009,10 +3004,10 @@ class Prediggo extends Module
 		$this->fields_value['productpage_2_hook_name'] 		= $this->oPrediggoConfig->productpage_2_hook_name;
 		$this->fields_value['productpage_2_template_name'] 	= $this->oPrediggoConfig->productpage_2_template_name;
 		$this->fields_value['productpage_2_block_label'] 	= $this->oPrediggoConfig->productpage_2_block_label;
-		
+
 		/*
 		 * BASKET RECOMMENDATIONS - block 0
-		 */ 
+		 */
 		$this->fields_form['basket_0_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #0'),
@@ -3066,7 +3061,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3077,8 +3072,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_0_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3105,11 +3099,11 @@ class Prediggo extends Module
 		$this->fields_value['basket_0_hook_name'] 	= $this->oPrediggoConfig->basket_0_hook_name;
 		$this->fields_value['basket_0_template_name'] = $this->oPrediggoConfig->basket_0_template_name;
 		$this->fields_value['basket_0_block_label'] 	= $this->oPrediggoConfig->basket_0_block_label;
-		
-			/*
-		 * Basket RECOMMENDATIONS - block 1
-		 */ 
-		 
+
+		/*
+     * Basket RECOMMENDATIONS - block 1
+     */
+
 		$this->fields_form['basket_1_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #1'),
@@ -3163,7 +3157,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3174,8 +3168,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_1_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3202,10 +3195,10 @@ class Prediggo extends Module
 		$this->fields_value['basket_1_hook_name'] 	= $this->oPrediggoConfig->basket_1_hook_name;
 		$this->fields_value['basket_1_template_name'] = $this->oPrediggoConfig->basket_1_template_name;
 		$this->fields_value['basket_1_block_label'] 	= $this->oPrediggoConfig->basket_1_block_label;
-		
+
 		/*
 		 * BASKET RECOMMENDATIONS - block 2
-		 */ 
+		 */
 		$this->fields_form['basket_2_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #2'),
@@ -3259,7 +3252,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3270,8 +3263,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_2_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3298,11 +3290,11 @@ class Prediggo extends Module
 		$this->fields_value['basket_2_hook_name'] 	= $this->oPrediggoConfig->basket_2_hook_name;
 		$this->fields_value['basket_2_template_name'] = $this->oPrediggoConfig->basket_2_template_name;
 		$this->fields_value['basket_2_block_label'] 	= $this->oPrediggoConfig->basket_2_block_label;
-		
-			/*
-		 * Basket RECOMMENDATIONS - block 3
-		 */ 
-		 
+
+		/*
+     * Basket RECOMMENDATIONS - block 3
+     */
+
 		$this->fields_form['basket_3_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #3'),
@@ -3356,7 +3348,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3367,8 +3359,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_3_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3395,10 +3386,10 @@ class Prediggo extends Module
 		$this->fields_value['basket_3_hook_name'] 	= $this->oPrediggoConfig->basket_3_hook_name;
 		$this->fields_value['basket_3_template_name'] = $this->oPrediggoConfig->basket_3_template_name;
 		$this->fields_value['basket_3_block_label'] 	= $this->oPrediggoConfig->basket_3_block_label;
-		
+
 		/*
 		 * BASKET RECOMMENDATIONS - block 4
-		 */ 
+		 */
 		$this->fields_form['basket_4_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #4'),
@@ -3452,7 +3443,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3463,8 +3454,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_4_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3491,11 +3481,11 @@ class Prediggo extends Module
 		$this->fields_value['basket_4_hook_name'] 	= $this->oPrediggoConfig->basket_4_hook_name;
 		$this->fields_value['basket_4_template_name'] = $this->oPrediggoConfig->basket_4_template_name;
 		$this->fields_value['basket_4_block_label'] 	= $this->oPrediggoConfig->basket_4_block_label;
-		
-			/*
-		 * Basket RECOMMENDATIONS - block 5
-		 */ 
-		 
+
+		/*
+     * Basket RECOMMENDATIONS - block 5
+     */
+
 		$this->fields_form['basket_5_reco_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Basket Page Block Configuration - #5'),
@@ -3549,7 +3539,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksBasketPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'required' => true,
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
@@ -3560,8 +3550,7 @@ class Prediggo extends Module
 					'name' 		=> 'basket_5_template_name',
 					'lang' 		=> false,
 					'required' => true,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
 					'label' 	=> $this->l('Title of the recommendation block :'),
@@ -3588,10 +3577,10 @@ class Prediggo extends Module
 		$this->fields_value['basket_5_hook_name'] 	= $this->oPrediggoConfig->basket_5_hook_name;
 		$this->fields_value['basket_5_template_name'] = $this->oPrediggoConfig->basket_5_template_name;
 		$this->fields_value['basket_5_block_label'] 	= $this->oPrediggoConfig->basket_5_block_label;
-		
+
 		/*
 		 * CATEGORY PAGE RECOMMENDATIONS - block 0
-		 */  
+		 */
 		$this->fields_form['category_0_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Category Page Block Configuration - #0'),
@@ -3645,7 +3634,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksCategoryPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -3655,8 +3644,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'category_0_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -3684,11 +3672,11 @@ class Prediggo extends Module
 		$this->fields_value['category_0_hook_name'] 	= $this->oPrediggoConfig->category_0_hook_name;
 		$this->fields_value['category_0_template_name'] = $this->oPrediggoConfig->category_0_template_name;
 		$this->fields_value['category_0_block_label'] 	= $this->oPrediggoConfig->category_0_block_label;
-		
+
 		/*
 		 * CATEGORY PAGE RECOMMENDATIONS - block 1
-		 */ 
-		 
+		 */
+
 		$this->fields_form['category_1_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Category Page Block Configuration - #1'),
@@ -3742,7 +3730,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksCategoryPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -3752,8 +3740,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'category_1_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -3781,11 +3768,11 @@ class Prediggo extends Module
 		$this->fields_value['category_1_hook_name'] 		= $this->oPrediggoConfig->category_1_hook_name;
 		$this->fields_value['category_1_template_name'] 	= $this->oPrediggoConfig->category_1_template_name;
 		$this->fields_value['category_1_block_label'] 	= $this->oPrediggoConfig->category_1_block_label;
-		
+
 		/*
 		 * CATEGORY PAGE RECOMMENDATIONS - block 2
-		 */ 
-		 
+		 */
+
 		$this->fields_form['category_2_conf']['form'] = array(
 			'legend' => array(
 				'title' => $this->l('Category Page Block Configuration - #2'),
@@ -3839,7 +3826,7 @@ class Prediggo extends Module
 						'query' => $this->oPrediggoConfig->optionsHooksCategoryPage,                           // $options contains the data itself.
 						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
 						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-						),
+					),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
@@ -3849,8 +3836,7 @@ class Prediggo extends Module
 					'size'		=> 100,
 					'name' 		=> 'category_2_template_name',
 					'lang' 		=> false,
-					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'desc'      => $this->l('Name of the template file. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 					'required' => true,
 				),
 				array(
@@ -3881,199 +3867,199 @@ class Prediggo extends Module
 
 
 
-        /*
-		 * CUSTOMER PAGE RECOMMENDATIONS - block 0
-		 */
-        $this->fields_form['customer_0_conf']['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Customer Page Block Configuration - #0'),
-                'image' => _PS_ADMIN_IMG_.'picture.gif'
-            ),
-            'input' => array(
-                array(
-                    'label' => $this->l('Display the recommendations block:'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'customer_0_activated',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'customer_0_activated_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'customer_0_activated_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Add a block of recommended products in the customer page of your website'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' 	=> $this->l('Number of items in the recommendations block:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'customer_0_nb_items',
-                    'desc' 		=> $this->l('Number of recommended products in the block'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Variant ID:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'customer_0_variant_id',
-                    'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Hook:'),
-                    'type' 	=> 'select',                              // This is a <select> tag.
-                    'name' 		=> 'customer_0_hook_name',
-                    'desc' 		=> $this->l('Select the position where the block should be displayed'),
-                    'options' => array(
-                        'query' => $this->oPrediggoConfig->optionsHooksCustomerPage,                           // $options contains the data itself.
-                        'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
-                        'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-                    ),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Customer 0:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'customer_0_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Title of the recommendation block :'),
-                    'type' 		=> 'text',
-                    'size'		=> 50,
-                    'name' 		=> 'customer_0_block_label',
-                    'lang' 		=> true,
-                    'desc' 		=> $this->l('Title of the block'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'type' 		=> 'button',
-                    'name' 		=> 'exportCustomer0RecommendationConfSubmit',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Save   '),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-            ),
-        );
-
-        $this->fields_value['customer_0_activated'] 	= (int)$this->oPrediggoConfig->customer_0_activated;
-        $this->fields_value['customer_0_nb_items'] 		= (int)$this->oPrediggoConfig->customer_0_nb_items;
-        $this->fields_value['customer_0_variant_id'] 	= (int)$this->oPrediggoConfig->customer_0_variant_id;
-        $this->fields_value['customer_0_hook_name'] 	= $this->oPrediggoConfig->customer_0_hook_name;
-        $this->fields_value['customer_0_template_name'] = $this->oPrediggoConfig->customer_0_template_name;
-        $this->fields_value['customer_0_block_label'] 	= $this->oPrediggoConfig->customer_0_block_label;
-
-        /*
+		/*
          * CUSTOMER PAGE RECOMMENDATIONS - block 0
          */
-        $this->fields_form['customer_1_conf']['form'] = array(
-            'legend' => array(
-                'title' => $this->l('Customer Page Block Configuration - #1'),
-                'image' => _PS_ADMIN_IMG_.'picture.gif'
-            ),
-            'input' => array(
-                array(
-                    'label' => $this->l('Display the recommendations block:'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'customer_1_activated',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'customer_1_activated_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'customer_1_activated_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Add a block of recommended products in the customer page of your website'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' 	=> $this->l('Number of items in the recommendations block:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'customer_1_nb_items',
-                    'desc' 		=> $this->l('Number of recommended products in the block'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Variant ID:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'customer_1_variant_id',
-                    'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Hook:'),
-                    'type' 	=> 'select',                              // This is a <select> tag.
-                    'name' 		=> 'customer_1_hook_name',
-                    'desc' 		=> $this->l('Select the position where the block should be displayed'),
-                    'options' => array(
-                        'query' => $this->oPrediggoConfig->optionsHooksCustomerPage,                           // $options contains the data itself.
-                        'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
-                        'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-                    ),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Customer 1:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'customer_1_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Title of the recommendation block :'),
-                    'type' 		=> 'text',
-                    'size'		=> 50,
-                    'name' 		=> 'customer_1_block_label',
-                    'lang' 		=> true,
-                    'desc' 		=> $this->l('Title of the block'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'type' 		=> 'button',
-                    'name' 		=> 'exportCustomer1RecommendationConfSubmit',
-                    'class' 	=> 'button',
-                    'title' 	=> $this->l('   Save   '),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-            ),
-        );
+		$this->fields_form['customer_0_conf']['form'] = array(
+			'legend' => array(
+				'title' => $this->l('Customer Page Block Configuration - #0'),
+				'image' => _PS_ADMIN_IMG_.'picture.gif'
+			),
+			'input' => array(
+				array(
+					'label' => $this->l('Display the recommendations block:'),
+					'type' 		=> 'radio',
+					'name' 		=> 'customer_0_activated',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'customer_0_activated_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'customer_0_activated_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('Add a block of recommended products in the customer page of your website'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Number of items in the recommendations block:'),
+					'type' 		=> 'text',
+					'name' 		=> 'customer_0_nb_items',
+					'desc' 		=> $this->l('Number of recommended products in the block'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Variant ID:'),
+					'type' 		=> 'text',
+					'name' 		=> 'customer_0_variant_id',
+					'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Hook:'),
+					'type' 	=> 'select',                              // This is a <select> tag.
+					'name' 		=> 'customer_0_hook_name',
+					'desc' 		=> $this->l('Select the position where the block should be displayed'),
+					'options' => array(
+						'query' => $this->oPrediggoConfig->optionsHooksCustomerPage,                           // $options contains the data itself.
+						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
+						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
+					),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Customer 0:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'customer_0_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Title of the recommendation block :'),
+					'type' 		=> 'text',
+					'size'		=> 50,
+					'name' 		=> 'customer_0_block_label',
+					'lang' 		=> true,
+					'desc' 		=> $this->l('Title of the block'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'exportCustomer0RecommendationConfSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+			),
+		);
 
-        $this->fields_value['customer_1_activated'] 	= (int)$this->oPrediggoConfig->customer_1_activated;
-        $this->fields_value['customer_1_nb_items'] 		= (int)$this->oPrediggoConfig->customer_1_nb_items;
-        $this->fields_value['customer_1_variant_id'] 	= (int)$this->oPrediggoConfig->customer_1_variant_id;
-        $this->fields_value['customer_1_hook_name'] 	= $this->oPrediggoConfig->customer_1_hook_name;
-        $this->fields_value['customer_1_template_name'] = $this->oPrediggoConfig->customer_1_template_name;
-        $this->fields_value['customer_1_block_label'] 	= $this->oPrediggoConfig->customer_1_block_label;
+		$this->fields_value['customer_0_activated'] 	= (int)$this->oPrediggoConfig->customer_0_activated;
+		$this->fields_value['customer_0_nb_items'] 		= (int)$this->oPrediggoConfig->customer_0_nb_items;
+		$this->fields_value['customer_0_variant_id'] 	= (int)$this->oPrediggoConfig->customer_0_variant_id;
+		$this->fields_value['customer_0_hook_name'] 	= $this->oPrediggoConfig->customer_0_hook_name;
+		$this->fields_value['customer_0_template_name'] = $this->oPrediggoConfig->customer_0_template_name;
+		$this->fields_value['customer_0_block_label'] 	= $this->oPrediggoConfig->customer_0_block_label;
 
-        /*
+		/*
+         * CUSTOMER PAGE RECOMMENDATIONS - block 0
+         */
+		$this->fields_form['customer_1_conf']['form'] = array(
+			'legend' => array(
+				'title' => $this->l('Customer Page Block Configuration - #1'),
+				'image' => _PS_ADMIN_IMG_.'picture.gif'
+			),
+			'input' => array(
+				array(
+					'label' => $this->l('Display the recommendations block:'),
+					'type' 		=> 'radio',
+					'name' 		=> 'customer_1_activated',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'customer_1_activated_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'customer_1_activated_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('Add a block of recommended products in the customer page of your website'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Number of items in the recommendations block:'),
+					'type' 		=> 'text',
+					'name' 		=> 'customer_1_nb_items',
+					'desc' 		=> $this->l('Number of recommended products in the block'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Variant ID:'),
+					'type' 		=> 'text',
+					'name' 		=> 'customer_1_variant_id',
+					'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Hook:'),
+					'type' 	=> 'select',                              // This is a <select> tag.
+					'name' 		=> 'customer_1_hook_name',
+					'desc' 		=> $this->l('Select the position where the block should be displayed'),
+					'options' => array(
+						'query' => $this->oPrediggoConfig->optionsHooksCustomerPage,                           // $options contains the data itself.
+						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
+						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
+					),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Customer 1:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'customer_1_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Title of the recommendation block :'),
+					'type' 		=> 'text',
+					'size'		=> 50,
+					'name' 		=> 'customer_1_block_label',
+					'lang' 		=> true,
+					'desc' 		=> $this->l('Title of the block'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'exportCustomer1RecommendationConfSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+			),
+		);
+
+		$this->fields_value['customer_1_activated'] 	= (int)$this->oPrediggoConfig->customer_1_activated;
+		$this->fields_value['customer_1_nb_items'] 		= (int)$this->oPrediggoConfig->customer_1_nb_items;
+		$this->fields_value['customer_1_variant_id'] 	= (int)$this->oPrediggoConfig->customer_1_variant_id;
+		$this->fields_value['customer_1_hook_name'] 	= $this->oPrediggoConfig->customer_1_hook_name;
+		$this->fields_value['customer_1_template_name'] = $this->oPrediggoConfig->customer_1_template_name;
+		$this->fields_value['customer_1_block_label'] 	= $this->oPrediggoConfig->customer_1_block_label;
+
+		/*
          * CUSTOMER PAGE RECOMMENDATIONS
          */
 		/*$this->fields_form['customer_reco_conf']['form'] = array(
@@ -4172,37 +4158,37 @@ class Prediggo extends Module
 					'desc' 		=> $this->l('Number of recommended products in the block'),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
-                array(
-                    'label' 	=> $this->l('Variant ID:'),
-                    'type' 		=> 'text',
-                    'name' 		=> 'blocklayered_0_variant_id',
-                    'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Hook:'),
-                    'type' 	=> 'select',                              // This is a <select> tag.
-                    'name' 		=> 'blocklayered_0_hook_name',
-                    'desc' 		=> $this->l('Select the position where the block should be displayed'),
-                    'options' => array(
-                        'query' => $this->oPrediggoConfig->optionsHooksBlocklayeredPage,                           // $options contains the data itself.
-                        'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
-                        'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
-                    ),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Block Layered :'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'blocklayered_0_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
+				array(
+					'label' 	=> $this->l('Variant ID:'),
+					'type' 		=> 'text',
+					'name' 		=> 'blocklayered_0_variant_id',
+					'desc' 		=> $this->l('Variant ID as defined in the integration guide provided by Prediggo'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Hook:'),
+					'type' 	=> 'select',                              // This is a <select> tag.
+					'name' 		=> 'blocklayered_0_hook_name',
+					'desc' 		=> $this->l('Select the position where the block should be displayed'),
+					'options' => array(
+						'query' => $this->oPrediggoConfig->optionsHooksBlocklayeredPage,                           // $options contains the data itself.
+						'id' => 'id_option',                           // The value of the 'id' key must be the same as the key for 'value' attribute of the <option> tag in each $options sub-array.
+						'name' => 'name'                               // The value of the 'name' key must be the same as the key for the text content of the <option> tag in each $options sub-array.
+					),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Block Layered :'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'blocklayered_0_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
 				array(
 					'label'		=> $this->l('Title of the recommendation block :'),
 					'type' 		=> 'text',
@@ -4224,9 +4210,9 @@ class Prediggo extends Module
 
 		$this->fields_value['blocklayered_0_recommendations']	= (int)$this->oPrediggoConfig->blocklayered_0_recommendations;
 		$this->fields_value['blocklayered_0_nb_items'] 		= (int)$this->oPrediggoConfig->blocklayered_0_nb_items;
-        $this->fields_value['blocklayered_0_variant_id'] 	= $this->oPrediggoConfig->blocklayered_0_variant_id;
-        $this->fields_value['blocklayered_0_hook_name'] 	    = $this->oPrediggoConfig->blocklayered_0_hook_name;
-        $this->fields_value['blocklayered_0_template_name'] 	= $this->oPrediggoConfig->blocklayered_0_template_name;
+		$this->fields_value['blocklayered_0_variant_id'] 	= $this->oPrediggoConfig->blocklayered_0_variant_id;
+		$this->fields_value['blocklayered_0_hook_name'] 	    = $this->oPrediggoConfig->blocklayered_0_hook_name;
+		$this->fields_value['blocklayered_0_template_name'] 	= $this->oPrediggoConfig->blocklayered_0_template_name;
 		$this->fields_value['blocklayered_0_block_title'] 	= $this->oPrediggoConfig->blocklayered_0_block_title;
 
 		/*
@@ -4260,110 +4246,108 @@ class Prediggo extends Module
 					'desc' 		=> $this->l('Enable the search block in the front office'),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
-                array(
-                    'label' => $this->l('Searchandizing activation:'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'searchandizing_active',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'searchandizing_active_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'searchandizing_active_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Enable the searchandizing block in the front office'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' => $this->l('Layered navigation activation:'),
-                    'type' 		=> 'radio',
-                    'name' 		=> 'layered_navigation_active',
-                    'class' 	=> 't',
-                    'is_bool' 	=> true,
-                    'values' 	=> array(
-                        array(
-                            'id' 	=> 'layered_navigation_active_on',
-                            'value' => 1,
-                            'label' => $this->l('Yes')
-                        ),
-                        array(
-                            'id' 	=> 'layered_navigation_active_off',
-                            'value' => 0,
-                            'label' => $this->l('No')
-                        ),
-                    ),
-                    'required'	=> true,
-                    'desc' 		=> $this->l('Enable the prediggo layered navigation in the search page of the front office'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                ),
-                array(
-                    'label' 	=> $this->l('Template search:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'search_main_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Search Sort Block:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'search_filter_block_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Pagination:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'pagination_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by modifying it in \modules\prediggo\views\templates\front'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Search Sort By:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'search_filters_sort_by_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by modifying it in \modules\prediggo\views\templates\front'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Product Compare:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'prod_compare_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
-                array(
-                    'label' 	=> $this->l('Template Product List:'),
-                    'type' 		=> 'text',
-                    'size'		=> 100,
-                    'name' 		=> 'prod_list_template_name',
-                    'lang' 		=> false,
-                    'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    'required' => true,
-                ),
+				array(
+					'label' => $this->l('Searchandizing activation:'),
+					'type' 		=> 'radio',
+					'name' 		=> 'searchandizing_active',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'searchandizing_active_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'searchandizing_active_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('Enable the searchandizing block in the front office'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' => $this->l('Layered navigation activation:'),
+					'type' 		=> 'radio',
+					'name' 		=> 'layered_navigation_active',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'layered_navigation_active_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
+						),
+						array(
+							'id' 	=> 'layered_navigation_active_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
+					),
+					'required'	=> true,
+					'desc' 		=> $this->l('Enable the prediggo layered navigation in the search page of the front office'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Template search:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'search_main_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Search Sort Block:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'search_filter_block_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Pagination:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'pagination_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Search Sort By:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'search_filters_sort_by_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Product Compare:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'prod_compare_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template Product List:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'prod_list_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),                    'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
 				array(
 					'type' 		=> 'button',
 					'name' 		=> 'mainSearchConfSubmit',
@@ -4375,14 +4359,14 @@ class Prediggo extends Module
 		);
 
 		$this->fields_value['search_active']				= (int)$this->oPrediggoConfig->search_active;
-        $this->fields_value['search_main_template_name'] = $this->oPrediggoConfig->search_main_template_name;
-        $this->fields_value['pagination_template_name'] 	= $this->oPrediggoConfig->pagination_template_name;
-        $this->fields_value['search_filters_sort_by_template_name'] 	= $this->oPrediggoConfig->search_filters_sort_by_template_name;
-        $this->fields_value['search_filter_block_template_name'] 	= $this->oPrediggoConfig->search_filter_block_template_name;
-        $this->fields_value['prod_compare_template_name'] 	= $this->oPrediggoConfig->prod_compare_template_name;
-        $this->fields_value['prod_list_template_name'] 	= $this->oPrediggoConfig->prod_list_template_name;
-        $this->fields_value['searchandizing_active'] 		= (int)$this->oPrediggoConfig->searchandizing_active;
-        $this->fields_value['layered_navigation_active'] 	= (int)$this->oPrediggoConfig->layered_navigation_active;
+		$this->fields_value['search_main_template_name'] = $this->oPrediggoConfig->search_main_template_name;
+		$this->fields_value['pagination_template_name'] 	= $this->oPrediggoConfig->pagination_template_name;
+		$this->fields_value['search_filters_sort_by_template_name'] 	= $this->oPrediggoConfig->search_filters_sort_by_template_name;
+		$this->fields_value['search_filter_block_template_name'] 	= $this->oPrediggoConfig->search_filter_block_template_name;
+		$this->fields_value['prod_compare_template_name'] 	= $this->oPrediggoConfig->prod_compare_template_name;
+		$this->fields_value['prod_list_template_name'] 	= $this->oPrediggoConfig->prod_list_template_name;
+		$this->fields_value['searchandizing_active'] 		= (int)$this->oPrediggoConfig->searchandizing_active;
+		$this->fields_value['layered_navigation_active'] 	= (int)$this->oPrediggoConfig->layered_navigation_active;
 
 
 
@@ -4390,115 +4374,115 @@ class Prediggo extends Module
 		 * SEARCH AUTOCOMPLETION CONFIGURATION
 		*/
 		$this->fields_form['search_autocompletion_conf']['form'] = array(
-				'legend' => array(
-					'title' => $this->l('Autocompletion configuration'),
-					'image' => _PS_ADMIN_IMG_.'download_page.png'
-				),
-				'input' => array(
-					array(
-						'label' => $this->l('Autocompletion activation:'),
-						'type' 		=> 'radio',
-						'name' 		=> 'autocompletion_active',
-						'class' 	=> 't',
-						'is_bool' 	=> true,
-						'values' 	=> array(
-							array(
-								'id' 	=> 'autocompletion_active_on',
-								'value' => 1,
-								'label' => $this->l('Yes')
-							),
-							array(
-								'id' 	=> 'autocompletion_active_off',
-								'value' => 0,
-								'label' => $this->l('No')
-							),
+			'legend' => array(
+				'title' => $this->l('Autocompletion configuration'),
+				'image' => _PS_ADMIN_IMG_.'download_page.png'
+			),
+			'input' => array(
+				array(
+					'label' => $this->l('Autocompletion activation:'),
+					'type' 		=> 'radio',
+					'name' 		=> 'autocompletion_active',
+					'class' 	=> 't',
+					'is_bool' 	=> true,
+					'values' 	=> array(
+						array(
+							'id' 	=> 'autocompletion_active_on',
+							'value' => 1,
+							'label' => $this->l('Yes')
 						),
-						'required'	=> true,
-						'desc' 		=> $this->l('Enable the prediggo autocompletion to propose words when the customer is typing his search'),
-						'disabled'	=> ((int)($iShopContext)?'disabled':''),
+						array(
+							'id' 	=> 'autocompletion_active_off',
+							'value' => 0,
+							'label' => $this->l('No')
+						),
 					),
-                    array(
-                        'label' 	=> $this->l('Minimum number of chars to launch a search:'),
-                        'type' 		=> 'text',
-                        'name' 		=> 'search_nb_min_chars',
-                        'desc' 		=> $this->l('Minimum number of character to allow the user to execute a search'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                    ),
-					array(
-						'label' 	=> $this->l('Number of items in the search autocompletion:'),
-						'type' 		=> 'text',
-						'name' 		=> 'autocompletion_nb_items',
-						'desc' 		=> $this->l('Number of products displayed in the prediggo autocompletion'),
-						'disabled'	=> ((int)($iShopContext)?'disabled':''),
-					),
-                    array(
-                        'label' 	=> $this->l('Template search block:'),
-                        'type' 		=> 'text',
-                        'size'		=> 100,
-                        'name' 		=> 'search_0_template_name',
-                        'lang' 		=> false,
-                        'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                        'required' => true,
-                    ),
-                    array(
-                        'label' 	=> $this->l('Template autocomplete Did you mean name:'),
-                        'type' 		=> 'text',
-                        'size'		=> 100,
-                        'name' 		=> 'autoc_template_name',
-                        'lang' 		=> false,
-                        'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                        'required' => true,
-                    ),
-                    array(
-                        'label' 	=> $this->l('Template autocomplete Attribute name:'),
-                        'type' 		=> 'text',
-                        'size'		=> 100,
-                        'name' 		=> 'autocat_template_name',
-                        'lang' 		=> false,
-                        'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                        'required' => true,
-                    ),
-                    array(
-                        'label' 	=> $this->l('Template autocomplete Product name:'),
-                        'type' 		=> 'text',
-                        'size'		=> 100,
-                        'name' 		=> 'autop_template_name',
-                        'lang' 		=> false,
-                        'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                        'required' => true,
-                    ),
-                    array(
-                        'label' 	=> $this->l('Template autocomplete Suggest name:'),
-                        'type' 		=> 'text',
-                        'size'		=> 100,
-                        'name' 		=> 'autos_template_name',
-                        'lang' 		=> false,
-                        'desc' 		=> $this->l('Name of the template file. Should finish with the extension ".tpl". <br>You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
-                        'disabled'	=> ((int)($iShopContext)?'disabled':''),
-                        'required' => true,
-                    ),
-					array(
-						'type' 		=> 'button',
-						'name' 		=> 'exportSearchAutocompletionConfSubmit',
-						'class' 	=> 'button',
-						'title' 	=> $this->l('   Save   '),
-						'disabled'	=> ((int)($iShopContext)?'disabled':''),
-					),
+					'required'	=> true,
+					'desc' 		=> $this->l('Enable the prediggo autocompletion to propose words when the customer is typing his search'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
+				array(
+					'label' 	=> $this->l('Minimum number of chars to launch a search:'),
+					'type' 		=> 'text',
+					'name' 		=> 'search_nb_min_chars',
+					'desc' 		=> $this->l('Minimum number of character to allow the user to execute a search'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Number of items in the search autocompletion:'),
+					'type' 		=> 'text',
+					'name' 		=> 'autocompletion_nb_items',
+					'desc' 		=> $this->l('Number of products displayed in the prediggo autocompletion'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'label' 	=> $this->l('Template search block:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'search_0_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template autocomplete Did you mean name:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'autoc_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template autocomplete Attribute name:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'autocat_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template autocomplete Product name:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'autop_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'label' 	=> $this->l('Template autocomplete Suggest name:'),
+					'type' 		=> 'text',
+					'size'		=> 100,
+					'name' 		=> 'autos_template_name',
+					'lang' 		=> false,
+					'desc' 		=> $this->l('Name of the template file. BE CAREFUL when you modify it because all the name change must be in the search.tpl too. Should finish with the extension ".tpl".').' <br/>'.$this->l('You can create your override Prediggo template by putting your own in them in \themes\YOUR_THEME\modules\prediggo\views\templates\hook'),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+					'required' => true,
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'exportSearchAutocompletionConfSubmit',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Save   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+			),
 		);
 
 		$this->fields_value['autocompletion_active']	= (int)$this->oPrediggoConfig->autocompletion_active;
-        $this->fields_value['search_nb_min_chars'] 		= (int)$this->oPrediggoConfig->search_nb_min_chars;
+		$this->fields_value['search_nb_min_chars'] 		= (int)$this->oPrediggoConfig->search_nb_min_chars;
 		$this->fields_value['autocompletion_nb_items'] 	= (int)$this->oPrediggoConfig->autocompletion_nb_items;
-        $this->fields_value['search_0_template_name'] 	= $this->oPrediggoConfig->search_0_template_name;
-        $this->fields_value['autoc_template_name'] 		= $this->oPrediggoConfig->autoc_template_name;
-        $this->fields_value['autocat_template_name'] 	= $this->oPrediggoConfig->autocat_template_name;
-        $this->fields_value['autop_template_name'] 		= $this->oPrediggoConfig->autop_template_name;
-        $this->fields_value['autos_template_name'] 		= $this->oPrediggoConfig->autos_template_name;
+		$this->fields_value['search_0_template_name'] 	= $this->oPrediggoConfig->search_0_template_name;
+		$this->fields_value['autoc_template_name'] 		= $this->oPrediggoConfig->autoc_template_name;
+		$this->fields_value['autocat_template_name'] 	= $this->oPrediggoConfig->autocat_template_name;
+		$this->fields_value['autop_template_name'] 		= $this->oPrediggoConfig->autop_template_name;
+		$this->fields_value['autos_template_name'] 		= $this->oPrediggoConfig->autos_template_name;
 
 		$this->context->controller->getLanguages();
 		$helper = $this->initForm();

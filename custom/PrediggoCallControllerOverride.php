@@ -36,9 +36,8 @@ class PrediggoCallControllerOverride extends PrediggoCallController
 	*/
 	public function setPageName()
 	{
-        $context = $this->oPrediggoConfig->getContext();
-        $controller = $context->controller->php_self;
-        $this->sPageName = $controller;
+        if (!empty(Context::getContext()->controller->php_self))
+            $this->sPageName = Context::getContext()->controller->php_self;
 		//echo 'controller:'.$this->sPageName;
         return true;
     }
