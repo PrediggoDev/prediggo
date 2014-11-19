@@ -1060,6 +1060,18 @@ class Prediggo extends Module
 				$this->_errors[] = Tools::displayError('An error occurred while updating the black list of recommendations');
 		}
 
+		if (Tools::isSubmit('resetRecoList'))
+		{
+			Db::getInstance(_PS_USE_SQL_SLAVE_)->execute('UPDATE `ps_configuration` SET `value`= NULL WHERE `name` = "PREDIGGO_PRODUCTS_NOT_RECO"');
+
+		}
+
+		if (Tools::isSubmit('resetSearchList'))
+		{
+			Db::getInstance(_PS_USE_SQL_SLAVE_)->execute('UPDATE `ps_configuration` SET `value`= NULL WHERE `name` = "PREDIGGO_PRODUCTS_NOT_SEARCH"');
+
+		}
+
 		// Set the black list of recommendations
 		if (Tools::isSubmit('exportNotSearchSubmit'))
 		{
@@ -2134,6 +2146,13 @@ class Prediggo extends Module
 					'title' 	=> $this->l('   Save the black list   '),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'resetRecoList',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Reset the black list   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
 			),
 		);
 
@@ -2169,6 +2188,13 @@ class Prediggo extends Module
 					'name' 		=> 'exportNotSearchSubmit',
 					'class' 	=> 'button',
 					'title' 	=> $this->l('   Save the black list   '),
+					'disabled'	=> ((int)($iShopContext)?'disabled':''),
+				),
+				array(
+					'type' 		=> 'button',
+					'name' 		=> 'resetSearchList',
+					'class' 	=> 'button',
+					'title' 	=> $this->l('   Reset the black list   '),
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 			),
