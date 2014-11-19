@@ -28,7 +28,7 @@
 {/if}
 {if sizeof($aPrediggoConfirmations)}
 	{foreach from=$aPrediggoConfirmations item="sPrediggoConfirmation"}
-		<div class="conf confirm">{$sPrediggoConfirmation|escape:'UTF-8'}</div>
+		{$sPrediggoConfirmation|escape:'UTF-8'}
 	{/foreach}
 {/if}
 {if sizeof($aPrediggoErrors)}

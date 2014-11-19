@@ -899,7 +899,7 @@ class Prediggo extends Module
 			Configuration::updateValue('PREDIGGO_CONFIGURATION_OK', true);
 
 		if (!$this->oPrediggoConfig->save())
-			$this->_errors[] = $this->l('An error occurred while updating the main configuration settings');
+			$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration settings');
 	}
 
 	/**
@@ -947,10 +947,10 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->gateway_profil_id                         = Tools::safeOutput(Tools::getValue('gateway_profil_id'));
 			if ($this->oPrediggoConfig->save()){
 				$this->checkServerCheck();
-				$this->_confirmations[] = $this->l('Main settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Main settings updated');
 			}
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration settings');
 
 		}
 
@@ -962,10 +962,10 @@ class Prediggo extends Module
 
 			if ($this->oPrediggoConfig->save()) {
 				$this->checkWebSiteId();
-				$this->_confirmations[] = $this->l('Server settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Server settings updated');
 			}
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the export configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the export configuration settings');
 		}
 
 		// Set the export configuration
@@ -982,9 +982,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->nb_days_order_valide 				= Tools::safeOutput(Tools::getValue('nb_days_order_valide'));
 			$this->oPrediggoConfig->nb_days_customer_last_visit_valide 	= Tools::safeOutput(Tools::getValue('nb_days_customer_last_visit_valide'));
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Export settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Export settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the export configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the export configuration settings');
 		}
 
 		// Set the export configuration
@@ -993,9 +993,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->logs_generation 				= (int)Tools::safeOutput(Tools::getValue('logs_generation'));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Logs settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Logs settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the Logs configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the Logs configuration settings');
 		}
 
 
@@ -1018,10 +1018,10 @@ class Prediggo extends Module
 					$this->oPrediggoCallController->import_client_config();
 				}
 				else
-					$this->_errors[] = $this->l('An error occurred while importing the client configuration');
+					$this->_errors[] = Tools::displayError('An error occurred while importing the client configuration');
 			}
 			else
-				$this->_errors[] = $this->l('An error occurred while importing the client configuration');
+				$this->_errors[] = Tools::displayError('An error occurred while importing the client configuration');
 		}
 
 		// Launch the configuration export
@@ -1031,7 +1031,7 @@ class Prediggo extends Module
 			if ($this->oPrediggoConfig->save())
 				$this->oPrediggoCallController->export_client_config();
 			else
-				$this->_errors[] = $this->l('An error occurred while exporting the client configuration');
+				$this->_errors[] = Tools::displayError('An error occurred while exporting the client configuration');
 		}
 
 		// Set the export attributes
@@ -1044,9 +1044,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->features_ids = Tools::safeOutput(join(',', array_map('intval', Tools::getValue('features_ids'))));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Product attributes settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Product attributes settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the product attributes configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the product attributes configuration settings');
 		}
 
 		// Set the black list of recommendations
@@ -1055,9 +1055,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->products_ids_not_recommendable = Tools::safeOutput(Tools::substr(Tools::getValue('input_products_ids_not_recommendable'), 0, -1));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Black list of recommendations updated');
+				$this->_confirmations[] = $this->displayConfirmation('Black list of recommendations updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the black list of recommendations');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the black list of recommendations');
 		}
 
 		// Set the black list of recommendations
@@ -1066,9 +1066,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->products_ids_not_searchable = Tools::safeOutput(Tools::substr(Tools::getValue('input_products_ids_not_searchable'), 0, -1));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Black list of searchs updated');
+				$this->_confirmations[] = $this->displayConfirmation('Black list of searchs updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the black list of searchs');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the black list of searchs');
 		}
 
 		// Set the protection configuration
@@ -1077,19 +1077,19 @@ class Prediggo extends Module
 			if ($aIds = $this->oDataExtractorController->setRepositoryProtection(Tools::getValue('htpasswd_user'), Tools::getValue('htpasswd_pwd')))
 			{
 				if (empty($aIds['user']))
-					$this->_confirmations[] = $this->l('Protection has been disactivated');
+					$this->_confirmations[] = $this->displayConfirmation('Protection has been disactivated');
 				else
-					$this->_confirmations[] = $this->l('Protection has been activated');
+					$this->_confirmations[] = $this->displayConfirmation('Protection has been activated');
 
 				$this->oPrediggoConfig->htpasswd_user 	= Tools::safeOutput(Tools::getValue('htpasswd_user'));
 				$this->oPrediggoConfig->htpasswd_pwd 	= Tools::safeOutput(Tools::getValue('htpasswd_pwd'));
 				if ($this->oPrediggoConfig->save())
-					$this->_confirmations[] = $this->l('Protection settings updated');
+					$this->_confirmations[] = $this->displayConfirmation('Protection settings updated');
 				else
-					$this->_errors[] = $this->l('An error occurred while updating the protection configuration settings');
+					$this->_errors[] = Tools::displayError('An error occurred while updating the protection configuration settings');
 			}
 			else
-				$this->_errors[] = $this->l('An error occurred when activating the protection');
+				$this->_errors[] = Tools::displayError('An error occurred when activating the protection');
 		}
 
 		// Set the recommendations main configuration
@@ -1097,9 +1097,9 @@ class Prediggo extends Module
 		{
 			$this->oPrediggoConfig->server_url_recommendations 	= Tools::safeOutput(Tools::getValue('server_url_recommendations'));
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Recommendations main configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Recommendations main configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration of recommendations settings');
 		}
 
 		// Set the recommendations main configuration
@@ -1108,7 +1108,7 @@ class Prediggo extends Module
 			if ($this->oPrediggoConfig->save())
 				$this->registerAllHooks();
 			else
-				$this->_errors[] = $this->l('An error occurred while launching the register of all Hooks');
+				$this->_errors[] = Tools::displayError('An error occurred while launching the register of all Hooks');
 		}
 
 		// Set the homepage recommendations block configuration
@@ -1130,9 +1130,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->hook_carrier_list           = (int)Tools::safeOutput(Tools::getValue('hook_carrier_list'));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Hook configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Hook configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the hook configuration settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the hook configuration settings');
 		}
 
 		// Set the homepage recommendations block configuration
@@ -1152,9 +1152,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->home_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Homepage recommendations block #0 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Homepage recommendations block #0 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		if (Tools::isSubmit('exportHome1RecommendationConfSubmit'))
@@ -1173,9 +1173,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->home_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('home_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Homepage recommendations block #1 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Homepage recommendations block #1 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the homepage recommendations block configuration bloc  1
@@ -1195,9 +1195,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->allpage_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('All Page #0 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('All Page #0 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the homepage recommendations block configuration bloc  1
@@ -1217,9 +1217,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->allpage_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('All Page #1 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('All Page #1 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the homepage recommendations block configuration bloc  1
@@ -1239,9 +1239,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->allpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('allpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('All Page #2 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('All Page #2 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1261,9 +1261,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->productpage_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Product Page #0 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Product Page #0 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1283,9 +1283,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->productpage_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Product Page #1 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Product Page #1 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1305,9 +1305,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->productpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Product Page #2 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Product Page #2 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the basket recommendations block configuration
@@ -1327,9 +1327,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #0 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #0 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		if (Tools::isSubmit('exportBasket1RecommendationConfSubmit'))
@@ -1348,9 +1348,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #1 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #1 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the basket recommendations block configuration
@@ -1370,9 +1370,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_2_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #2 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #2 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		if (Tools::isSubmit('exportBasket3RecommendationConfSubmit'))
@@ -1391,9 +1391,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_3_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_3_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #3 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the basket recommendations block configuration
@@ -1413,9 +1413,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_4_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_4_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #4 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #4 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the basket recommendations block configuration
@@ -1435,9 +1435,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->basket_5_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('basket_5_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Basket recommendations block #3 configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Basket recommendations block #3 configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1457,9 +1457,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->category_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('category_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Category Page #0 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Category Page #0 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1479,9 +1479,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->category_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('category_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Category Page #1 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Category Page #1 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1501,9 +1501,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->productpage_2_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('productpage_2_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Category Page #2 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Category Page #2 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1523,9 +1523,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->customer_0_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_0_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Customer Page #0 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Customer Page #0 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		// Set the Product recommendations block configuration bloc  1
@@ -1545,9 +1545,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->customer_1_block_label[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_1_block_label_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Customer Page #1 recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Customer Page #1 recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the homepage recommendations block configuration of recommendations settings');
 		}
 
 		/*// Set the customers pages recommendations block configuration
@@ -1560,9 +1560,9 @@ class Prediggo extends Module
                 $this->oPrediggoConfig->customer_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('customer_block_title_'.(int)$aLanguage['id_lang']));
 
             if ($this->oPrediggoConfig->save())
-                $this->_confirmations[] = $this->l('Customers pages recommendations block configuration settings updated');
+                $this->_confirmations[] = $this->displayConfirmation('Customers pages recommendations block configuration settings updated');
             else
-                $this->_errors[] = $this->l('An error occurred while updating the customers pages recommendations block configuration of recommendations settings');
+                $this->_errors[] = Tools::displayError('An error occurred while updating the customers pages recommendations block configuration of recommendations settings');
         }*/
 
 
@@ -1576,9 +1576,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->error_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('error_block_title_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('404 page recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('404 page recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the 404 page recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the 404 page recommendations block configuration of recommendations settings');
 		}
 
 		// Set the blocklayered module recommendations block configuration
@@ -1595,9 +1595,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->blocklayered_0_block_title[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('blocklayered_0_block_title_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Block layered module recommendations block configuration settings updated');
+				$this->_confirmations[] = $this->displayConfirmation('Block layered module recommendations block configuration settings updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the block layered module recommendations block configuration of recommendations settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the block layered module recommendations block configuration of recommendations settings');
 		}
 
 		// Set the searchs main configuration
@@ -1614,9 +1614,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->layered_navigation_active 		        = (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
+				$this->_confirmations[] = $this->displayConfirmation('Main configuration settings of searchs updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration of searchs settings');
 		}
 
 		// Set the category main configuration
@@ -1626,9 +1626,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->category_0_template_name 		    = Tools::safeOutput(Tools::getValue('category_0_template_name'));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Main configuration settings of Category updated');
+				$this->_confirmations[] = $this->displayConfirmation('Main configuration settings of Category updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration of Category settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration of Category settings');
 		}
 
 		// Set the searchs main configuration
@@ -1638,9 +1638,9 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->layered_navigation_active 		= (int)Tools::safeOutput(Tools::getValue('layered_navigation_active'));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Main configuration settings of searchs updated');
+				$this->_confirmations[] = $this->displayConfirmation('Main configuration settings of searchs updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration of searchs settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration of searchs settings');
 		}
 
 		// Set the searchs autocompletion configuration
@@ -1659,9 +1659,9 @@ class Prediggo extends Module
 				$this->oPrediggoConfig->suggest_words[(int)$aLanguage['id_lang']] = Tools::safeOutput(Tools::getValue('suggest_words_'.(int)$aLanguage['id_lang']));
 
 			if ($this->oPrediggoConfig->save())
-				$this->_confirmations[] = $this->l('Main configuration settings of search autocompletion updated');
+				$this->_confirmations[] = $this->displayConfirmation('Main configuration settings of search autocompletion updated');
 			else
-				$this->_errors[] = $this->l('An error occurred while updating the main configuration of search autocompletion settings');
+				$this->_errors[] = Tools::displayError('An error occurred while updating the main configuration of search autocompletion settings');
 		}
 	}
 

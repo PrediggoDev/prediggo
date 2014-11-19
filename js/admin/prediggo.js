@@ -37,37 +37,37 @@ $(document).ready(function(){
     $('div#fieldset_prediggo_presentation')
         .appendTo('div#prediggo_presentation');
 
-    $('div#fieldset_main_conf, div#fieldset_server_conf, div#fieldset_client_import_export_configuration, div#fieldset_logs_configuration')
+    $('div#fieldset_main_conf, div#fieldset_server_conf, div#fieldset_client_import_export_configuration, div#fieldset_logs_configuration, div#fieldset_main_conf, div#fieldset_server_conf_1, div#fieldset_client_import_export_configuration_2, div#fieldset_logs_configuration_3')
         .appendTo('div#main_conf');
 
-    $('div#fieldset_export_conf, div#fieldset_attributes_selection, div#fieldset_black_list_reco, div#fieldset_black_list_search, div#fieldset_htaccess_conf')
+    $('div#fieldset_export_conf, div#fieldset_attributes_selection, div#fieldset_black_list_reco, div#fieldset_black_list_search, div#fieldset_htaccess_conf, div#fieldset_export_conf_4, div#fieldset_attributes_selection_5, div#fieldset_black_list_reco_6, div#fieldset_black_list_search_7, div#fieldset_htaccess_conf_8')
         .appendTo('div#export_conf');
 
-    $('div#fieldset_blocklayered_reco_conf')
+    $('div#fieldset_blocklayered_reco_conf, div#fieldset_blocklayered_reco_conf_28')
         .appendTo('div#layered_reco_conf');
 
-    $('div#fieldset_home_reco_conf, div#fieldset_home_1_reco_conf')
+    $('div#fieldset_home_reco_conf, div#fieldset_home_1_reco_conf, div#fieldset_home_reco_conf_9, div#fieldset_home_1_reco_conf_10')
         .appendTo('div#home_reco_config');
 
-    $('div#fieldset_allpage_0_conf, div#fieldset_allpage_1_conf, div#fieldset_allpage_2_conf')
+    $('div#fieldset_allpage_0_conf, div#fieldset_allpage_1_conf, div#fieldset_allpage_2_conf, div#fieldset_allpage_0_conf_11, div#fieldset_allpage_1_conf_12, div#fieldset_allpage_2_conf_13')
         .appendTo('div#all_reco_config');
 
-    $('div#fieldset_productpage_0_conf, div#fieldset_productpage_1_conf, div#fieldset_productpage_2_conf')
+    $('div#fieldset_productpage_0_conf, div#fieldset_productpage_1_conf, div#fieldset_productpage_2_conf, div#fieldset_productpage_0_conf_14, div#fieldset_productpage_1_conf_15, div#fieldset_productpage_2_conf_16')
         .appendTo('div#prod_reco_config');
 
-    $('div#fieldset_category_0_conf,div#fieldset_category_1_conf,div#fieldset_category_2_conf')
+    $('div#fieldset_category_0_conf,div#fieldset_category_1_conf,div#fieldset_category_2_conf, div#fieldset_category_0_conf_23, div#fieldset_category_1_conf_24, div#fieldset_category_2_conf_25')
         .appendTo('div#cat_reco_config');
 
-    $('div#fieldset_basket_0_reco_conf, div#fieldset_basket_1_reco_conf, div#fieldset_basket_2_reco_conf, div#fieldset_basket_3_reco_conf, div#fieldset_basket_4_reco_conf, div#fieldset_basket_5_reco_conf')
+    $('div#fieldset_basket_0_reco_conf, div#fieldset_basket_1_reco_conf, div#fieldset_basket_2_reco_conf, div#fieldset_basket_3_reco_conf, div#fieldset_basket_4_reco_conf, div#fieldset_basket_5_reco_conf, div#fieldset_basket_0_reco_conf_17, div#fieldset_basket_1_reco_conf_18, div#fieldset_basket_2_reco_conf_19, div#fieldset_basket_3_reco_conf_20, div#fieldset_basket_4_reco_conf_21, div#fieldset_basket_5_reco_conf_22')
         .appendTo('div#bask_reco_config');
 
-    $('div#fieldset_customer_0_conf, div#fieldset_customer_1_conf')
+    $('div#fieldset_customer_0_conf, div#fieldset_customer_1_conf, div#fieldset_customer_0_conf_26, div#fieldset_customer_1_conf_27')
         .appendTo('div#cust_reco_config');
 
-    $('div#fieldset_search_conf')
+    $('div#fieldset_search_conf, div#fieldset_search_conf_29')
         .appendTo('div#search_conf');
 
-    $('div#fieldset_search_autocompletion_conf')
+    $('div#fieldset_search_autocompletion_conf, div#fieldset_search_autocompletion_conf_30')
         .appendTo('div#search_autocompletion_conf');
 
     // Init the tabs
