@@ -1676,9 +1676,6 @@ class Prediggo extends Module
 		if (Tools::substr(_PS_VERSION_, 0, 3) == 1.5)
 			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_5.js');
 
-		elseif (_PS_VERSION_ == "1.6.0.9" || _PS_VERSION_ == "1.6.0.10" || _PS_VERSION_ == "1.6.0.11" || _PS_VERSION_ == "1.6.0.12")
-			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'1_6_0_9.js');
-
 		elseif (Tools::substr(_PS_VERSION_, 0, 3) == 1.6)
 			$this->context->controller->addJs(($this->_path).'js/admin/'.$this->name.'.js');
 
