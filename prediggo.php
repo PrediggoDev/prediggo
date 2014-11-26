@@ -2027,14 +2027,6 @@ class Prediggo extends Module
 					'disabled'	=> ((int)($iShopContext)?'disabled':''),
 				),
 				array(
-					'label' 	=> $this->l('Product minimum quantity:'),
-					'type' 		=> 'text',
-					'name' 		=> 'export_product_min_quantity',
-					'required'	=> true,
-					'desc' 		=> $this->l('Minimum quantity of a product to be exported'),
-					'disabled'	=> ((int)($iShopContext)?'disabled':''),
-				),
-				array(
 					'label' 	=> $this->l('Number of days considering that an order can be exported:'),
 					'type' 		=> 'text',
 					'name' 		=> 'nb_days_order_valide',
@@ -2080,7 +2072,6 @@ class Prediggo extends Module
 		$this->fields_value['export_product_description'] 			= (int)$this->oPrediggoConfig->export_product_description;
 		$this->fields_value['export_product_active'] 			    = (int)$this->oPrediggoConfig->export_product_active;
 		$this->fields_value['export_product_price'] 			    = (int)$this->oPrediggoConfig->export_product_price;
-		$this->fields_value['export_product_min_quantity'] 			= (int)$this->oPrediggoConfig->export_product_min_quantity;
 		$this->fields_value['nb_days_order_valide']			 		= (int)$this->oPrediggoConfig->nb_days_order_valide;
 		$this->fields_value['nb_days_customer_last_visit_valide'] 	= (int)$this->oPrediggoConfig->nb_days_customer_last_visit_valide;
 		$this->fields_value['protection_xml_path']					= $this->l('If you want to execute the export by a cron, use the following link:').' <a href="'.$sCronFilePath.'">'.$sCronFilePath.'</a>.</br>';
