@@ -978,7 +978,6 @@ class Prediggo extends Module
 			$this->oPrediggoConfig->export_product_description 			= Tools::safeOutput(Tools::getValue('export_product_description'));
 			$this->oPrediggoConfig->export_product_active 			    = Tools::safeOutput(Tools::getValue('export_product_active'));
 			$this->oPrediggoConfig->export_product_price 			    = Tools::safeOutput(Tools::getValue('export_product_price'));
-			$this->oPrediggoConfig->export_product_min_quantity 		= Tools::safeOutput(Tools::getValue('export_product_min_quantity'));
 			$this->oPrediggoConfig->nb_days_order_valide 				= Tools::safeOutput(Tools::getValue('nb_days_order_valide'));
 			$this->oPrediggoConfig->nb_days_customer_last_visit_valide 	= Tools::safeOutput(Tools::getValue('nb_days_customer_last_visit_valide'));
 			if ($this->oPrediggoConfig->save())
