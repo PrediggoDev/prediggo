@@ -146,7 +146,7 @@ class ProductExtractorToXML extends DataExtractorToXML
 
 
 
-		if ((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) < (int)$oPrediggoConfig->export_product_min_quantity || !$bActive || $bPrice)
+		if (!$bActive || $bPrice)
 		{
 			$this->nbEntitiesTreated--;
 			$this->nbEntities--;
@@ -236,11 +236,22 @@ class ProductExtractorToXML extends DataExtractorToXML
 				$root->appendChild($supplierid);
 			}
 
-			$recommendable = $dom->createElement('recommendable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_recommendable))?'false':'true');
-			$root->appendChild($recommendable);
+			if ((int)StockAvailable::getQuantityAvailableByProduct((int)$aEntity['id_product'], 0, (int)$aEntity['id_shop']) == 0)
+			{
+				$recommendable = $dom->createElement('recommendable', 'false');
+				$root->appendChild($recommendable);
 
-			$searchable = $dom->createElement('searchable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_searchable))?'false':'true');
-			$root->appendChild($searchable);
+				$searchable = $dom->createElement('searchable', 'false');
+				$root->appendChild($searchable);
+			}
+			else
+			{
+				$recommendable = $dom->createElement('recommendable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_recommendable))?'false':'true');
+				$root->appendChild($recommendable);
+
+				$searchable = $dom->createElement('searchable', in_array((int)$oProduct->id, explode(',', $oPrediggoConfig->products_ids_not_searchable))?'false':'true');
+				$root->appendChild($searchable);
+			}
 
 			// Set product URL
 			$attribute = $dom->createElement('attribute');
