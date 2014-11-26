@@ -104,7 +104,7 @@ function initAutoComplete(elId)
     })
     .setOptions({
         extraParams: {
-            excludeIds : getElementsIds(elId)
+            excludeIds : -1
         }
     });
 
@@ -139,13 +139,6 @@ function addElement(elSuffix, event, data, formatted)
     .setOptions({
         extraParams: {excludeIds : getElementsIds(elSuffix)}
     });
-}
-
-function getElementsIds(elSuffix)
-{
-    if ($('input#input_'+elSuffix).val() === undefined)
-        return false;
-    return $('input#input_'+elSuffix).val().replace(/\\-/g,',').replace(/\\,$/,'').replace(/\,$/,'');
 }
 
 function deleteElement(iIDElement, elSuffix)
