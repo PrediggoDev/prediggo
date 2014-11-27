@@ -104,10 +104,9 @@ function initAutoComplete(elId)
     })
     .setOptions({
         extraParams: {
-            excludeIds : -1
+            excludeIds : getElementsIds(elSuffix)
         }
     });
-
     $('ul#ul_'+elId+' .deleteElement').live('click', function(){
         console.log('ert');
         deleteElement($(this).attr('data'), elId);
@@ -139,6 +138,14 @@ function addElement(elSuffix, event, data, formatted)
     .setOptions({
         extraParams: {excludeIds : getElementsIds(elSuffix)}
     });
+}
+
+function getElementsIds(elSuffix)
+{
+    var inputVal = $('input#input_'+elSuffix).val();
+    if (inputVal === undefined || inputVal.length == 0)
+        return -1;
+    return inputVal.replace(/\\-/g,',').replace(/\\,$/,'').replace(/\,$/,'');
 }
 
 function deleteElement(iIDElement, elSuffix)
