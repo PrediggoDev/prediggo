@@ -48,7 +48,7 @@
     <p class="select">
         <label for="selectProductSortPre{if isset($aSortingOptions)}{/if}">{l s='Sort By' mod="prediggo"}</label>
         <select id="selectProductSortPre{if isset($aSortingOptions)}{/if}" class="selectProductSortPre" onChange="location = this.options[this.selectedIndex].value;">
-            <option id="test" value="{$orderbydefault|escape:'htmlall':'UTF-8'}:{$orderwaydefault|escape:'htmlall':'UTF-8'}" {if $orderby eq $orderbydefault}selected="selected"{/if}>{l s='--' mod='prediggo'}</option>
+            <option id="test" value="{$orderbydefault|escape:'htmlall':'UTF-8'}:{$orderwaydefault|escape:'htmlall':'UTF-8'}">{l s='--' mod='prediggo'}</option>
             {foreach from=$aSortingOptions item="oSortingOptions"}
                 <option value="?q={$sPrediggoQuery}&refineOption={$oSortingOptions->getSearchRefiningOption()}{if !$bRewriteEnabled}&fc=module&module=prediggo&controller=search{/if}" >{l s=$oSortingOptions->getClause() mod='prediggo'}</option>
             {/foreach}

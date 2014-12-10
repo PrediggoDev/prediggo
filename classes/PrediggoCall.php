@@ -455,7 +455,6 @@ class PrediggoCall
         $this->oRecoParam->setServerUrl($this->oPrediggoConfig->server_url_recommendations);
         $this->oRecoParam->setSearchString($params['query']);
         $this->oRecoParam->setNbRecommendation(0);
-        $this->oRecoParam->setMaxNbResultsPerPage((int)$params['nb_items']);
         if (!empty($params['option']))
             $this->oRecoParam->setSearchRefiningOption($params['option']);
 
