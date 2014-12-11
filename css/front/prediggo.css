@@ -32,7 +32,7 @@ div#prediggo_search{
 	border: 1px dotted #CCCCCC;
 	padding:10px;
 	width:424px;
-	height:30px;
+	height:50px;
 	float:left;
 }
 
@@ -43,7 +43,7 @@ div#prediggo_search{
 
 		div#prediggo_search p input[type="text"]{
 			width:300px;
-			height:16px;
+			height:30px;
 			float:left;
 			padding: 6px 11px;
 			border: 1px solid #383838;
