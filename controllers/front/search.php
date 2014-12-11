@@ -84,6 +84,7 @@ class PrediggoSearchModuleFrontController extends ModuleFrontController
                 'comparator_max_item' 			=> (int)(Configuration::get('PS_COMPARATOR_MAX_ITEM')),
                 'sImageType' 					=> $this->oPrediggoConfig->imgType(),
                 'bRewriteEnabled'				=> (int)Configuration::get('PS_REWRITING_SETTINGS'),
+				'ps_version'                    => Tools::substr(_PS_VERSION_, 0, 3),
             ));
         }
         parent::initContent();

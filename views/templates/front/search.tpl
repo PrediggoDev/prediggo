@@ -25,7 +25,10 @@
 *}
 
 {capture name=path}{l s='Prediggo Search' mod='prediggo'}{/capture}
-{include file="$tpl_dir./breadcrumb.tpl"}
+{if $ps_version == 1.5}
+	{include file="$tpl_dir./breadcrumb.tpl"}
+{else}
+{/if}
 {if isset($oSearchStatistics)}
 	{assign var='nbProducts' value=$oSearchStatistics->getTotalSearchResults()}
 {else}
