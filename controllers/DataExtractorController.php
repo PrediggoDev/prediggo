@@ -194,7 +194,7 @@ class DataExtractorController
      */
     public function zipXMLFile($sXMLFilePath, $sZipFilePath)
     {
-        require_once(dirname(__FILE__).'/../../../tools/pclzip/pclzip.lib.php');
+        require_once(_PS_ROOT_DIR_.'/tools/pclzip/pclzip.lib.php');
         $zip = new PclZip($sZipFilePath);
         return $zip->create($sXMLFilePath, PCLZIP_OPT_REMOVE_ALL_PATH);
     }
