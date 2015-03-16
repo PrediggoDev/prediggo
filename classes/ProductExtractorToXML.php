@@ -67,18 +67,18 @@ class ProductExtractorToXML extends DataExtractorToXML
 	{
 		//get active shops
 		$shopIDs = $this->getActiveShopIds();//Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT id_shop FROM `'._DB_PREFIX_.'module_shop`  where id_module in
-		
+
 		$whereShopIds = '';
 		foreach ($shopIDs as $row)
 			$whereShopIds .= (int)$row['id_shop'].',';
 
-		
+
 		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT p.`id_product`, ps.`id_shop`
 		FROM `'._DB_PREFIX_.'product` p
 		INNER JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.`id_product` = p.`id_product` AND ps.`id_shop` IN ('.Tools::substr($whereShopIds, 0, -1).') )
 		ORDER BY p.`id_product` ASC', false);
-		
+
 		/**
 		return Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT p.`id_product`, ps.`id_shop`
@@ -99,12 +99,12 @@ class ProductExtractorToXML extends DataExtractorToXML
 		$sReturn = '';
 
 		$dom = new DOMDocument('1.0', 'utf-8');
-		
+
 		$bUseRoutes = (bool)Configuration::get('PS_REWRITING_SETTINGS');
-		
+
 		$oDispatcher = Dispatcher::getInstance();
-		
-		// Force the dispatcher to use custom routes because the use of custom routes is disabled in the BO Context 
+
+		// Force the dispatcher to use custom routes because the use of custom routes is disabled in the BO Context
 		foreach ($oDispatcher->default_routes as $route_id => $route_data)
 			if ($custom_route = Configuration::get('PS_ROUTE_'.$route_id))
 				foreach (Language::getLanguages() as $lang)
@@ -118,7 +118,7 @@ class ProductExtractorToXML extends DataExtractorToXML
 					);
 
 		$oPrediggoConfig = $this->aPrediggoConfigs[(int)$aEntity['id_shop']];
-		
+
 		$link = $oPrediggoConfig->getContext()->link;
 
 		$oProduct = new Product((int)$aEntity['id_product'], true, null, (int)$aEntity['id_shop'], $oPrediggoConfig->getContext());
@@ -154,18 +154,15 @@ class ProductExtractorToXML extends DataExtractorToXML
 		}
 
 
-		
+
 		// Force the shop of the context regarding the shop of the product for the getParentsCategories function
 		if ((int)Context::getContext()->shop->id != (int)$aEntity['id_shop'])
 			Context::getContext()->shop = $oPrediggoConfig->getContext();
 
 		$ps_tax = (int)Configuration::get('PS_TAX');
 
-		foreach ($this->aLanguages as $aLanguage)
-		{
-			if (!isset($aLanguage['shops'][(int)$aEntity['id_shop']]))
-				continue;
-			
+            $aLanguage = $this->aLanguages[0];
+
 			$id_lang = (int)$aLanguage['id_lang'];
 
 			// Set the root of the XML
@@ -351,7 +348,6 @@ class ProductExtractorToXML extends DataExtractorToXML
 			unset($aAccessories);
 
 			$sReturn .= $dom->saveXML($root);
-		}
 
 		unset($dom);
 		unset($oProduct);
