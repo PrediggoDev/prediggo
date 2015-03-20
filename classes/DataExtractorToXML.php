@@ -131,7 +131,7 @@ abstract class DataExtractorToXML
 
 		// Write XML HEADER & Root tag
 		fwrite($handle, '<?xml version="1.0" encoding="utf-8"?>'."\n");
-		fwrite($handle, '<'.$this->sEntityRoot.' date="'.date('c').'">');
+		fwrite($handle, '<'.$this->sEntityRoot.' date="'.date('c').'">'."\n");
 
 		// Write File process
 		if ($oResult)
